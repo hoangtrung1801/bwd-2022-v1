@@ -1,0 +1,12 @@
+.common-category {
+    background-color: #ffe7cd;
+}
+
+.common-category-item .image {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.common-category-button {
+    width: 80%;
+}

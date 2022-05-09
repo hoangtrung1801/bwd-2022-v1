@@ -1,0 +1,20 @@
+.featured-product {
+    background: linear-gradient(rgb(140, 208, 227) 0px, rgb(240, 140, 205) 100%);;
+    padding: 4rem;
+}
+
+.featured-product-content {
+    width: 80%;
+    height: 100px;
+    margin-top: -1rem;
+}
+
+.featured-product-button {
+    width: 25%;
+    line-height: 1;
+
+    position: absolute;
+    bottom: -15%;
+    left: 50%;
+    transform: translateX(-50%);
+}

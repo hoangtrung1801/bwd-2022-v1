@@ -1,0 +1,158 @@
+/* Footer */
+.footer-wrap {
+  background-color: #73D2E6;
+  height: 300px;
+}
+
+.footer {
+  flex-grow: 1;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 10% 1fr 1fr 1fr 1fr;
+  background-color: inherit;
+}
+
+.footer .logo {
+  width: 80px;
+}
+
+.footer .footer-info {
+  color: white;
+}
+
+.footer-info .footer-info-title {
+  font-size: 17px;
+  line-height: 19px;
+  font-weight: bold;
+}
+
+.footer-info>p:not(.footer-info-title) {
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.footer-info>p:not(.footer-info-title):hover {
+  color: black;
+}
+
+.footer-copyright {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 0.6rem;
+
+  color: white;
+  font-size: 12px;
+}
+
+.footer-right {
+  flex-basis: 30%;
+  height: 100%;
+  width: 100%;
+
+  background-color: #f5ea77;
+  padding: 1rem 2rem;
+}
+
+.footer-subscription {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.footer-subscription>* {
+  margin: 2px 0;
+}
+
+.footer-subscription-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.footer-subscription-subtitle {
+  text-align: center;
+  font-size: 16px;
+  line-height: 21px;
+}
+
+.footer-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.footer-form>* {
+  margin: 4px 0;
+}
+
+.footer-form-input {
+  text-align: center;
+  background-color: #fff;
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 1px;
+  width: 100%;
+  display: block;
+  color: #666;
+  border-radius: 0;
+  height: 48px;
+  font-size: 15px;
+}
+
+.footer-form-input:focus {
+  outline: none;
+}
+
+.footer-form-button {
+  width: 100%;
+  color: #fff;
+  font-weight: 400;
+  text-align: center;
+  box-shadow: 3px 3px 0 #fdb1be;
+  border: none;
+  cursor: pointer;
+
+  position: relative;
+  text-transform: uppercase;
+  background-color: #8cd0e3;
+  padding: 1rem 2rem;
+
+  overflow: hidden;
+}
+
+.footer-form-button-text {
+  z-index: 11;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-weight: bold;
+}
+
+.footer-form-button::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  background: #948ad3;
+  z-index: 10;
+  width: 200%;
+  transform: translate3D(-50%, 0, 0) rotate(-50deg);
+  transform-origin: 0 bottom;
+  transition: all .5s cubic-bezier(.52, 1.64, .37, .66);
+}
+
+.footer-form-button:hover::after {
+  transform: translate3D(0, 0, 0);
+}

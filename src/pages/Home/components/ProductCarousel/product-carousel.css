@@ -1,0 +1,16 @@
+.product-carousel-wrapper {
+    background-color: #f4f8fe;
+}
+.product-carousel .item {
+    padding: 0 1px;
+}
+
+.product-carousel .item > div {
+    background-color: #fff;
+}
+
+.product-carousel .color-button {
+    line-height: 1;
+    width: 76%;
+    font-size: 0.8rem;
+}
