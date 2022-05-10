@@ -1,0 +1,14 @@
+.button1 {
+    background-color: #69db7c;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+
+    transition: all 0.4s ease;
+}
+
+.button1:hover {
+    background-color: #51cf66;
+    color: #fff;
+}

@@ -6,6 +6,8 @@
 }
 
 body {
+  color: #404040;
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -44,7 +46,8 @@ p, span {
 }
 
 .main {
-  margin-top: 128px;
+  min-height: calc(100vh - 80px);
+  margin-top: 80px;
 }
 
 /* Another components */

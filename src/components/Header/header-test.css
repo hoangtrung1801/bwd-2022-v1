@@ -1,0 +1,82 @@
+/*
+Green
+GREEN 0
+#ebfbee
+GREEN 1
+#d3f9d8
+GREEN 2
+#b2f2bb
+GREEN 3
+#8ce99a
+GREEN 4
+#69db7c
+GREEN 5
+#51cf66
+GREEN 6
+#40c057
+GREEN 7
+#37b24d
+GREEN 8
+#2f9e44
+GREEN 9
+#2b8a3e
+*/
+/* text : #404040 */
+.header {
+    color: black;
+    background-color: #fff;
+    min-height: 80px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
+.header-logo {
+    display: block;
+    width: 160px;
+}
+
+.header a {
+    color: #404040;
+    transition: all ease 0.4s;
+}
+
+.header a:hover {
+    color: #2f9e44;
+}
+
+.header-menu a {
+    padding: 0 1.5rem;
+    font-size: 0.9rem;
+}
+
+.header-menu a > *:first-child {
+    margin-right: 8px;
+}
+
+.header-tool a {
+    padding: 0 0.7rem;
+}
+
+.cart-amount {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    background-color: #69db7c;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+
+}

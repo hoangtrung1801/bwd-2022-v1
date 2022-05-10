@@ -38,7 +38,7 @@ const Banner = () => {
                         .map((item, id) => (
                             <div className="item">
                                 <img
-                                    src={ `https://picsum.photos/id/${id+2}/1600/900` }
+                                    src={ `https://picsum.photos/id/${Math.ceil(Math.random() * 100 + 10)}/1600/900` }
                                     alt=""
                                 />
                             </div>
