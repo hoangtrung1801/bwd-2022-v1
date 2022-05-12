@@ -2,6 +2,7 @@ import { Bag, CaretDown, MagnifyingGlass, SignIn } from 'phosphor-react';
 import { useState } from 'react';
 import Logo from '../../logo.png';
 import useToken from '../../utils/hook/useToken';
+import CartAmount from './CartAmount';
 import './header.css';
 import MenuList from './MenuList';
 import NavCart from './NavCart';
@@ -58,9 +59,7 @@ const Header = () => {
                     <div>
                         <a href="#" className="is-relative is-size-4" onMouseOver={() => setCartHovered(true)} onMouseLeave={() => setTimeout(() => setCartHovered(false), 300)}>
                             <Bag />{" "}
-                            <div className="cart-amount">
-                                <span>0</span>
-                            </div>
+                            <CartAmount />
                         </a>
                         <NavCart isCartShow={cartHovered} />
                     </div>

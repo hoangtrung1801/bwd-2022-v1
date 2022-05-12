@@ -1,7 +1,10 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
+import cartSlice from "./slices/cartSlice";
 
 export const store = configureStore({
-    reducer: {}
+    reducer: {
+        cart : cartSlice
+    }
 })
 
 export type AppDispatch = typeof store.dispatch;

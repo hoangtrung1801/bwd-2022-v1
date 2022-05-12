@@ -9,24 +9,28 @@ const initialState: CartState = {
     items: []
 }
 
-export const counterSlice = createSlice({
+export const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        addItem: (state, action: PayloadAction<Product>) => {
+        addToCart: (state, action: PayloadAction<Product>) => {
             state.items = [
                 ...state.items,
                 action.payload
              ]
         },
-        removeItem: (state, action: PayloadAction<Product>) => {
+        removeFromCart: (state, action: PayloadAction<Product>) => {
             const idx = state.items.findIndex(item => item.id === action.payload.id);
             state.items = {
                 ...state.items.slice(0, idx),
                 ...state.items.slice(idx+1)
             }
         },
+        cartTest: (state) => {
+            console.log('test');
+        }
     }
 })
 
-export const {addItem, removeItem} =  counterSlice.actions;
+export const {addToCart, removeFromCart, cartTest} =  cartSlice.actions;
+export default cartSlice.reducer;

@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { addToCart } from "../../app/slices/cartSlice";
 import Layout from "../../components/Layout";
 import Banner from "./components/Banner";
 import CommonCategory from "./components/CommonCategory";
@@ -7,6 +10,7 @@ import ProductCarousel from "./components/ProductCarousel";
 import ProductFooter from "./components/ProductFooter";
 
 const Home = () => {
+
     return (
         <Layout>
             <Banner />

@@ -1,7 +1,23 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import ProductCard from "../../../../components/ProductCard";
 import SortBy from "../SortBy";
 
 const CategoryProduct = () => {
+
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+
+        const fetchData = async () => {
+            const {data} = await axios.get('/api/products');
+            // console.log(data);
+            setProducts(data);
+        }
+
+        fetchData().catch(e => console.log(e));
+    }, [])
+
 
     return (
         <div className="category-product">
@@ -9,9 +25,9 @@ const CategoryProduct = () => {
             <SortBy />
             <div className="columns is-flex-wrap-wrap is-variable is-2">
                 {
-                    Array(10).fill(0).map((_, id) => (
+                    products.map((item, id) => (
                         <div className="column is-4 pb-6">
-                            <ProductCard />
+                            <ProductCard product={item} />
                         </div>
                     ))
                 }

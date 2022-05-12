@@ -40,3 +40,9 @@
     background-color: var(--green-8);
     color: #fff;
 }
+
+.button:focus {
+    box-shadow: none !important;
+    border-color: var(--green-7);
+    outline: none;
+}
