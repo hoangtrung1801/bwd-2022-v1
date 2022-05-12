@@ -1,4 +1,7 @@
-const ModalSearch = ({isModalSearchShow}) => {
+interface ModalSearchProps {
+    isModalSearchShow: boolean
+}
+const ModalSearch: React.FC<ModalSearchProps> = ({isModalSearchShow}) => {
     return (
         <div
             className={`modal-search py-5  has-shadow ${

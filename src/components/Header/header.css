@@ -1,142 +1,115 @@
-.modal-search {
+.header {
+    color: var(--text);
+    background-color: #fff;
+    min-height: 80px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
+.header-logo {
+    display: block;
+    width: 160px;
+}
+
+.header a {
+    color: var(--text);
+    transition: all ease 0.4s;
+}
+
+.header-menu {
+}
+
+.header a:hover {
+    color: var(--green-8);
+}
+
+.header-menu > div {
+    padding: 0 1.5rem;
+    font-size: 0.9rem;
+    min-height: 80px;
+}
+
+.header-menu a > *:first-child {
+    margin-right: 8px;
+}
+
+.header-tool > * {
+    padding: 0 0.7rem;
+    line-height: 1.5rem;
+}
+
+.header-username{
+    font-size: 0.9rem;
+    /* color: #69db7c; */
+    color: var(--green-6);
+}
+
+.cart-amount {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    background-color: var(--green-4);
+    color: #fff;
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+
+}
+
+.menu-list {
     position: absolute;
     top: 100%;
     left: 0;
+
+    border-top: 5px solid var(--green-7);
+
+    background-color: #fff;
     width: 100%;
-}
 
-/* begin header */
-header {
-    background-color: #8CD0E3 !important;
-    color: white;
-    z-index: 100 !important;
-    /* min-height: 128px; */
-}
-
-header .breadcrumb li>a {
-    padding: 0 1.5rem;
-    font-size: 0.9rem;
-    color: white;
-}
-
-header a:hover {
-    color: #F5EA77 !important;
+    transform: scaleY(0);
     transition: all ease 0.25s;
+    transform-origin: top center;
+    opacity: 0;
+   /* transform: translateX(113px); */
 }
 
-header .breadcrumb li::before {
-    color: white;
-    font-size: 1.25rem;
-    font-weight: bold;
+.menu-list-show {
+    transform: scaleY(1);
+    opacity: 1;
 }
 
-.sub-header {
+/* Nav cart */
+.nav-cart {
+    min-width: 300px;
+    background-color: white;
+
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 100;
+
     transform: scaleY(0);
     transition: all ease 0.25s;
     transform-origin: top center;
     opacity: 0;
 
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-
 }
 
-.sub-header>div {
-    width: 85%;
-}
-
-.sub-header-show {
-    transform: scaleY(1);
-    opacity: 1;
-}
-
-.sub-header .list-category>a {
-    margin-bottom: 0.5rem;
-}
-
-.sub-header .list-category>a:hover {
-    text-decoration: underline;
-}
-
-.sub-header .collections .image {
-    margin-right: 0.75rem;
-}
-
-.modal-search input {
-    width: 40%;
-    background-color: #f5ea77;
-    ;
-    border-color: #f5ea77;
-    border-radius: 0;
-}
-
-.modal-search input:focus {
-    outline: none;
-    border: none;
-    box-shadow: none;
-}
-
-.cart-amount {
-    position: absolute;
-    bottom: 30%;
-    right: 10%;
-
-    background-color: #F5EA77;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    color: black;
-    font-weight: bold;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Nav cart */
-.nav-cart {
-    min-width: 400px;
-    width: 400px;
-    height: 100vh;
-    background-color: black;
-
-    padding: 1rem;
-    color: black;
-    background-color: white;
-
-    position: absolute;
-    right: -3rem;
-    top: 0;
-    z-index: 100;
-}
-
-.nav-cart>* {
-    margin: 1rem 0;
-}
-
-.nav-cart-toplink {
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    font-size: 12px;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-.nav-cart-toplink a {
-    color: inherit;
-}
-
-.nav-cart-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.nav-cart hr {
+    background-color: var(--green-4);
+    height: 1.5px;
 }
 
 .nav-cart-header h3 {
@@ -231,15 +204,7 @@ header .breadcrumb li::before {
     font-weight: 600;
 }
 
-.header-background-dark {
-    width: 100vw;
-    height: 100%;
-    min-height: 100vh;
-
-    position: absolute;
-    inset: 0;
-    z-index: 99;
-    background-color: rgba(0, 0, 0, 0.6);
+.nav-cart-show {
+    transform: scaleY(1);
+    opacity: 1;
 }
-
-/* end header */

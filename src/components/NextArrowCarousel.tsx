@@ -1,6 +1,10 @@
 import { CaretRight } from "phosphor-react";
 
-const NextArrowCarousel = ({ onClick }) => {
+interface NextArrowCarouselProps {
+    onClick?: React.MouseEventHandler
+}
+
+const NextArrowCarousel : React.FC<NextArrowCarouselProps>  = ({ onClick }) => {
     return (
         <div className="carousel-next has-shadow" onClick={onClick}>
             <CaretRight />

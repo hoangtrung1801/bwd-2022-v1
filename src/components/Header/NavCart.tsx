@@ -2,7 +2,11 @@ import { useState } from "react";
 import Button1 from "../Button/Button1";
 import Button3 from "../Button/Button3";
 
-const NavCart = ({isCartShow}) => {
+interface NavCartProps {
+    isCartShow: boolean
+}
+
+const NavCart : React.FC<NavCartProps> = ({isCartShow}) => {
     const [hover, setHover] = useState(false);
 
     return (

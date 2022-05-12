@@ -1,5 +1,10 @@
 import './button.css';
-const Button1 = ({children, ...rest}) => {
+
+interface Button1Props {
+    children: React.ReactNode;
+}
+
+const Button1: React.FC<Button1Props> = ({children, ...rest}) => {
 
     return (
         <button className='button button1' {...rest}>

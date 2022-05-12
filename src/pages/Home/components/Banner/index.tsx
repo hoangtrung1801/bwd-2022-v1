@@ -5,13 +5,13 @@ import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import './banner.css';
 
-const NextArrowCarousel = ({onClick}) =>  (
+const NextArrowCarousel = ({onClick} : {onClick?: React.MouseEventHandler}) =>  (
     <div className="next ">
         <CaretRight onClick={onClick}/>
     </div>
 )
 
-const PrevArrowCarousel = ({onClick}) => (
+const PrevArrowCarousel = ({onClick} : {onClick?: React.MouseEventHandler}) => (
     <div className="prev">
         <CaretLeft onClick={onClick}/>
     </div>

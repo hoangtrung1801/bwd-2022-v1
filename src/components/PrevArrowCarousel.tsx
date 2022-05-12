@@ -1,6 +1,10 @@
 import { CaretLeft } from "phosphor-react";
 
-const PrevArrowCarousel = ({onClick}) => {
+interface PrevArrowCarouselProps {
+    onClick ?: React.MouseEventHandler,
+}
+
+const PrevArrowCarousel : React.FC<PrevArrowCarouselProps> = ({onClick}) => {
 
     return (
         <div className="carousel-prev has-shadow" onClick={onClick}>
