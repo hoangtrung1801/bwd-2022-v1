@@ -1,5 +1,6 @@
 import { Bag, CaretDown, MagnifyingGlass, SignIn } from 'phosphor-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Logo from '../../logo.png';
 import useToken from '../../utils/hook/useToken';
 import CartAmount from './CartAmount';
@@ -19,11 +20,11 @@ const Header = () => {
         <header>
             <div className="header is-flex is-justify-content-space-between is-align-items-stretch px-6 full-width">
                 <div className="is-size-1 has-text-weight-bold is-uppercase">
-                    <a href="/" className="header-logo">
+                    <Link to='/' className='header-logo'>
                         <figure className="image is-2by1">
                             <img src={Logo} alt="" />
                         </figure>
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="header-menu full-height is-flex is-relative">
@@ -46,21 +47,21 @@ const Header = () => {
                 </div>
 
                 <div className="header-tool is-flex is-align-items-center">
-                    <a href="#" className='is-size-4'>
+                    <Link to="#" className='is-size-4'>
                         <MagnifyingGlass />
-                    </a>
+                    </Link>
                     {
                         token ?
                             <p className="header-username has-text-weight-semibold">
                                 username
                             </p>
-                            : <a href="/login" className='is-size-4'><SignIn /></a>
+                            : <Link to="/login" className='is-size-4'><SignIn /></Link>
                     }
                     <div>
-                        <a href="#" className="is-relative is-size-4" onMouseOver={() => setCartHovered(true)} onMouseLeave={() => setTimeout(() => setCartHovered(false), 300)}>
+                        <Link to="#" className="is-relative is-size-4" onMouseOver={() => setCartHovered(true)} onMouseLeave={() => setTimeout(() => setCartHovered(false), 300)}>
                             <Bag />{" "}
                             <CartAmount />
-                        </a>
+                        </Link>
                         <NavCart isCartShow={cartHovered} />
                     </div>
                 </div>
