@@ -1,0 +1,17 @@
+.option-container > li {
+    padding: 0.5rem 1rem;
+    line-height: 1rem;
+    cursor: pointer;
+
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-right: 1rem;
+    border: 2px solid #fff;
+}
+
+.option-container > li:hover {
+    border: 2px solid var(--dark) !important;
+}
+
+.option-container-selected {
+    border: 2px solid var(--dark) !important;
+}

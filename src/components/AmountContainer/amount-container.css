@@ -1,0 +1,24 @@
+.amount-container {
+    border: 1px solid var(--dark);
+}
+
+.amount-container > button {
+    border: none;
+    font-size: 1rem;
+    height: auto;
+}
+
+.amount-container > button:focus {
+    border: none;
+    box-shadow: none !important;
+}
+
+.amount-container > button {
+    line-height: 1rem;
+    padding: 0.5rem 0.75rem;
+}
+
+.amount-container > span {
+    min-width: 2rem;
+    text-align: center;
+}

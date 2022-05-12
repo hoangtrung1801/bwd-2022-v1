@@ -1,8 +1,11 @@
 import 'bulma/css/bulma.css';
+import 'bulma-helpers/css/bulma-helpers.min.css'
 import './App.css'
 import Home from './pages/Home'
 import {Route, Routes} from 'react-router-dom';
 import Login from './pages/Login';
+import Category from './pages/Category';
+import Product from './pages/Product';
 
 function App() {
 
@@ -12,6 +15,8 @@ function App() {
         <Route path='/'>
           <Route index element={<Home />} />
           <Route path='login' element={<Login />} />
+          <Route path='category' element={<Category />} />
+          <Route path='product' element={<Product />} />
         </Route>
       </Routes>
     </>

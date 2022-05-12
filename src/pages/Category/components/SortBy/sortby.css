@@ -1,0 +1,21 @@
+.sortby {
+    border-bottom:  1px solid var(--green-7);
+}
+
+.select select {
+    border: none !important;
+    border-radius: 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.select select:focus {
+    outline: none;
+    border: none !important;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.select:not(.is-multiple):not(.is-loading)::after {
+    border-color: var(--green-7);
+}

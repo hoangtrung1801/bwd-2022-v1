@@ -231,10 +231,6 @@ header .breadcrumb li::before {
     font-weight: 600;
 }
 
-.nav-cart-checkout {
-    padding: 0.5rem 1rem;
-}
-
 .header-background-dark {
     width: 100vw;
     height: 100%;

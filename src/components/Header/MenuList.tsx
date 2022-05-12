@@ -1,45 +1,29 @@
-const MenuList = ({isMenulistHovered}) => {
+import { Divide } from "phosphor-react";
+import { useState } from "react";
+
+const MenuList = ({content, menuListHovered}) => {
+    const [hover, setHover] = useState(menuListHovered);
+    content = [
+        ['title', 'menu 1', 'menu 2', 'menu 3'],
+        ['title', 'menu 1', 'menu 2', 'menu 3'],
+    ];
+
     return (
-        <div
-            className={`sub-header p-6 has-text-black has-shadow has-background-white is-flex is-align-items-center is-justify-content-center ${
-                isMenulistHovered ? "sub-header-show" : ""
-            }`}
-        >
-            <div className="columns">
-                <div className="column is-half ">
-                    <div className="columns m-0">
-                        <div className="columnis-size-7 is-flex-direction-column">
-                            <div className="list-category is-flex is-flex-direction-column">
-                                <p className="has-text-weight-bold mb-2">
-                                    by category
-                                </p>
-                                {Array(8)
-                                    .fill(0)
-                                    .map((item, id) => (
-                                        <a
-                                            href="#"
-                                            className="has-text-black"
-                                            key={id}
-                                        >
-                                            menu {id + 1}
-                                        </a>
-                                    ))}
+        <div className={ `menu-list is-block has-shadow ${menuListHovered || hover ? 'menu-list-show' : ''}` } onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+            <div className="columns px-4 py-5">
+                {
+                    content.map((_, i) => (
+                        <div className="column px-4" key={i}>
+                            <div className="menu-list-column is-flex is-flex-direction-column">
+                                {
+                                    _.map((s, j) => (
+                                        <a href="#" className={`menu-list-item ${j === 0 ? 'has-text-weight-semibold' : ''}`} key={j}>{s}</a>
+                                    ))
+                                }
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div className="column">
-                    <p className="has-text-weight-bold mb-2">collections</p>
-                    <div className="is-flex collections">
-                        {Array(2)
-                            .fill(0)
-                            .map((item, id) => (
-                                <figure className="image is-128x128" key={id}>
-                                    <img src="https://bulma.io/images/placeholders/128x128.png" />
-                                </figure>
-                            ))}
-                    </div>
-                </div>
+                    ))
+                }
             </div>
         </div>
     );

@@ -1,0 +1,11 @@
+.product-view-content > * {
+    margin-bottom: 1rem;
+}
+
+.product-view-variants-item > p{
+    min-width: 80px;
+}
+
+.product-view-images > div:hover, .product-view-images-show  {
+    border: 5px solid var(--green-4);
+}

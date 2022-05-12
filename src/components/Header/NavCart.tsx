@@ -1,20 +1,19 @@
+import { useState } from "react";
+import Button1 from "../Button/Button1";
+import Button3 from "../Button/Button3";
+
 const NavCart = ({isCartShow}) => {
+    const [hover, setHover] = useState(false);
+
     return (
-        <div className="nav-cart-wrapper is-relative">
-            <div className={`nav-cart mt-3 ${isCartShow ? "" : "is-hidden"}`}>
-                <div className="nav-cart-toplink">
-                    <p>{"<"} keep shopping</p>
-                    <p>view full shopping bag {">"}</p>
-                </div>
-
-                <div className="color-divide"></div>
-
-                <div className="nav-cart-header">
+        <div className="nav-cart-wrapper">
+            <div className={`nav-cart has-shadow px-5 py-4 ${isCartShow || hover ? "nav-cart-show" : ""}`} onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+                <div className="nav-cart-header is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
                     <h3>shopping bag</h3>
                     <p>(3 items)</p>
                 </div>
 
-                <div className="color-divide"></div>
+                <hr />
 
                 <div className="nav-cart-list">
                     <div className="nav-cart-list-item">
@@ -32,28 +31,29 @@ const NavCart = ({isCartShow}) => {
                                     <span>2</span>
                                     <span>+</span>
                                 </div>
-                                <div className="item-remove is-size-7">
-                                    <span>remove</span>
-                                </div>
                                 <div className="item-price is-size-7">
                                     <span>$100</span>
                                 </div>
+                            </div>
+                            <div className="item-remove is-size-7">
+                                <span>remove</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="color-divide"></div>
+                <hr />
 
                 <div className="nav-cart-total">
                     <span>subtotals: </span>
                     <span>$50.00</span>
                 </div>
 
-                <div className="color-divide"></div>
+                <hr />
 
-                <div className="nav-cart-checkout">
-                    <button className="color-button">checkout</button>
+                <div className="nav-cart-checkout has-text-centered">
+                    {/* <Button1>checkout</Button1> */}
+                    <Button3>checkout</Button3>
                 </div>
             </div>
         </div>

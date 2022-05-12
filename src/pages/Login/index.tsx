@@ -1,9 +1,30 @@
+import { useForm } from "react-hook-form";
+import axios from 'axios';
 import Button1 from "../../components/Button/Button1";
 import Header from "../../components/Header";
 import Layout from "../../components/Layout";
 import "./login.css";
+import useToken from "../../utils/hook/useToken";
+import { useNavigate, useRoutes } from "react-router-dom";
 
 const Login = () => {
+    const navigate = useNavigate();
+
+    const {register, handleSubmit} = useForm();
+    const {token, setToken} = useToken();
+
+    if(token) {
+        navigate('/');
+    }
+
+    const onLogin = async (body) => {
+        const result = await axios.post('/api/login', body);
+        const {token} = result.data;
+
+        setToken(token);
+        navigate('/');
+    }
+
     return (
         <div>
             <Header />
@@ -21,22 +42,24 @@ const Login = () => {
                                     <h1 className="is-size-3 has-text-weight-bold is-uppercase">Login</h1>
                                     <p className="">Welcome back! Log in your account here:</p>
                                 </div>
-                                <form action="post">
+                                <form onSubmit={handleSubmit(onLogin)}>
                                     <div className="field">
                                         <div className="control">
                                             <input
                                                 type="text"
                                                 className="input"
                                                 placeholder="Your email"
+                                                {...register('email')}
                                             />
                                         </div>
                                     </div>
                                     <div className="field">
                                         <div className="control">
                                             <input
-                                                type="text"
+                                                type="password"
                                                 className="input"
                                                 placeholder="Password"
+                                                {...register('password')}
                                             />
                                         </div>
                                     </div>

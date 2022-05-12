@@ -1,5 +1,5 @@
 .button1 {
-    background-color: #69db7c;
+    background-color: var(--green-4);
     color: #fff;
     font-weight: 500;
     border-radius: 2rem;
@@ -9,6 +9,34 @@
 }
 
 .button1:hover {
-    background-color: #51cf66;
+    background-color: var(--green-5);
+    color: #fff;
+}
+
+.button2 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 2rem;
+    border-color: var(--green-7);
+
+    padding: 1rem 2rem;
+    transition: all 0.4s ease;
+}
+
+.button2:hover {
+    color: #fff;
+    background-color: var(--green-7);
+}
+
+.button3 {
+    width: 100%;
+    background-color: var(--green-6);
+    color: #fff;
+
+    transition: all 0.4s ease;
+}
+
+.button3:hover {
+    background-color: var(--green-8);
     color: #fff;
 }
