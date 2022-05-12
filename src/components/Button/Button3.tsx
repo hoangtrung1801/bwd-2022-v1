@@ -2,7 +2,7 @@ import './button.css';
 
 interface Button3Props {
     children: React.ReactNode,
-    onClick: React.MouseEventHandler,
+    onClick?: React.MouseEventHandler,
 }
 
 const Button3 : React.FC<Button3Props> = ({children, onClick}) => {
