@@ -57,15 +57,17 @@ const Header = () => {
                             <p className="header-username has-text-weight-semibold">
                                 username
                             </p>
-                            : <a href="/login"><SignIn /></a>
+                            : <a href="/login" className='is-size-4'><SignIn /></a>
                     }
-                    <a href="#" className="is-relative is-size-4" onMouseOver={() => setCartHovered(true)} onMouseLeave={() => setTimeout(() => setCartHovered(false), 300)}>
-                        <Bag />{" "}
-                        <div className="cart-amount">
-                            <span>0</span>
-                        </div>
-                    </a>
-                    <NavCart isCartShow={cartHovered} />
+                    <div>
+                        <a href="#" className="is-relative is-size-4" onMouseOver={() => setCartHovered(true)} onMouseLeave={() => setTimeout(() => setCartHovered(false), 300)}>
+                            <Bag />{" "}
+                            <div className="cart-amount">
+                                <span>0</span>
+                            </div>
+                        </a>
+                        <NavCart isCartShow={cartHovered} />
+                    </div>
                 </div>
             </div>
         </header>

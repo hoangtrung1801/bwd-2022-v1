@@ -17,7 +17,7 @@ const Login = () => {
         navigate('/');
     }
 
-    const onLogin = async (body) => {
+    const onLogin = async (body: any) => {
         const result = await axios.post('/api/login', body);
         const {token} = result.data;
 
@@ -33,7 +33,7 @@ const Login = () => {
                     <div className="columns full-height">
                         <div className="column is-half">
                             <div className="login-column full-height pt-6 px-6 has-text-centered">
-                                <h1 className="is-size-4 has-text-weight-bold">Introcue my team</h1>
+                                <h1 className="is-size-4 has-text-weight-bold">Introduce my team</h1>
                             </div>
                         </div>
                         <div className="column is-half">

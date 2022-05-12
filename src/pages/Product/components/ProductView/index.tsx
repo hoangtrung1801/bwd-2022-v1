@@ -11,7 +11,7 @@ const ProductView = () => {
     const [imgId, setImgId] = useState(0);
 
     return (
-        <div className="columns block">
+        <div className="columns block mb-6">
             <div className="column is-1 px-0">
                 <div className="product-view-images">
                     {Array(4)
