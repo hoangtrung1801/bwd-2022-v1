@@ -10,4 +10,5 @@ export const categories = [
     'straw',
     'glass bottle',
     'cup',
+    'new',
 ]

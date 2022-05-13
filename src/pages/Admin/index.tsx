@@ -1,4 +1,4 @@
-import { addDoc } from "firebase/firestore";
+import { addDoc, getDocs } from "firebase/firestore";
 import { useForm } from "react-hook-form";
 import storage, { collectionProdutcs } from "../../firebase";
 import removeVietnameseTones from "../../utils/functions/removeVietnameseTones";
@@ -6,10 +6,14 @@ import { categories } from "../../utils/constant";
 import { ref, uploadBytes } from "firebase/storage";
 import { removeListener } from "@reduxjs/toolkit";
 import { Product } from "../../utils/types/Product";
+import { useEffect, useState } from "react";
+import ProductCard from "../../components/ProductCard";
+import { async } from "@firebase/util";
 
 const Admin = () => {
 
     const {register, handleSubmit} = useForm();
+    const [products, setProducts] = useState<Product[]>([]);
 
     const onSubmit = (data: any) => {
         try {
@@ -17,6 +21,8 @@ const Admin = () => {
             const imagesName = images.map((image, id) => `${removeVietnameseTones(data.name).split(' ').join('-')}-${id}`);
 
             data.images = imagesName;
+            data.categories = [data.categories];
+            data.price = Number.parseFloat(data.price);
 
             const fun1 = new Promise((resolve, reject) => {
                 addDoc(collectionProdutcs, data).then(productRef => {
@@ -48,6 +54,26 @@ const Admin = () => {
             console.log(e);
         }
     }
+
+    useEffect(() => {
+        const fetchData = async() => {
+            const result = await getDocs(collectionProdutcs);
+            const productsArray: Product[] = [];
+            result.forEach(_ => {
+                const data = _.data();
+                const product: Product = {
+                    name: data.name,
+                    description: data.description,
+                    price: typeof data.price === 'string' ? Number.parseFloat(data.price) : data.price ,
+                    categories: [data.categories],
+                    images: [...data.images]
+                }
+                productsArray.push(product);
+            })
+            setProducts(productsArray);
+        }
+        fetchData().catch(e => console.log(e));
+    },[])
 
     return (
         <div className="container">
@@ -97,6 +123,16 @@ const Admin = () => {
 
                 </form>
 
+            </div>
+
+            <div className="columns is-flex-wrap-wrap">
+                {
+                    products.map((product, id) => (
+                        <div className="column is-3" key={id}>
+                            <ProductCard product={product}/>
+                        </div>
+                    ))
+                }
             </div>
         </div>
     )
