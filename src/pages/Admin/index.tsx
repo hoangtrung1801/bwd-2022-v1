@@ -5,12 +5,13 @@ import removeVietnameseTones from "../../utils/functions/removeVietnameseTones";
 import { categories } from "../../utils/constant";
 import { ref, uploadBytes } from "firebase/storage";
 import { removeListener } from "@reduxjs/toolkit";
+import { Product } from "../../utils/types/Product";
 
 const Admin = () => {
 
     const {register, handleSubmit} = useForm();
 
-    const submit = (data) => {
+    const onSubmit = (data: any) => {
         try {
             const images = [...data.images];
             const imagesName = images.map((image, id) => `${removeVietnameseTones(data.name).split(' ').join('-')}-${id}`);
@@ -25,7 +26,7 @@ const Admin = () => {
             })
 
             const fun2 = new Promise((resolve, reject) => {
-                images.forEach((image, id) => {
+                images.forEach((image : any, id) => {
                     const imageRef = ref(storage, `images/${imagesName[id]}`);
                     uploadBytes(imageRef, image).then((snapshot) => {
                         console.log(
@@ -53,7 +54,7 @@ const Admin = () => {
             <h1 className="has-text-weight-bold is-size-3">ADMIN</h1>
             <div style={{width: '500px'}}>
                 <h2 className="has-text-weight-semibold is-size-4">Add product</h2>
-                <form action="" onSubmit={handleSubmit(submit)}>
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="field">
                         <label className="label">Name</label>
                         <div className="control">
