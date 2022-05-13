@@ -4,6 +4,7 @@ import { CaretLeft, CaretRight } from "phosphor-react";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import './banner.css';
+import { bannerImages } from "../../../../utils/constant";
 
 const NextArrowCarousel = ({onClick} : {onClick?: React.MouseEventHandler}) =>  (
     <div className="next ">
@@ -21,24 +22,24 @@ const Banner = () => {
 
     const settings = {
         infinite: true,
-        speed: 300,
+        speed: 400,
         slidesToShow: 1,
         slidesToScroll: 1,
         nextArrow: <NextArrowCarousel />,
         prevArrow: <PrevArrowCarousel />,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 5000,
     }
     return (
         <div className="banner-wrapper">
             <div className="is-relative banner">
                 <Slider {...settings}>
-                    {Array(5)
-                        .fill(0)
+                    {
+                        bannerImages
                         .map((item, id) => (
-                            <div className="item">
+                            <div className="item" key={id}>
                                 <img
-                                    src={ `https://picsum.photos/id/${Math.ceil(Math.random() * 100 + 10)}/1600/900` }
+                                    src={item}
                                     alt=""
                                 />
                             </div>

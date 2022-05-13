@@ -1,10 +1,11 @@
+import 'bulma-helpers/css/bulma-helpers.min.css';
 import 'bulma/css/bulma.css';
-import 'bulma-helpers/css/bulma-helpers.min.css'
-import './App.css'
-import Home from './pages/Home'
-import {Route, Routes} from 'react-router-dom';
-import Login from './pages/Login';
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
+import Admin from './pages/Admin';
 import Category from './pages/Category';
+import Home from './pages/Home';
+import Login from './pages/Login';
 import Product from './pages/Product';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path='login' element={<Login />} />
           <Route path='category' element={<Category />} />
           <Route path='product' element={<Product />} />
+          <Route path='admin' element={<Admin />} />
         </Route>
       </Routes>
     </>
