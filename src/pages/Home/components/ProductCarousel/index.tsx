@@ -4,15 +4,20 @@ import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import NextArrowCarousel from "../../../../components/NextArrowCarousel";
 import PrevArrowCarousel from "../../../../components/PrevArrowCarousel";
-import { Heart } from "phosphor-react";
+import ProductCard from "../../../../components/ProductCard";
+import { Product } from "../../../../utils/types/Product";
 import './product-carousel.css';
 
-const ProductCarousel = () => {
+interface ProductCarouselProps {
+    products: Product[]
+}
+
+const ProductCarousel: React.FC<ProductCarouselProps> = ({products}) => {
     const settings = {
         dots: true,
         infinite: true,
         speed: 300,
-        slidesToShow: 4,
+        slidesToShow: 3,
         slidesToScroll: 1,
         nextArrow: <NextArrowCarousel />,
         prevArrow: <PrevArrowCarousel />
@@ -22,12 +27,17 @@ const ProductCarousel = () => {
         <div className="px-5 py-4 product-carousel-wrapper has-text-centered">
             <div className="has-text-centered">
                 <p className="is-size-3 has-text-weight-bold">New Arrivals</p>
-                <p className="">Treat yourself to smooth, hydrated, happy skin</p>
+                {/* <p className="">Treat yourself to smooth, hydrated, happy skin</p> */}
             </div>
 
-            <div className="p-6 is-relative product-carousel">
+            <div className="px-6 py-2 is-relative product-carousel">
                 <Slider {...settings}>
-                    {Array(5)
+                    {products.map((product, id) => (
+                        <div className="px-2 py-6">
+                            <ProductCard product={product} />
+                        </div>
+                    ))}
+                    {/* {Array(5)
                         .fill(0)
                         .map((item, id) => (
                             <div className="item">
@@ -62,7 +72,7 @@ const ProductCarousel = () => {
                                     </div>
                                 </div>
                             </div>
-                        ))}
+                        ))} */}
                 </Slider>
             </div>
         </div>

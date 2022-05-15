@@ -1,11 +1,17 @@
 .featured-product {
-    background: linear-gradient(rgb(140, 208, 227) 0px, rgb(240, 140, 205) 100%);;
-    padding: 4rem;
+    background-color: var(--green-1);
+    padding: 4rem 0;
+}
+
+.featured-product > div {
+    width: 75%;
+    margin: 0 auto;
 }
 
 .featured-product-content {
     width: 80%;
-    height: 100px;
+    padding: 1rem;
+    min-height: 100px;
     margin-top: -1rem;
 }
 

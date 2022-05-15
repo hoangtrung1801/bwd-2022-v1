@@ -1,12 +1,14 @@
 .product-carousel-wrapper {
-    background-color: #f4f8fe;
+    /* background-color: var(--green-0); */
+    background-color: #fff;
 }
 .product-carousel .item {
     padding: 0 1px;
 }
 
 .product-carousel .item > div {
-    background-color: #fff;
+    background-color: var(--green-7);
+    color: #fff;
 }
 
 .product-carousel .color-button {

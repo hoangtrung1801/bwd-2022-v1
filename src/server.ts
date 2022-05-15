@@ -65,8 +65,56 @@ export default function () {
                             categories: [],
                             description: "this is product",
                         },
+                        {
+                            id: nanoid(),
+                            name: "Product 4",
+                            price: 99,
+                            images: [
+                                `https://picsum.photos/id/${Math.ceil(
+                                    Math.random() * 100 + 10
+                                )}/1200`,
+                                `https://picsum.photos/id/${Math.ceil(
+                                    Math.random() * 100 + 10
+                                )}/1200`,
+                            ],
+                            categories: [],
+                            description: "this is product",
+                        },
                     ],
                 };
+            });
+
+            this.get('/api/featured-products', (schema, request) => {
+                return {
+                    products: [
+                        {
+                            id: nanoid(),
+                            name: "Product 1",
+                            price: 99,
+                            images: [
+                                `https://picsum.photos/id/${Math.ceil(
+                                    Math.random() * 100 + 10
+                                )}/1200`,
+                                `https://picsum.photos/id/${Math.ceil(
+                                    Math.random() * 100 + 10
+                                )}/1200`,
+                            ],
+                            categories: [],
+                            description: "this is product",
+                        },
+                        {
+                            id: nanoid(),
+                            name: "Product 2",
+                            price: 99,
+                            images: [
+                                `https://picsum.photos/id/${Math.ceil( Math.random() * 100 + 10)}/1200`,
+                                `https://picsum.photos/id/${Math.ceil( Math.random() * 100 + 10)}/1200`,
+                            ],
+                            categories: [],
+                            description: "this is product",
+                        },
+                    ]
+                }
             });
         },
     });

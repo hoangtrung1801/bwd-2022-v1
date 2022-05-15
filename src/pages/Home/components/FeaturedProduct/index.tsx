@@ -1,3 +1,4 @@
+import Button3 from '../../../../components/Button/Button3';
 import './featured-product.css';
 
 const FeaturedProduct = () => {
@@ -11,7 +12,7 @@ const FeaturedProduct = () => {
                             <div className="is-flex is-flex-direction-column is-align-items-center">
                                 <figure className="image is-1by1 full-width">
                                     <img
-                                        src="https://via.placeholder.com/300.png"
+                                        src={ `https://picsum.photos/id/${Math.ceil( Math.random() * 100 + 10)}/1200`}
                                         alt=""
                                     />
                                 </figure>
@@ -23,9 +24,9 @@ const FeaturedProduct = () => {
                                         Three new ways to pamper & nourish your
                                         pout.
                                     </p>
-                                    <button className="color-button featured-product-button">
-                                        shop
-                                    </button>
+                                    <div className='mt-4'>
+                                        <Button3>SHOP</Button3>
+                                    </div>
                                 </div>
                             </div>
                         </div>

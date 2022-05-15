@@ -1,3 +1,6 @@
+import Button1 from '../../../../components/Button/Button1';
+import Button2 from '../../../../components/Button/Button2';
+import Button3 from '../../../../components/Button/Button3';
 import './common-category.css';
 
 const CommonCategory = () => {
@@ -17,32 +20,31 @@ const CommonCategory = () => {
                 <div className="columns is-flex-wrap-wrap is-justify-content-center my-4">
                     {Array(6)
                         .fill(0)
-                        .map((item, id) => (
-                            <div className="common-category-item column is-3" key={id}>
-                                <div>
-                                    <figure className="image is-1by1">
-                                        <img
-                                            src="https://via.placeholder.com/300.png"
-                                            alt=""
-                                        />
-                                    </figure>
-                                    <div className="has-text-centered my-4">
-                                        <p className="has-text-weight-bold mb-2">
-                                            Bright Idea Moisturizer
-                                        </p>
-                                        <p className="is-size-7">
-                                            Vitamin C + Tri-Peptide Collagen
-                                            Protecting & Brightening Moisturizer
-                                        </p>
-                                    </div>
+                        .map((item, id) => {
+                            return (
+                                <div className="common-category-item column is-3" key={id}>
                                     <div>
-                                        <button className="color-button common-category-button">
-                                            ADD TO BAG $26
-                                        </button>
+                                        <figure className="image is-1by1">
+                                            <img
+                                                src={ `https://picsum.photos/id/${Math.ceil( Math.random() * 100 + 10)}/1200` }
+                                                alt="" />
+                                        </figure>
+                                        <div className="has-text-centered my-4">
+                                            <p className="has-text-weight-bold mb-2">
+                                                Bright Idea Moisturizer
+                                            </p>
+                                            <p className="is-size-7">
+                                                Vitamin C + Tri-Peptide Collagen
+                                                Protecting & Brightening Moisturizer
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <Button2>ADD TO BAG</Button2>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                 </div>
             </div>
         </div>

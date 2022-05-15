@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ProductCard from "../../../../components/ProductCard";
+import { fetchData } from "../../../../utils/functions/fetchData";
 import SortBy from "../SortBy";
 
 const CategoryProduct = () => {
@@ -9,13 +10,12 @@ const CategoryProduct = () => {
 
     useEffect(() => {
 
-        const fetchData = async () => {
-            const {data} = await axios.get('/api/products');
-            // console.log(data);
+        const fetch = async () => {
+            const data = ( await fetchData('/api/products') ).products;
             setProducts(data);
         }
 
-        fetchData().catch(e => console.log(e));
+        fetch().catch(e => console.log(e));
     }, [])
 
 

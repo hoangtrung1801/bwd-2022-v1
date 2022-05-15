@@ -1,5 +1,6 @@
 .common-category {
-    background-color: #ffe7cd;
+    /* background-color: var(--green-); */
+    background-color: #fff;
 }
 
 .common-category-item .image {
