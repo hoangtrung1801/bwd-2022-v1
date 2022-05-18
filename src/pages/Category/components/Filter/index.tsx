@@ -4,9 +4,9 @@ const Filter = () => {
 
     return (
         <div className='filter'>
-            <h3 className="is-size-5 has-text-weight-bold is-uppercase mb-2">Filter by</h3>
+            <h3 className="is-size-5 has-text-weight-bold is-uppercase mb-2">Phân loại</h3>
             <div>
-                <p className="has-text-weight-medium is-uppercase">Categories</p>
+                <p className="has-text-weight-medium is-uppercase">Loại</p>
                 <ul>
                     {
                         Array(5).fill(0).map((_, id) => (

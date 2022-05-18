@@ -5,7 +5,7 @@ const SortBy = () => {
     return (
         <div className="sortby is-flex is-flex-direction-row-reverse block pb-4">
             <div className="is-flex is-align-items-center">
-                <p className="mr-4">Sort by : </p>
+                <p className="mr-4">Sắp xếp : </p>
                 <div className="select is-small">
                     <select name="" id="">
                         {

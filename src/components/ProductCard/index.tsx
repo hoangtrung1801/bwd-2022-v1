@@ -43,7 +43,7 @@ const ProductCard: React.FC<ProductCardProps> = ({product}) => {
                     <Link to="#" className="product-card-title has-text-weight-semibold">{product.name}</Link>
                 </div>
                 {/* <h6 className="my-3">${product.price.toFixed(2).toString()}</h6> */}
-                <Button2 onClick={() => dispatch(addToCart(product))}>ADD TO CART</Button2>
+                <Button2 onClick={() => dispatch(addToCart(product))}>THÊM VÀO GIỎ</Button2>
             </div>
         </div>
     )

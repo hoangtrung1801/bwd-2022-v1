@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { addToCart, removeFromCart, removeProductFromCart } from "../../app/slices/cartSlice";
+import { currency } from "../../utils/constant";
 import Button1 from "../Button/Button1";
 import Button3 from "../Button/Button3";
 
@@ -28,8 +29,8 @@ const NavCart : React.FC<NavCartProps> = ({isCartShow}) => {
                 onMouseLeave={() => setHover(false)}
             >
                 <div className="nav-cart-header is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
-                    <h3>shopping bag</h3>
-                    <p>({products.length} items)</p>
+                    <h3>Giỏ hàng</h3>
+                    <p>({products.length} sản phẩm)</p>
                 </div>
 
                 <hr />
@@ -67,8 +68,8 @@ const NavCart : React.FC<NavCartProps> = ({isCartShow}) => {
                 <hr />
 
                 <div className="nav-cart-total">
-                    <span>subtotals: </span>
-                    <span>${products.reduce((prev, cur) => prev + cur.product.price * cur.amount, 0)}</span>
+                    <span>Tổng tiền hàng: </span>
+                    <span>{currency.vn}{products.reduce((prev, cur) => prev + cur.product.price * cur.amount, 0)}</span>
                 </div>
 
                 <hr />
@@ -76,7 +77,7 @@ const NavCart : React.FC<NavCartProps> = ({isCartShow}) => {
                 <div className="nav-cart-checkout has-text-centered">
                     {/* <Button1>checkout</Button1> */}
                     <Link to='/checkout'>
-                        <Button3>checkout</Button3>
+                        <Button3>Thanh toán</Button3>
                     </Link>
                 </div>
             </div>

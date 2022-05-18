@@ -4,18 +4,65 @@ export const bannerImages = [
     '/assets/banner1.jpg',
 ]
 
-// export const categories = [
-//     'bamboo',
-//     'canvas',
-//     'disposable nilon',
-//     'tooth brushe',
-//     'straw',
-//     'glass bottle',
-//     'cup',
-//     'new',
-// ]
+export const currency = {
+    en: '$',
+    vn: '₫',
+}
 
 export const categories: Category[] = [
+    {
+        name: 'Trang chủ',
+        href: '/'
+    },
+    {
+        name: 'Danh mục',
+        href: '/category',
+        subcategories: [
+            {
+                name: 'Vải',
+                href: ''
+            },
+            {
+                name: 'Tre',
+                href: ''
+            },
+            {
+                name: 'Túi phân hủy',
+                href: ''
+            },
+            {
+                name: 'Bàn chải',
+                href: ''
+            },
+            {
+                name: 'Ống hút',
+                href: ''
+            },
+            {
+                name: 'Chai',
+                href: ''
+            },
+            {
+                name: 'Ly',
+                href: ''
+            },
+            {
+                name: 'Khác',
+                href: ''
+            }
+        ]
+    },
+    {
+        name: 'gây quỹ',
+        href: 'donate'
+    },
+    {
+        name: 'about me',
+        href: '/about-me'
+    }
+]
+
+export const categoriesEN: Category[] = [
     {
         name: 'Home',
         href: '/'

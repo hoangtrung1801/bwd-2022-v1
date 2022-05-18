@@ -43,8 +43,8 @@ const Login = () => {
                         <div className="column is-half">
                             <div className="login-column full-height pt-6 px-6 has-text-centered">
                                 <div className="block">
-                                    <h1 className="is-size-3 has-text-weight-bold is-uppercase">Login</h1>
-                                    <p className="">Welcome back! Log in your account here:</p>
+                                    <h1 className="is-size-3 has-text-weight-bold is-uppercase">Đăng nhập</h1>
+                                    <p className="is-size-7">Chào mừng bạn! Hãy đăng nhập vào tài khoản</p>
                                 </div>
                                 <form onSubmit={handleSubmit(onLogin)}>
                                     <div className="field">
@@ -52,7 +52,7 @@ const Login = () => {
                                             <input
                                                 type="text"
                                                 className="input"
-                                                placeholder="Your email"
+                                                placeholder="Email"
                                                 {...register('email')}
                                             />
                                         </div>
@@ -62,21 +62,21 @@ const Login = () => {
                                             <input
                                                 type="password"
                                                 className="input"
-                                                placeholder="Password"
+                                                placeholder="Mật khẩu"
                                                 {...register('password')}
                                             />
                                         </div>
                                     </div>
                                     <div className="my-5">
-                                        <Button1>Log in</Button1>
+                                        <Button1>Đăng nhập</Button1>
                                         {/* <button className="button">Login</button> */}
                                         {/* <button className="color-button">
                                             Log in
                                         </button> */}
                                     </div>
                                     <div>
-                                        <a href="#" className="has-text-black">
-                                            Forgot your password ?
+                                        <a href="#" className="is-underlined">
+                                            Bạn quên mật khẩu ?
                                         </a>
                                     </div>
                                 </form>
