@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../../app/hooks";
 
-const CartAmount: React.FC = () => {
+interface CartAmountProps {
+
+}
+
+const CartAmount: React.FC<CartAmountProps & React.HTMLProps<'div'>> = ({className}) => {
     const products = useAppSelector(state => state.cart.items);
     const [amount, setAmount] = useState(0);
 
@@ -10,7 +14,7 @@ const CartAmount: React.FC = () => {
     }, [products]);
 
     return (
-        <div className="cart-amount">
+        <div className={ `cart-amount ${className && className}` }>
             <span>{amount}</span>
         </div>
     );

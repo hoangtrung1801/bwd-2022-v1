@@ -11,6 +11,8 @@
   --green-9: #2b8a3e;
   --text: #404040;
   --dark: #333;
+  --color-1: #EA7E5D;
+  --color-2: #FDECEF;
 }
 
 * {
@@ -55,6 +57,10 @@ p, span {
   font-family: 'Poppins', sans-serif;
 
 }
+
+hr {
+}
+
 
 .background-dark {
   width: 100vw;
@@ -174,7 +180,7 @@ p, span {
   align-items: center;
   border-radius: 50%;
   padding: 6px;
-  font-size: 1.5rem;
+  font-size: 3rem;
   cursor: pointer;
 
   position: absolute;
@@ -196,7 +202,7 @@ p, span {
 }
 
 .slick-dots > li button::before {
-    color: #aab7e4 !important;
+    color: var(--green-6) !important;
     transition: all 0.5s ease;
     opacity: 0.5;
 }
@@ -207,13 +213,9 @@ p, span {
 
 /* input  */
 input[type="checkbox"] {
-    /* Add if not using autoprefixer */
     -webkit-appearance: none;
-    /* Remove most all native input styles */
     appearance: none;
-    /* For iOS < 15 */
     background-color: var(--form-background);
-    /* Not removed via appearance */
     margin: 0;
 
     font: inherit;

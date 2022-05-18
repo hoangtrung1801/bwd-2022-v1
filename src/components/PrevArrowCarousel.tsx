@@ -7,8 +7,8 @@ interface PrevArrowCarouselProps {
 const PrevArrowCarousel : React.FC<PrevArrowCarouselProps> = ({onClick}) => {
 
     return (
-        <div className="carousel-prev has-shadow" onClick={onClick}>
-            <CaretLeft />
+        <div className="carousel-prev" onClick={onClick}>
+            <CaretLeft weight='bold' color='var(--green-6)'/>
         </div>
     )
 }

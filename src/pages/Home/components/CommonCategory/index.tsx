@@ -22,7 +22,7 @@ const CommonCategory = () => {
                         .fill(0)
                         .map((item, id) => {
                             return (
-                                <div className="common-category-item column is-3" key={id}>
+                                <div className="common-category-item column is-3-desktop is-4-tablet is-12-mobile" key={id}>
                                     <div>
                                         <figure className="image is-1by1">
                                             <img

@@ -18,8 +18,12 @@ const Login = () => {
     }
 
     const onLogin = async (body: any) => {
-        const result = await axios.post('/api/login', body);
-        const {token} = result.data;
+        // const result = await axios.post('/api/login', body);
+        const result = {
+            token: "tokentest",
+            username: "User",
+        };
+        const {token} = result;
 
         setToken(token);
         navigate('/');

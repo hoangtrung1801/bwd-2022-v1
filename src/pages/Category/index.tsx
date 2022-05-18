@@ -21,28 +21,4 @@ const Category = () => {
     );
 };
 
-                            {/* <nav className="pagination is-small mt-4 mb-6">
-                                <ul className="pagination-list is-justify-content-center">
-                                    <li>
-                                        <a className="pagination-link is-current">
-                                            1
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a className="pagination-link">2</a>
-                                    </li>
-                                    <li>
-                                        <a className="pagination-link">3</a>
-                                    </li>
-                                    <li>
-                                        <a className="pagination-link">4</a>
-                                    </li>
-                                    <li>
-                                        <a className="pagination-link">5</a>
-                                    </li>
-                                </ul>
-                                <a className="pagination-next">Next {">"}</a>
-                            </nav> */}
-
-
 export default Category;

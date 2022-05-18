@@ -1,29 +1,21 @@
 import { useState } from "react";
+import { Category } from "../../utils/types/Cattegory";
 
 interface MenuListProps {
-    content?: string[][],
+    content?: Category[],
     menuListHovered: boolean
 }
 
-const MenuList : React.FC<MenuListProps> = ({content = [
-    ["title", "menu 1", "menu 2", "menu 3"],
-    ["title", "menu 1", "menu 2", "menu 3"],
-], menuListHovered}) => {
+const MenuList : React.FC<MenuListProps> = ({content, menuListHovered}) => {
     const [hover, setHover] = useState(menuListHovered);
 
     return (
         <div className={ `menu-list is-block has-shadow ${menuListHovered || hover ? 'menu-list-show' : ''}` } onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-            <div className="columns px-4 py-5">
+            <div className="is-flex is-flex-wrap-wrap py-4">
                 {
-                    content.map((_, i ) => (
-                        <div className="column px-4" key={i}>
-                            <div className="menu-list-column is-flex is-flex-direction-column">
-                                {
-                                    _.map((s, j) => (
-                                        <a href="#" className={`menu-list-item ${j === 0 ? 'has-text-weight-semibold' : ''}`} key={j}>{s}</a>
-                                    ))
-                                }
-                            </div>
+                    content?.map((category, id ) => (
+                        <div className="menu-list-item  px-4" key={id}>
+                            <a href={category.href} className='is-capitalized has-text-grey'>{category.name}</a>
                         </div>
                     ))
                 }

@@ -26,7 +26,7 @@ const CategoryProduct = () => {
             <div className="columns is-flex-wrap-wrap is-variable is-2">
                 {
                     products.map((item, id) => (
-                        <div className="column is-4 pb-6">
+                        <div className="column is-4-desktop is-6-tablet pb-6">
                             <ProductCard product={item} />
                         </div>
                     ))
