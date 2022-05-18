@@ -2,7 +2,7 @@ import { Bag, CaretDown, List, MagnifyingGlass, SignIn, SignOut, X } from 'phosp
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from '../../logo.png';
-import { categories } from '../../utils/constant';
+import { routes } from '../../utils/constant';
 import logout from '../../utils/functions/logout';
 import useToken from '../../utils/hook/useToken';
 import { useViewport } from '../../utils/hook/useViewport';
@@ -44,7 +44,7 @@ const Header = () => {
                 {isDesktop ? (
                     <>
                         <div className="header-menu full-height is-flex is-relative">
-                            {categories.map((category, id) => (
+                            {routes.map((category, id) => (
                                 <>
                                     <div className="is-flex is-align-items-center is-relative">
                                         <Link
@@ -147,7 +147,7 @@ const Header = () => {
                                 <div className='full-width py-6'>
                                     <div className='block'>
                                         {
-                                            categories.map((category, id) => (
+                                            routes.map((category, id) => (
                                                 <div key={id}>
                                                         <div className={ `dropdown-menu-list-item is-relative is-size-5 is-uppercase has-text-weight-semibold py-5 mx-auto is-flex is-align-items-center is-justify-content-center is-clickable ${dropdownMenuListItemSelected === id ? 'dropdown-menu-list-item-show': ''}` }>
                                                             <Link to={category.href} className='has-text-light'>

@@ -1,14 +1,11 @@
 import { addDoc, getDocs } from "firebase/firestore";
+import { ref, uploadBytes } from "firebase/storage";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import ProductCard from "../../components/ProductCard";
 import storage, { collectionProdutcs } from "../../firebase";
 import removeVietnameseTones from "../../utils/functions/removeVietnameseTones";
-import { categories } from "../../utils/constant";
-import { ref, uploadBytes } from "firebase/storage";
-import { removeListener } from "@reduxjs/toolkit";
 import { Product } from "../../utils/types/Product";
-import { useEffect, useState } from "react";
-import ProductCard from "../../components/ProductCard";
-import { async } from "@firebase/util";
 
 const Admin = () => {
 
@@ -105,8 +102,8 @@ const Admin = () => {
                             <select {...register('categories')} required>
                                 <option value="">Select category</option>
                                 {
-                                    categories.map(item => (
-                                        <option value={item}>{item}</option>
+                                    Array(5).fill(0).map((item, id) => (
+                                        <option key={id} value={item}>option {id}</option>
                                     ))
                                 }
                             </select>

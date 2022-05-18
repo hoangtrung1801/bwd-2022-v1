@@ -18,9 +18,9 @@ export const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        addToCart: (state, action: PayloadAction<Product>) => {
-            if(state.items.findIndex(el => el.product.id == action.payload.id) >= 0) {
-                state.items.find(e => e.product.id === action.payload.id).amount += 1;
+        addToCart: (state: CartState, action: PayloadAction<Product>) => {
+            if(state.items.findIndex((el : ItemCart) => el.product.id == action.payload.id) >= 0) {
+                state.items.find((e: ItemCart) => e.product.id === action.payload.id)!.amount += 1;
             } else {
                 state.items.push({
                     product: action.payload,
@@ -28,12 +28,12 @@ export const cartSlice = createSlice({
                 })
             }
         },
-        removeFromCart: (state, action: PayloadAction<Product>) => {
-            const idx = state.items.findIndex(item => item.product.id === action.payload.id);
+        removeFromCart: (state: CartState, action: PayloadAction<Product>) => {
+            const idx = state.items.findIndex((item: ItemCart) => item.product.id === action.payload.id);
             state.items[idx].amount = Math.max(state.items[idx].amount-1, 0);
         },
-        removeProductFromCart: (state, action: PayloadAction<Product>) => {
-            const idx = state.items.findIndex(item => item.product.id === action.payload.id);
+        removeProductFromCart: (state: any, action: PayloadAction<Product>) => {
+            const idx = state.items.findIndex((item: ItemCart) => item.product.id === action.payload.id);
             state.items = [
                 ...state.items.slice(0, idx),
                 ...state.items.slice(idx+1)

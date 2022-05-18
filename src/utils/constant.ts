@@ -9,7 +9,11 @@ export const currency = {
     vn: '₫',
 }
 
-export const categories: Category[] = [
+export const categories = [
+
+]
+
+export const routes: Category[] = [
     {
         name: 'Trang chủ',
         href: '/'

@@ -1,8 +1,4 @@
-import { useEffect } from "react";
 import { useAppSelector } from "../../app/hooks";
-import { selectProductsFromCart } from "../../app/slices/cartSlice";
-import Button1 from "../../components/Button/Button1";
-import Button2 from "../../components/Button/Button2";
 import Button3 from "../../components/Button/Button3";
 import Layout from "../../components/Layout";
 import "./checkout.css";
@@ -130,7 +126,7 @@ const Checkout: React.FC<CheckoutProps> = () => {
                                         <div className="column is-9">
                                             <textarea
                                                 className="textarea"
-                                                rows="2"
+                                                rows={2}
                                                 placeholder="e.g. Hello world"
                                             ></textarea>
                                         </div>
