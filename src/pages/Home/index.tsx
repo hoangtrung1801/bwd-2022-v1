@@ -39,7 +39,7 @@ const Home = () => {
 
     return (
         <Layout>
-            <Banner sections={bannerSection}/>
+            <Banner sections={bannerSection} showContent={false}/>
             <ProductCarousel products={newArrivals}/>
             <FeaturedProduct products={featuredProduct}/>
             <CommonCategory products={commonCategory}/>

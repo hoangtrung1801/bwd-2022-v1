@@ -26,9 +26,10 @@ interface BannerProps {
         title: string,
         body: string,
     }[]
+    showContent ?: boolean
 }
 
-const Banner: React.FC<BannerProps> = ({sections}) => {
+const Banner: React.FC<BannerProps> = ({sections, showContent=true}) => {
 
     const settings = {
         infinite: true,
@@ -54,15 +55,19 @@ const Banner: React.FC<BannerProps> = ({sections}) => {
                                         alt=""
                                     />
                                 </div>
-                                <div className="banner-content">
-                                    <p className='is-size-1 has-text-weight-bold'>{item.title}</p>
-                                    <p className="mt-4">{item.body}</p>
+                                {
+                                    showContent && (
+                                        <div className="banner-content">
+                                            <p className='is-size-1 has-text-weight-bold'>{item.title}</p>
+                                            <p className="mt-4">{item.body}</p>
 
-                                    <div className="mt-6">
-                                        <Button4>Donate now</Button4>
-                                    </div>
-                                    {/* <Button3>Donate</Button3> */}
-                                </div>
+                                            <div className="mt-6">
+                                                <Button4>Donate now</Button4>
+                                            </div>
+                                            {/* <Button3>Donate</Button3> */}
+                                        </div>
+                                    )
+                                }
                             </div>
                         ))}
                 </Slider>
