@@ -1,0 +1,28 @@
+.donate-action-wrapper {
+    padding: 7rem 0;
+}
+
+.donate-action {
+    width: 80%;
+}
+
+.donate-action-content {
+    position: absolute;
+    bottom: -5%;
+    right: -5%;
+
+    color: #fff;
+    background-color: var(--green-6);
+    width: 45%;
+
+    padding: 4rem 5rem;
+}
+
+.donate-action-content-left {
+    left: -5% !important;
+}
+
+.donate-action-content a:hover {
+    transition: all 0.4s ease;
+    color: #fff;
+}

@@ -3,15 +3,15 @@ import { useEffect, useState } from "react";
 import ProductCard from "../../../../components/ProductCard";
 import { fetchData } from "../../../../utils/functions/fetchData";
 import getAllProducts from "../../../../utils/functions/getAllProducts";
+import { Product } from "../../../../utils/types/Product";
 import SortBy from "../SortBy";
 
 const CategoryProduct = () => {
 
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState<Product[]>([]);
 
     useEffect(() => {
-
-        getAllProducts().then(data => {
+        getAllProducts().then((data: Product[]) => {
             setProducts(data);
         })
     }, []);

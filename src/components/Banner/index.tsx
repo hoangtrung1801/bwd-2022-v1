@@ -4,6 +4,8 @@ import { CaretLeft, CaretRight } from "phosphor-react";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import './banner.css';
+import Button3 from "../Button/Button3";
+import Button4 from "../Button/Button4";
 
 const NextArrowCarousel = ({onClick} : {onClick?: React.MouseEventHandler}) =>  (
     <div className="next ">
@@ -35,8 +37,8 @@ const Banner: React.FC<BannerProps> = ({sections}) => {
         slidesToScroll: 1,
         nextArrow: <NextArrowCarousel />,
         prevArrow: <PrevArrowCarousel />,
-        autoplay: true,
-        autoplaySpeed: 5000,
+        // autoplay: true,
+        // autoplaySpeed: 5000,
     }
     return (
         <div className="banner-wrapper">
@@ -45,12 +47,21 @@ const Banner: React.FC<BannerProps> = ({sections}) => {
                     {
                         sections
                         .map((item, id) => (
-                            <div className="item" key={id}>
-                                <div>
+                            <div className="item is-relative" key={id}>
+                                <div className="full-height">
                                     <img
                                         src={item.image}
                                         alt=""
                                     />
+                                </div>
+                                <div className="banner-content">
+                                    <p className='is-size-1 has-text-weight-bold'>{item.title}</p>
+                                    <p className="mt-4">{item.body}</p>
+
+                                    <div className="mt-6">
+                                        <Button4>Donate now</Button4>
+                                    </div>
+                                    {/* <Button3>Donate</Button3> */}
                                 </div>
                             </div>
                         ))}

@@ -1,0 +1,37 @@
+.donate-form-wrapper {
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.donate-form {
+}
+
+.donate-form input {
+    border-radius: 0;
+    border-color: #e1eaf0;
+    border-width: 3px;
+    box-shadow: 0;
+
+    font-size: 1.25rem;
+    font-weight: 500;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.donate-form input:focus {
+    box-shadow: none;
+    outline: none;
+    border-color: var(--dark);
+}
+
+.donate-form-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}

@@ -104,7 +104,7 @@ const Admin = () => {
                     <div className="field">
                         <label className="label">Categories</label>
                         <div className="control">
-                            <Select options={categories} isMulti={true} onChange={(data:any) => setCategoriesForm(data.map(e => e.value))}/>
+                            <Select options={categories} isMulti={true} onChange={(data:any) => setCategoriesForm(data.map((e: any) => e.value))}/>
                         </div>
                     </div>
                     <div className="field">
