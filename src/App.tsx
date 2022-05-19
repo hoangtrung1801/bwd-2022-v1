@@ -5,6 +5,7 @@ import './App.css';
 import Admin from './pages/Admin';
 import Category from './pages/Category';
 import Checkout from './pages/Checkout';
+import Donate from './pages/Donate';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Product from './pages/Product';
@@ -20,7 +21,8 @@ function App() {
           <Route path='category' element={<Category />} />
           <Route path='product' element={<Product />} />
           <Route path='admin' element={<Admin />} />
-          <Route path='/checkout' element={<Checkout />} />
+          <Route path='checkout' element={<Checkout />} />
+          <Route path='donate' element={<Donate />} />
         </Route>
       </Routes>
     </>

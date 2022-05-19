@@ -1,16 +1,19 @@
 import { addDoc, getDocs } from "firebase/firestore";
 import { ref, uploadBytes } from "firebase/storage";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import ProductCard from "../../components/ProductCard";
 import storage, { collectionProdutcs } from "../../firebase";
 import removeVietnameseTones from "../../utils/functions/removeVietnameseTones";
 import { Product } from "../../utils/types/Product";
+import Select from 'react-select';
+import { categories } from "../../utils/constant";
 
 const Admin = () => {
 
     const {register, handleSubmit} = useForm();
     const [products, setProducts] = useState<Product[]>([]);
+    const [categoriesForm, setCategoriesForm] = useState([]);
 
     const onSubmit = (data: any) => {
         try {
@@ -20,6 +23,7 @@ const Admin = () => {
             data.images = imagesName;
             data.categories = [data.categories];
             data.price = Number.parseFloat(data.price);
+            data.categories = categoriesForm;
 
             const fun1 = new Promise((resolve, reject) => {
                 addDoc(collectionProdutcs, data).then(productRef => {
@@ -68,6 +72,7 @@ const Admin = () => {
                 productsArray.push(product);
             })
             setProducts(productsArray);
+            console.log(productsArray);
         }
         fetchData().catch(e => console.log(e));
     },[])
@@ -98,15 +103,8 @@ const Admin = () => {
                     </div>
                     <div className="field">
                         <label className="label">Categories</label>
-                        <div className="select">
-                            <select {...register('categories')} required>
-                                <option value="">Select category</option>
-                                {
-                                    Array(5).fill(0).map((item, id) => (
-                                        <option key={id} value={item}>option {id}</option>
-                                    ))
-                                }
-                            </select>
+                        <div className="control">
+                            <Select options={categories} isMulti={true} onChange={(data:any) => setCategoriesForm(data.map(e => e.value))}/>
                         </div>
                     </div>
                     <div className="field">

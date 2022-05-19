@@ -1,7 +1,32 @@
 import { Category } from "./types/Cattegory"
 
 export const bannerImages = [
-    '/assets/banner1.jpg',
+    '/assets/banner-1.jpg',
+]
+
+export const donateImages = [
+    '/assets/donate-1.jpg',
+    '/assets/donate-1.jpg',
+]
+
+export const bannerSection = [
+    {
+        image: '/assets/banner-1.jpg',
+        title: 'We can change the world together',
+        body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed unde doloremque ipsum iure sapiente voluptatem'
+    }
+]
+
+export const donateSection = [
+    {
+        image: '/assets/donate-1.jpg',
+        title: 'We can change the world together',
+        body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed unde doloremque ipsum iure sapiente voluptatem'
+    }, {
+        image: '/assets/donate-1.jpg',
+        title: 'We can change the world together',
+        body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed unde doloremque ipsum iure sapiente voluptatem'
+    }
 ]
 
 export const currency = {
@@ -10,7 +35,15 @@ export const currency = {
 }
 
 export const categories = [
-
+    { value: 'canvas', label: 'Vải'},
+    { value: 'bamboo', label: 'Tre'},
+    { value: 'disposable-nilon', label: 'Túi phân hủy'},
+    { value: 'toothbrush', label: 'Bàn chải'},
+    { value: 'straw', label: 'Ống hút'},
+    { value: 'bottle', label: 'Chai'},
+    { value: 'cup', label: 'Ly'},
+    { value: 'others', label: 'Khác'},
+    { value: "new", label: "Mới"}
 ]
 
 export const routes: Category[] = [
@@ -58,7 +91,7 @@ export const routes: Category[] = [
     },
     {
         name: 'gây quỹ',
-        href: 'donate'
+        href: '/donate'
     },
     {
         name: 'about me',

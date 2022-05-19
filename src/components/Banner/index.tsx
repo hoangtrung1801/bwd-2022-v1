@@ -4,7 +4,6 @@ import { CaretLeft, CaretRight } from "phosphor-react";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import './banner.css';
-import { bannerImages } from "../../../../utils/constant";
 
 const NextArrowCarousel = ({onClick} : {onClick?: React.MouseEventHandler}) =>  (
     <div className="next ">
@@ -18,7 +17,16 @@ const PrevArrowCarousel = ({onClick} : {onClick?: React.MouseEventHandler}) => (
     </div>
 )
 
-const Banner = () => {
+interface BannerProps {
+    // images: string[]
+    sections: {
+        image: string,
+        title: string,
+        body: string,
+    }[]
+}
+
+const Banner: React.FC<BannerProps> = ({sections}) => {
 
     const settings = {
         infinite: true,
@@ -35,13 +43,15 @@ const Banner = () => {
             <div className="is-relative banner">
                 <Slider {...settings}>
                     {
-                        bannerImages
+                        sections
                         .map((item, id) => (
                             <div className="item" key={id}>
-                                <img
-                                    src={item}
-                                    alt=""
-                                />
+                                <div>
+                                    <img
+                                        src={item.image}
+                                        alt=""
+                                    />
+                                </div>
                             </div>
                         ))}
                 </Slider>

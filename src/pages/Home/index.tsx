@@ -1,33 +1,48 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+import Banner from "../../components/Banner";
 import Layout from "../../components/Layout";
-import { fetchData } from "../../utils/functions/fetchData";
+import { bannerImages, bannerSection } from "../../utils/constant";
+import getAllProducts from "../../utils/functions/getAllProducts";
 import { Product } from "../../utils/types/Product";
-import Banner from "./components/Banner";
 import CommonCategory from "./components/CommonCategory";
 import FeaturedProduct from "./components/FeaturedProduct";
 import ProductCarousel from "./components/ProductCarousel";
-import ProductFooter from "./components/ProductFooter";
 
 const Home = () => {
 
     const [newArrivals, setNewArrivals] = useState<Product[]>([]);
+    const [featuredProduct, setFeaturedProduct] = useState<Product[]>([]);
+    const [commonCategory, setCommonCategory] = useState<Product[]>([]);
 
     useEffect(() => {
-        const fetch = async () => {
-            const newArrivals = (await fetchData('/api/products')).products;
-            setNewArrivals(newArrivals);
+        const getNewArrivals = (products: Product[]) => {
+            return products.filter(product => {
+                return product.categories.indexOf("straw") >= 0;
+            })
         }
 
-        fetch().catch(e => console.log(e));
+        const getFeaturedProduct = (products: Product[]) => {
+            return products.slice(0,2);
+        }
+
+        const getCommonCategory = (products: Product[]) => {
+            return products.slice(0, 6);
+        }
+
+        getAllProducts().then(data => {
+            const products: Product[] = data;
+            setNewArrivals(getNewArrivals(products));
+            setFeaturedProduct(getFeaturedProduct(products));
+            setCommonCategory(getCommonCategory(products));
+        })
     }, []);
 
     return (
         <Layout>
-            <Banner />
+            <Banner sections={bannerSection}/>
             <ProductCarousel products={newArrivals}/>
-            <FeaturedProduct />
-            <CommonCategory />
+            <FeaturedProduct products={featuredProduct}/>
+            <CommonCategory products={commonCategory}/>
         </Layout>
     );
 };
