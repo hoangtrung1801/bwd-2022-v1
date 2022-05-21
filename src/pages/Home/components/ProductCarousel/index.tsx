@@ -52,7 +52,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({products}) => {
     };
 
     return (
-        <div className="px-5 py-4 product-carousel-wrapper has-text-centered">
+        <div className="px-5 py-4 product-carousel-wrapper">
             <div className="has-text-centered">
                 <p className="is-size-3 has-text-weight-bold">Sản phẩm mới</p>
                 {/* <p className="">Treat yourself to smooth, hydrated, happy skin</p> */}
@@ -61,7 +61,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({products}) => {
             <div className="px-6 py-2 is-relative product-carousel">
                 <Slider {...settings}>
                     {products.map((product, id) => (
-                        <div className="px-2 py-4">
+                        <div className="px-1 py-4">
                             <ProductCard product={product} />
                         </div>
                     ))}
