@@ -1,4 +1,4 @@
-import { Bag, CaretDown, List, MagnifyingGlass, SignIn, SignOut, X } from 'phosphor-react';
+import { Bag, CaretDown, Gear, List, SignIn, SignOut, X } from 'phosphor-react';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from '../../logo.png';
@@ -22,7 +22,7 @@ const Header = () => {
 
     const [menuListHovered, setMenuListHovered] = useState(-1);
     const [cartHovered, setCartHovered] = useState(false);
-    const [dropdownUserHovered, setDropdownUserHovered] = useState(false);
+    const [dropdownUser, setDropdownUser] = useState(false);
     const [dropdownMenuList, setDropdownMenuList] = useState(false);
     const [dropdownMenuListItemSelected, setDropdownMenuListItemSelected] = useState(-1);
 
@@ -84,39 +84,9 @@ const Header = () => {
                         </div>
 
                         <div className="header-tool is-flex is-align-items-center">
-                            <Link to="#" className="is-size-4">
+                            {/* <Link to="#" className="is-size-4">
                                 <MagnifyingGlass />
-                            </Link>
-                            {token ? (
-                                <div className="full-height is-flex is-justify-content-center is-align-items-center is-relative">
-                                    <p
-                                        className="header-username has-text-weight-semibold is-clickable"
-                                        onMouseOver={() =>
-                                            setDropdownUserHovered(true)
-                                        }
-                                        onMouseLeave={() =>
-                                            setTimeout(
-                                                () =>
-                                                    setDropdownUserHovered(
-                                                        false
-                                                    ),
-                                                300
-                                            )
-                                        }
-                                    >
-                                        username
-                                    </p>
-                                    <DropdownUser
-                                        dropdownUserHovered={
-                                            dropdownUserHovered
-                                        }
-                                    />
-                                </div>
-                            ) : (
-                                <Link to="/login" className="is-size-4">
-                                    <SignIn />
-                                </Link>
-                            )}
+                            </Link> */}
                             <div>
                                 <Link
                                     to="/checkout"
@@ -133,6 +103,30 @@ const Header = () => {
                                 </Link>
                                 <NavCart isCartShow={cartHovered} />
                             </div>
+                            {token ? (
+                                <div className="full-height is-flex is-justify-content-center is-align-items-center is-relative">
+                                    <p
+                                        className="header-username has-text-weight-semibold is-clickable"
+                                    >
+                                        username
+                                    </p>
+                                    <a href="#">
+                                        <Gear className='is-size-4 ml-3'
+                                            onClick={() => setDropdownUser(!dropdownUser)}
+                                        />
+                                    </a>
+                                    <DropdownUser
+                                        dropdownUserHovered={
+                                            dropdownUser
+                                        }
+                                    />
+                                </div>
+                            ) : (
+                                <Link to="/login" className="is-size-4">
+                                    <SignIn />
+                                </Link>
+                            )}
+
                         </div>
                     </>
                 ) : (
