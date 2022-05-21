@@ -55,6 +55,13 @@
     z-index: 10;
 }
 
+.banner .item > div:first-child::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,0.15);
+}
+
 /* .banner-content button {
     width: 20%;
     background-color: var(--dark);

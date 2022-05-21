@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import './banner.css';
 import Button3 from "../Button/Button3";
 import Button4 from "../Button/Button4";
+import { DONATENOW } from "../../utils/constant";
 
 const NextArrowCarousel = ({onClick} : {onClick?: React.MouseEventHandler}) =>  (
     <div className="next ">
@@ -23,8 +24,8 @@ interface BannerProps {
     // images: string[]
     sections: {
         image: string,
-        title: string,
-        body: string,
+        title?: string,
+        body?: string,
     }[]
     showContent ?: boolean
 }
@@ -33,13 +34,13 @@ const Banner: React.FC<BannerProps> = ({sections, showContent=true}) => {
 
     const settings = {
         infinite: true,
-        speed: 400,
+        speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
         nextArrow: <NextArrowCarousel />,
         prevArrow: <PrevArrowCarousel />,
-        // autoplay: true,
-        // autoplaySpeed: 5000,
+        autoplay: true,
+        autoplaySpeed: 5000,
     }
     return (
         <div className="banner-wrapper">
@@ -62,7 +63,7 @@ const Banner: React.FC<BannerProps> = ({sections, showContent=true}) => {
                                             <p className="mt-4">{item.body}</p>
 
                                             <div className="mt-6">
-                                                <Button4>Donate now</Button4>
+                                                <Button4>{DONATENOW}</Button4>
                                             </div>
                                             {/* <Button3>Donate</Button3> */}
                                         </div>

@@ -18,6 +18,11 @@
     padding: 4rem 5rem;
 }
 
+.donate-action-content-mobile {
+    position: initial;
+    width: 100%;
+}
+
 .donate-action-content-left {
     left: -5% !important;
 }

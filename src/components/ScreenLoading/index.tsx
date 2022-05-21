@@ -16,10 +16,10 @@ const ScreenLoading: React.FC<ScreenLoadingProps> = ({ loading }) => {
             variants={screenLoadingVariants}
             initial="initial"
             exit="exit"
-            onAnimationStart={() => {
-                document.body.style.height = '100vh';
-                document.body.style.overflow = 'hidden';
-            }}
+            // onAnimationStart={() => {
+            //     document.body.style.height = '100vh';
+            //     document.body.style.overflow = 'hidden';
+            // }}
             onAnimationComplete={() => {
                 document.body.style.removeProperty('overflow');
                 document.body.style.removeProperty('height');

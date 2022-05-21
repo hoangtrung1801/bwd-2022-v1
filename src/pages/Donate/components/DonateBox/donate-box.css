@@ -42,7 +42,8 @@
     border-color: #e1eaf0;
 
     margin-right: 0.75rem;
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 1rem;
+    width: 6rem;
 
     transition: all 0.25s ease-in-out;
 }

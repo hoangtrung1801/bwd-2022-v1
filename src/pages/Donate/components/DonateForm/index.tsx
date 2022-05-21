@@ -1,6 +1,7 @@
 import { X } from "phosphor-react";
 import Button3 from "../../../../components/Button/Button3";
 import Button4 from "../../../../components/Button/Button4";
+import { DONATENOW } from "../../../../utils/constant";
 import "./donate-form.css";
 
 interface DonateFormProps {
@@ -34,7 +35,7 @@ const DonateForm: React.FC<DonateFormProps> = ({closeDonateForm}) => {
                         </div>
                     </div>
                     <div className="mt-6">
-                        <Button4>Donate now</Button4>
+                        <Button4>{DONATENOW}</Button4>
                     </div>
                 </form>
                 <div className="donate-form-close is-clickable" onClick={closeDonateForm}>
