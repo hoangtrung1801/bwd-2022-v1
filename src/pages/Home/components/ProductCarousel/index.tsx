@@ -54,7 +54,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({products}) => {
     return (
         <div className="px-5 py-4 product-carousel-wrapper">
             <div className="has-text-centered">
-                <p className="is-size-3 has-text-weight-bold">Sản phẩm mới</p>
+                <h1 className="is-size-3 has-text-weight-bold">Sản phẩm mới</h1>
                 {/* <p className="">Treat yourself to smooth, hydrated, happy skin</p> */}
             </div>
 

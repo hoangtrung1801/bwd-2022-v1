@@ -75,7 +75,7 @@ const Login = () => {
                                         </button> */}
                                     </div>
                                     <div>
-                                        <a href="#" className="is-underlined">
+                                        <a href="#" className="is-italic has-text-grey">
                                             Bạn quên mật khẩu ?
                                         </a>
                                     </div>

@@ -48,7 +48,7 @@ const ProductView = () => {
                                 ))}
                         </div>
                     </div>
-                    <p className="is-size-4 has-text-weight-bold">$99.99</p>
+                    <h1 className="is-size-4 has-text-weight-bold">$99.99</h1>
                     <p style={{fontSize: '0.9rem'}}>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Tempore mollitia ea est similique assumenda aliquam

@@ -50,7 +50,7 @@ const Header = () => {
                                         <Link
                                             to={category.href}
                                             key={id}
-                                            className={`is-uppercase has-text-weight-semibold is-flex is-justify-content-center is-align-items-center ${
+                                            className={`is-uppercase has-text-weight-bold is-flex is-justify-content-center is-align-items-center font-heading ${
                                                 location.pathname ===
                                                 category.href
                                                     ? "header-menu-active"
@@ -106,7 +106,7 @@ const Header = () => {
                             {token ? (
                                 <div className="full-height is-flex is-justify-content-center is-align-items-center is-relative">
                                     <p
-                                        className="header-username has-text-weight-semibold is-clickable"
+                                        className="header-username font-heading has-text-weight-semibold is-clickable"
                                     >
                                         username
                                     </p>
@@ -176,7 +176,7 @@ const Header = () => {
                                             token ? (
                                                 <div className='full-width is-flex is-align-items-center is-justify-content-space-between has-text-white'>
                                                     <div className='is-flex is-align-items-center'>
-                                                        <p className='has-text-weight-semibold mr-4'>username</p>
+                                                        <p className='has-text-weight-semibold mr-4 font-heading'>username</p>
                                                         <SignOut className='is-size-5 is-clickable' weight='bold' onClick={() => handleLogout()}/>
                                                     </div>
 

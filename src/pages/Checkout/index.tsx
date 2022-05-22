@@ -15,9 +15,9 @@ const Checkout: React.FC<CheckoutProps> = () => {
                     <div className="column is-8 ">
                         <div className="checkout-form px-6 py-5">
                             <div className="block">
-                                <p className="is-size-3 has-text-weight-bold is-uppercase">
+                                <h1 className="is-size-3 has-text-weight-bold is-uppercase">
                                     Thanh toán
-                                </p>
+                                </h1>
                             </div>
                             <div>
                                 <form action="">
@@ -139,9 +139,9 @@ const Checkout: React.FC<CheckoutProps> = () => {
                     <div className="column is-4">
                         <div className="checkout-cart has-shadow px-4 py-5">
                             <div className="block">
-                                <p className="is-size-5 has-text-weight-semibold is-uppercase">
+                                <h2 className="is-size-5 has-text-weight-bold is-uppercase">
                                     Sản phẩm
-                                </p>
+                                </h2>
                                 <p className="is-size-7 is-italic has-text-grey has-text-weight-light">
                                     ({products.length} items)
                                 </p>

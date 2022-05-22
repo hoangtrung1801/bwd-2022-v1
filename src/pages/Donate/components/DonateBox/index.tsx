@@ -14,10 +14,10 @@ const DonateBox: React.FC<DonateBoxProps> = ({showDonateForm}) => {
         <div className="donate-box-wrapper" onClick={() => console.log('click')}>
             <div className="donate-box full-height is-flex is-flex-direction-column is-align-items-center is-justify-content-center mx-auto">
                 <div className="donate-box-title block has-text-centered mb-6">
-                    <p className="is-size-5 is-uppercase has-text-weight-semibold">
+                    <p className="is-size-5 is-uppercase has-text-weight-semibold font-heading">
                         Quyên góp
                     </p>
-                    <p className="is-size-2 is-uppercase has-text-weight-bold">
+                    <p className="is-size-2 is-uppercase has-text-weight-bold font-heading">
                        Vì một môi trường xanh sạch đẹp
                     </p>
                     <p className="has-text-grey">

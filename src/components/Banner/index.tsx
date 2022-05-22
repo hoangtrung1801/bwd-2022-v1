@@ -59,7 +59,7 @@ const Banner: React.FC<BannerProps> = ({sections, showContent=true}) => {
                                 {
                                     showContent && (
                                         <div className="banner-content">
-                                            <p className='is-size-1 has-text-weight-bold'>{item.title}</p>
+                                            <h1 className='is-size-1 has-text-weight-bold'>{item.title}</h1>
                                             <p className="mt-4">{item.body}</p>
 
                                             <div className="mt-6">

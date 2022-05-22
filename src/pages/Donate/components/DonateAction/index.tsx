@@ -27,9 +27,9 @@ const DonateAction: React.FC<DonateActionProps> = ({ isLeft = false }) => {
                     className={`donate-action-content ${ isLeft && "donate-action-content-left"} ${isMobileTablet && 'donate-action-content-mobile'}`}
                 >
                     <div className="block">
-                        <p className="is-size-2 has-text-weight-bold">
+                        <h2 className="is-size-2 has-text-weight-bold">
                             {donateActionSection.title}
-                        </p>
+                        </h2>
                     </div>
                     <div className="block">
                         <p className="">{donateActionSection.content}</p>

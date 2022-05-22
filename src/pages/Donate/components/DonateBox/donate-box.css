@@ -27,11 +27,11 @@
 }
 
 .donate-box-title p:first-child::before {
-    left: calc(50% - 6rem);
+    left: calc(50% - 6.5rem);
 }
 
 .donate-box-title p:first-child::after {
-    right: calc(50% - 6rem);
+    right: calc(50% - 6.5rem);
 }
 
 .donate-box-amount button {
