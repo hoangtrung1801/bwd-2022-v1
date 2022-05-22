@@ -38,7 +38,7 @@ body {
   position: relative;
 
   /* font-family: 'Poppins', sans-serif; */
-  font-family: 'Roboto', 'Montserrat', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Inter', 'Roboto', 'Montserrat', sans-serif;
 }
 
 a {
@@ -51,7 +51,7 @@ img {
 }
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Inter', 'Montserrat', sans-serif;
 }
 
 .background-dark {
@@ -118,11 +118,11 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .font-heading {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Plus Jakarta Sans', 'Inter', 'Montserrat', sans-serif !important;
 }
 
 .font-body {
-  font-family: 'Roboto', 'Montserrat', sans-serif !important;
+  font-family: 'Plus Jakarta Sans', 'Inter', 'Roboto', 'Montserrat', sans-serif !important;
 }
 
 /* Color button */
@@ -196,7 +196,7 @@ h1,h2,h3,h4,h5,h6 {
   align-items: center;
   border-radius: 50%;
   padding: 6px;
-  font-size: 3rem;
+  font-size: 2rem;
   cursor: pointer;
 
   position: absolute;

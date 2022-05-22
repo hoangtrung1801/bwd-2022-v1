@@ -1,16 +1,18 @@
 .product-card {
-    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    border: 1px solid #eee;
-    border-radius: 1.25rem;
-    overflow: hidden;
-    padding-bottom: 1.25rem; */
-
     transition: all 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-    /* border: 1px solid var(--dark); */
     border-radius: 6px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     background-color: #fff;
+    overflow: hidden;
+}
+
+.product-card img {
+    transition: all 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
 }
 
 .product-card a:hover {

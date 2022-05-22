@@ -92,7 +92,7 @@ export const routes: Category[] = [
         href: '/donate'
     },
     {
-        name: 'about me',
+        name: 'About me',
         href: '/about-me'
     }
 ]

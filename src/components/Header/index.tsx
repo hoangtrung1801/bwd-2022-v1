@@ -50,7 +50,7 @@ const Header = () => {
                                         <Link
                                             to={category.href}
                                             key={id}
-                                            className={`is-uppercase has-text-weight-bold is-flex is-justify-content-center is-align-items-center font-heading ${
+                                            className={`is-size-6 has-text-weight-bold is-flex is-justify-content-center is-align-items-center font-heading ${
                                                 location.pathname ===
                                                 category.href
                                                     ? "header-menu-active"

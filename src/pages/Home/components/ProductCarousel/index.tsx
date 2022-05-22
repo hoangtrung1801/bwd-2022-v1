@@ -1,6 +1,5 @@
 // @ts-ignore
 import Slider from "react-slick";
-import { CaretRight } from "phosphor-react";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import NextArrowCarousel from "../../../../components/NextArrowCarousel";
@@ -25,7 +24,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({products}) => {
         prevArrow: <PrevArrowCarousel />,
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 1204,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 1,
@@ -52,16 +51,16 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({products}) => {
     };
 
     return (
-        <div className="px-5 py-4 product-carousel-wrapper">
+        <div className="px-5 product-carousel-wrapper">
             <div className="has-text-centered">
-                <h1 className="is-size-3 has-text-weight-bold">Sản phẩm mới</h1>
-                {/* <p className="">Treat yourself to smooth, hydrated, happy skin</p> */}
+                <h1 className="is-size-3 is-uppercase has-text-weight-bold">Sản phẩm mới</h1>
+                <hr />
             </div>
 
             <div className="px-6 py-2 is-relative product-carousel">
                 <Slider {...settings}>
                     {products.map((product, id) => (
-                        <div className="px-1 py-4">
+                        <div className="px-1 py-4" key={id}>
                             <ProductCard product={product} />
                         </div>
                     ))}

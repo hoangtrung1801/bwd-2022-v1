@@ -1,7 +1,14 @@
 .product-carousel-wrapper {
     /* background-color: var(--green-0); */
     background-color: #fff;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
+
+.product-carousel-wrapper hr {
+    background-color: hsl(0deg 0% 90%);
+}
+
 .product-carousel .item {
     padding: 0 1px;
 }
@@ -15,4 +22,19 @@
     line-height: 1;
     width: 76%;
     font-size: 0.8rem;
+}
+
+.product-carousel .slick-list {
+    overflow: initial;
+}
+
+.carousel-next, .carousel-prev {
+    background-color: #fff;
+    color: var(--dark);
+    box-shadow: rgb(0 0 0 / 25%) 0px 0px 24px 0px;
+    transition: all 0.25s ease;
+}
+
+.carousel-next:hover, .carousel-prev:hover {
+    border: 1px solid rgb(116, 121, 124);
 }

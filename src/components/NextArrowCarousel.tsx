@@ -7,7 +7,7 @@ interface NextArrowCarouselProps {
 const NextArrowCarousel : React.FC<NextArrowCarouselProps>  = ({ onClick }) => {
     return (
         <div className="carousel-next" onClick={onClick}>
-            <CaretRight weight='bold' color='var(--green-6)'/>
+            <CaretRight />
         </div>
     );
 };
