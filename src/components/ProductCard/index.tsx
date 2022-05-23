@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ShoppingCart } from "phosphor-react";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { useAppDispatch } from "../../app/hooks";
 import { addToCart } from "../../app/slices/cartSlice";
@@ -19,6 +20,24 @@ const ProductCard: React.FC<ProductCardProps> = ({product, tag}) => {
     const [showAnoImg, setShowAnoImg] = useState(false);
     const [images, setImages] = useState<string[]>([]);
     const dispatch = useAppDispatch();
+
+    const handleAdd = () => {
+        const fakeFetch = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                dispatch(addToCart(product));
+                resolve(0);
+            }, 2000)
+        })
+
+        toast.promise(
+            fakeFetch,
+            {
+                loading: <b>Loading...</b>,
+                success: <b>Added to cart</b>,
+                error: <b>Error</b>,
+            }
+        )
+    }
 
     useEffect(() => {
         const getImages = async () => {
@@ -77,7 +96,7 @@ const ProductCard: React.FC<ProductCardProps> = ({product, tag}) => {
                         </div>
                         <ShoppingCart
                             className="product-card-add is-size-4 is-clickable"
-                            onClick={() => dispatch(addToCart(product))}
+                            onClick={handleAdd}
                         />
                     </div>
                 </div>
