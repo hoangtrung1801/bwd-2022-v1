@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Button1 from '../../../../components/Button/Button1';
 import Button2 from '../../../../components/Button/Button2';
 import Button3 from '../../../../components/Button/Button3';
+import ProductCard from '../../../../components/ProductCard';
 import imageToUrl from '../../../../utils/functions/imageToUrl';
 import { Product } from '../../../../utils/types/Product';
 import './common-category.css';
@@ -15,9 +16,9 @@ const CommonCategory: React.FC<CommonCategoryProps> = ({products}) => {
     return (
         <div className="common-category">
             <div className="has-text-centered p-6">
-                <div>
+                <div style={{letterSpacing: '1px'}}>
                     <p className="is-size-4 has-text-weight-bold">
-                        Sản phẩm phố biến
+                        Sản phẩm phổ biến
                     </p>
                     <p className="is-size-7">
                         Một dòng gì đó nên được ghi ở đây
@@ -28,7 +29,9 @@ const CommonCategory: React.FC<CommonCategoryProps> = ({products}) => {
                         products
                         .map((item, id) => {
                             return (
-                                <CommonCategoryItem key={id} product={item}/>
+                                <div className='column is-3-desktop is-6-tablet is-12-mobile'>
+                                    <ProductCard key={id} product={item} />
+                                </div>
                              );
                         })}
                 </div>

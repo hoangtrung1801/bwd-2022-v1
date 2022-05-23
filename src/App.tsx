@@ -18,11 +18,15 @@ function App() {
     const location = useLocation();
 
     useEffect(() => {
-            document.body.style.height = '100vh';
-            document.body.style.overflow = 'hidden';
+        document.body.style.height = '100vh';
+        document.body.style.overflow = 'hidden';
 
         if (loading) setTimeout(() => setLoading(false), 3000);
     }, []);
+
+    useEffect(() => {
+        window.scrollTo({top : 0});
+    }, [location.pathname]);
 
     return (
         <>

@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import Button3 from '../../../../components/Button/Button3';
+import ProductCard from '../../../../components/ProductCard';
+import TagHot from '../../../../components/Tag/TagHot';
 import imageToUrl from '../../../../utils/functions/imageToUrl';
 import { Product } from '../../../../utils/types/Product';
 import './featured-product.css';
@@ -12,12 +14,21 @@ const FeaturedProduct: React.FC<FeaturedProductProps> = ({products}) => {
 
     return (
         <div className="featured-product">
-            <div className="columns">
+            <div className='has-text-centered has-text-white mb-4' style={{letterSpacing: '1px'}}>
+                <p className="is-size-4 has-text-weight-bold">
+                    Sản phẩm nổi bật
+                </p>
+                <p className="is-size-7">
+                    Một dòng gì đó nên được ghi ở đây
+                </p>
+            </div>
+            <div className="columns is-justify-content-center is-align-items-center">
                 {
                     products
                     .map((item, id) => (
-                        <div className='column is-half px-2' key={id}>
-                            <FeaturedProductItem product={item} />
+                        <div className='column is-half-desktop px-2' style={{maxWidth: '380px'}} key={id}>
+                            {/* <FeaturedProductItem product={item} /> */}
+                            <ProductCard product={item} tag={<TagHot />}/>
                         </div>
                     ))}
             </div>

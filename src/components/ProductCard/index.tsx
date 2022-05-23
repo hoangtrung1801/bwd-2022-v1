@@ -10,10 +10,11 @@ import { Product } from "../../utils/types/Product";
 import './product-card.css';
 
 interface ProductCardProps {
-    product: Product
+    product: Product,
+    tag?: React.ReactNode
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({product}) => {
+const ProductCard: React.FC<ProductCardProps> = ({product, tag}) => {
 
     const [showAnoImg, setShowAnoImg] = useState(false);
     const [images, setImages] = useState<string[]>([]);
@@ -29,11 +30,14 @@ const ProductCard: React.FC<ProductCardProps> = ({product}) => {
 
     return (
         <motion.div
-            className="product-card full-width full-height is-flex is-flex-direction-column is-clickable"
+            className="product-card full-width full-height is-flex is-flex-direction-column is-clickable is-relative"
             // whileHover={{ y: "-10px" }}
             // onMouseOver={() => setShowAnoImg(true)}
             // onMouseLeave={() => setShowAnoImg(false)}
         >
+            <div className="product-card-tag">
+                {tag}
+            </div>
             <Link to="/product">
                 <motion.figure
                     className="image is-1by1 block has-cursor-pointer"
@@ -65,7 +69,7 @@ const ProductCard: React.FC<ProductCardProps> = ({product}) => {
                         {product.categories[0]}
                     </p>
 
-                    <div className="is-flex is-justify-content-space-between is-align-items-center mb-2 mt-3">
+                    <div className="is-flex is-justify-content-space-between is-align-items-center mb-2 mt-3 px-1">
                         <div className="is-flex is-align-items-center">
                             <h6 className="is-size-5 has-text-weight-semibold ">
                                 {product.price} {currency.vn}

@@ -19,6 +19,8 @@
 .header a {
     color: var(--text);
     transition: all ease 0.4s;
+
+    letter-spacing: 0.5px;
 }
 
 .header a:hover {

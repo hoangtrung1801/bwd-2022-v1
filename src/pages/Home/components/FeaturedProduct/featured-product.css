@@ -1,6 +1,14 @@
 .featured-product {
-    background-color: var(--green-1);
-    padding: 4rem 0;
+    /* background-color: var(--green-1); */
+    padding: 2rem 0 3rem;
+
+    /* background: #56ab2f;
+    background: -webkit-linear-gradient(to right, #a8e063, #56ab2f);
+    background: linear-gradient(to right, #a8e063, #56ab2f);  */
+
+    background: url('/assets/donate-1.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .featured-product > div {
