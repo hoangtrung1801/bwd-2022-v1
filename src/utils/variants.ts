@@ -7,7 +7,7 @@ export const screenLoadingVariants: Variants = {
     exit: {
         y: '-100%',
         transition: {
-            duration: 1.5
+            duration: 1
         }
     }
 }

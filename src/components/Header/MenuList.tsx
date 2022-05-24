@@ -10,8 +10,8 @@ const MenuList : React.FC<MenuListProps> = ({content, menuListHovered}) => {
     const [hover, setHover] = useState(menuListHovered);
 
     return (
-        <div className={ `menu-list is-block has-shadow ${menuListHovered || hover ? 'menu-list-show' : ''}` } onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-            <div className="is-flex is-flex-wrap-wrap py-4">
+        <div className={ `menu-list is-block has-shadow ${menuListHovered || hover ? 'menu-list-show' : ''}` } >
+            <div className="is-flex is-flex-wrap-wrap py-4" onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)}>
                 {
                     content?.map((category, id ) => (
                         <div className="menu-list-item  px-4" key={id}>

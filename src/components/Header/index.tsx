@@ -46,7 +46,7 @@ const Header = () => {
                         <div className="header-menu full-height is-flex is-relative">
                             {routes.map((category, id) => (
                                 <>
-                                    <div className="is-flex is-align-items-center is-relative">
+                                    <div className="is-flex is-align-items-center">
                                         <Link
                                             to={category.href}
                                             key={id}
@@ -59,9 +59,11 @@ const Header = () => {
                                             onMouseOver={() =>
                                                 setMenuListHovered(id)
                                             }
-                                            onMouseLeave={() =>
-                                                setMenuListHovered(-1)
-                                            }
+                                            onMouseLeave={() => {
+                                                setTimeout(() => {
+                                                    setMenuListHovered(-1);
+                                                }, 300)
+                                            }}
                                         >
                                             <span>{category.name}</span>
                                             {category.subcategories ? (
