@@ -25,15 +25,16 @@
 }
 
 .checkout-button {
-    background-color: #E86F4A;
+    /* background-color: #E86F4A; */
+    width: 100%;
 }
 
 .checkout-button:hover {
-    background-color: #E35226;
+    background-color: #E35226 !important;
 }
 
 .checkout-button:focus {
-    border: #E35226;
+    border: #E35226 !important;
 }
 
 .checkout-cart {

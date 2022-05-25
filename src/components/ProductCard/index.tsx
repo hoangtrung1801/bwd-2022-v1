@@ -27,7 +27,7 @@ const ProductCard: React.FC<ProductCardProps> = ({product, tag}) => {
             setTimeout(() => {
                 dispatch(addToCart(product));
                 resolve(0);
-            }, 2000)
+            }, 800)
         })
 
         toast.promise(

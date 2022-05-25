@@ -36,7 +36,7 @@ const Home = () => {
 
     return (
         <Layout>
-            <Banner sections={bannerSection} showContent={false} />
+            <Banner sections={bannerSection} />
             <ProductCarousel products={newArrivals} />
             <FeaturedProduct products={featuredProduct} />
             <CommonCategory products={commonCategory} />

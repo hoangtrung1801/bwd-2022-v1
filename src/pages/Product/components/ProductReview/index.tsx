@@ -23,7 +23,7 @@ const ProductReivews = () => {
                                         <div className="mb-1">
                                             <p><strong>John Smith</strong>   <small>12/11/2022</small></p>
                                             <div>
-                                                {Array(5).fill(0).map((_, id) => (<Star key={id}/>))}
+                                                {Array(5).fill(0).map((_, id) => (<Star key={id} weight='fill' color='#ffd700'/>))}
                                             </div>
                                         </div>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>

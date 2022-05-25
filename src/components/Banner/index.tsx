@@ -26,11 +26,11 @@ interface BannerProps {
         image: string,
         title?: string,
         body?: string,
+        button?: string,
     }[]
-    showContent ?: boolean
 }
 
-const Banner: React.FC<BannerProps> = ({sections, showContent=true}) => {
+const Banner: React.FC<BannerProps> = ({sections}) => {
 
     const settings = {
         infinite: true,
@@ -56,18 +56,29 @@ const Banner: React.FC<BannerProps> = ({sections, showContent=true}) => {
                                         alt=""
                                     />
                                 </div>
+                                <div className="banner-content">
+                                    <div className="my-auto">
+                                        <h1 className='is-size-1 has-text-weight-bold' style={{minHeight: '100px'}}>{item.title}</h1>
+                                        <p className="mt-4" style={{minHeight: '100px'}}>{item.body}</p>
+                                        { item.button && (
+                                                <div className="mt-6">
+                                                    <Button4>{item.button}</Button4>
+                                                </div>
+                                        )}
+                                    </div>
+                                </div>
                                 {
-                                    showContent && (
-                                        <div className="banner-content">
-                                            <h1 className='is-size-1 has-text-weight-bold'>{item.title}</h1>
-                                            <p className="mt-4">{item.body}</p>
+                                    // showContent && (
+                                    //     <div className="banner-content">
+                                    //         <h1 className='is-size-1 has-text-weight-bold'>{item.title}</h1>
+                                    //         <p className="mt-4">{item.body}</p>
 
-                                            <div className="mt-6">
-                                                <Button4>{DONATENOW}</Button4>
-                                            </div>
-                                            {/* <Button3>Donate</Button3> */}
-                                        </div>
-                                    )
+                                    //         <div className="mt-6">
+                                    //             <Button4>{DONATENOW}</Button4>
+                                    //         </div>
+                                    //         {/* <Button3>Donate</Button3> */}
+                                    //     </div>
+                                    // )
                                 }
                             </div>
                         ))}

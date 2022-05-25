@@ -4,13 +4,20 @@ export const DONATENOW = "Quyên góp ngay";
 export const DONATE = "Quyên góp";
 
 export const bannerSection = [
-    {
-        image: '/assets/banner-1.jpg',
-        title: 'We can change the world together',
-        body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed unde doloremque ipsum iure sapiente voluptatem'
-    },
+    // {
+    //     image: '/assets/banner-1.jpg',
+    //     title: 'We can change the world together',
+    //     body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed unde doloremque ipsum iure sapiente voluptatem'
+    // },
     {
         image: '/assets/banner-2.jpeg',
+        title: '"Thay đổi thế giới"',
+        button: 'Tìm hiểu thêm'
+    },
+    {
+        image: '/assets/banner-3.jpeg',
+        title: '"Tái sử dụng, vì tiềm năng của rác là vô hạn"',
+        button: "Tìm hiểu thêm"
     }
 ]
 
@@ -18,12 +25,14 @@ export const donateSection = [
     {
         image: '/assets/donate-3.webp',
         title: 'Bảo vệ môi trường',
-        body: 'Cùng nhau chung tay bảo vệ môi trường vì tương lai của thế giới, hãy giữ lấy màu xanh và làm sạch môi trường'
+        body: 'Cùng nhau chung tay bảo vệ môi trường vì tương lai của thế giới, hãy giữ lấy màu xanh và làm sạch môi trường',
+        button: "QUYÊN GÓP NGAY"
     },
     {
         image: '/assets/donate-1.jpg',
         title: 'We can change the world together',
-        body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed unde doloremque ipsum iure sapiente voluptatem'
+        body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed unde doloremque ipsum iure sapiente voluptatem',
+        button: "QUYÊN GÓP NGAY"
     }
 ]
 

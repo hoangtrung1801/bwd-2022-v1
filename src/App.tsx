@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import ScreenLoading from "./components/ScreenLoading";
+import AboutMe from "./pages/AboutMe";
 import Admin from "./pages/Admin";
 import Category from "./pages/Category";
 import Checkout from "./pages/Checkout";
@@ -49,6 +50,7 @@ function App() {
                     <Route path="admin" element={<Admin />} />
                     <Route path="checkout" element={<Checkout />} />
                     <Route path="donate" element={<Donate />} />
+                    <Route path='about-me' element={<AboutMe />} />
                     <Route path="*" element={<h1>Error 404</h1>} />
                 </Route>
             </Routes>

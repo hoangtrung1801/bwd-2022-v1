@@ -2,6 +2,10 @@
     margin-bottom: 0.5rem;
 }
 
+.product-view-content .button4 {
+    width: 100%;
+}
+
 .product-view-variants-item > p{
     min-width: 80px;
 }

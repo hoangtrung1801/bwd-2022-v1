@@ -6,6 +6,8 @@ import { currency } from "../../utils/constant";
 import numberWithCommas from "../../utils/functions/numberWithCommas";
 import Button1 from "../Button/Button1";
 import Button3 from "../Button/Button3";
+import Button4 from "../Button/Button4";
+import Button5 from "../Button/Button5";
 
 interface NavCartProps {
     isCartShow: boolean
@@ -72,7 +74,6 @@ const NavCart : React.FC<NavCartProps> = ({isCartShow}) => {
                 <hr />
 
                 <div className="nav-cart-checkout has-text-centered">
-                    {/* <Button1>checkout</Button1> */}
                     <Link to='/checkout'>
                         <Button3>Thanh toán</Button3>
                     </Link>

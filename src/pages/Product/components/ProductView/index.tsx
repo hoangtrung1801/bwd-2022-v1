@@ -1,13 +1,16 @@
 import { Star } from "phosphor-react";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { useAppDispatch } from "../../../../app/hooks";
+import { addToCart } from "../../../../app/slices/cartSlice";
 import AmountContainer from "../../../../components/AmountContainer";
-import Button3 from "../../../../components/Button/Button3";
+import Button2 from "../../../../components/Button/Button2";
 import Button4 from "../../../../components/Button/Button4";
-import OptionContainer from "../../../../components/OptionContainer";
+import Button5 from "../../../../components/Button/Button5";
 import { currency } from "../../../../utils/constant";
 import imageToUrl from "../../../../utils/functions/imageToUrl";
 import numberWithCommas from "../../../../utils/functions/numberWithCommas";
-import { Product as ProductType  } from "../../../../utils/types/Product";
+import { Product as ProductType } from "../../../../utils/types/Product";
 import './product-view.css';
 
 const imgSrc = Array(4).fill(0).map((_, id) => `https://picsum.photos/id/${Math.ceil( Math.random() * 100 + 10)}/1000`);
@@ -19,6 +22,26 @@ interface ProductViewProps {
 const ProductView: React.FC<ProductViewProps> = ({product}) => {
     const [imgId, setImgId] = useState(0);
     const [images, setImages] = useState<string[]>([]);
+    const dispatch = useAppDispatch();
+
+    const handleAdd = () => {
+        const fakeFetch = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                dispatch(addToCart(product));
+                resolve(0);
+            }, 800)
+        })
+
+        toast.promise(
+            fakeFetch,
+            {
+                loading: <b>Loading...</b>,
+                success: <b>Added to cart</b>,
+                error: <b>Error</b>,
+            }
+        )
+    }
+
 
     useEffect(() => {
         const getImages = async() => {
@@ -62,7 +85,7 @@ const ProductView: React.FC<ProductViewProps> = ({product}) => {
                             {Array(5)
                                 .fill(0)
                                 .map((_, id) => (
-                                    <Star className="mr-1" fill="yellow" key={id}/>
+                                    <Star className="mr-1" weight="fill" color='#ffd700'  key={id}/>
                                 ))}
                         </div>
                     </div>
@@ -82,7 +105,8 @@ const ProductView: React.FC<ProductViewProps> = ({product}) => {
                         </div>
                     </div>
                     <div>
-                        <Button3>Thêm vào giỏ</Button3>
+                        {/* <Button4 onClick={handleAdd}>Thêm vào giỏ</Button4> */}
+                        <Button5 onClick={handleAdd}>Thêm vào giỏ</Button5>
                     </div>
                 </div>
             </div>

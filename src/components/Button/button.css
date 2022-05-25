@@ -65,3 +65,21 @@
     background-color: var(--green-8) !important;
     color: #fff;
 }
+
+.button5 {
+    width: 100%;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
+    background-color: var(--green-4);
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+
+    transition: all 0.3s ease;
+}
+
+.button5:hover {
+    background-color: var(--green-6);
+    color: #fff;
+}
