@@ -5,7 +5,7 @@ const ProductReivews = () => {
     return (
         <div className="block">
             <div>
-                <p className="is-size-3 has-text-weight-bold is-uppercase">Reviews</p>
+                <p className="is-size-3 has-text-weight-bold is-uppercase">Đánh giá</p>
                 <hr />
             </div>
             <div>

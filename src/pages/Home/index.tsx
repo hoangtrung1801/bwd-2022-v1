@@ -15,17 +15,15 @@ const Home = () => {
 
     useEffect(() => {
         const getNewArrivals = (products: Product[]) => {
-            return products.filter((product) => {
-                return product.categories.indexOf("straw") >= 0;
-            });
+            return products.filter(product => product.categories.includes('straw'));
         };
 
         const getFeaturedProduct = (products: Product[]) => {
-            return products.slice(0, 2);
+            return products.filter(product => product.categories.includes("hot")).slice(0, 2);
         };
 
         const getCommonCategory = (products: Product[]) => {
-            return products.slice(0, 6);
+            return products.filter(product => product.categories.includes("common"));
         };
 
         getAllProducts().then((data) => {

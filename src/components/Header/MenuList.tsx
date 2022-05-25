@@ -14,7 +14,7 @@ const MenuList : React.FC<MenuListProps> = ({content, menuListHovered}) => {
             <div className="is-flex is-flex-wrap-wrap py-4" onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)}>
                 {
                     content?.map((category, id ) => (
-                        <div className="menu-list-item  px-4" key={id}>
+                        <div className="menu-list-item" key={id}>
                             <a href={category.href} className='is-capitalized has-text-grey'>{category.name}</a>
                         </div>
                     ))

@@ -7,8 +7,8 @@
     z-index: 999;
 
     /* background-color: var(--green-0); */
-/* background: #A1FFCE;
-background: -webkit-linear-gradient(to right, #FAFFD1, #A1FFCE);
+/* background: #a1ffce;
+background: -webkit-linear-gradient(to right, #faffd1, #a1ffce);
 background: linear-gradient(to right, #FAFFD1, #A1FFCE); */
 
 background: var(--green-2);

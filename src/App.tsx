@@ -43,10 +43,13 @@ function App() {
                     <Route index element={<Home />} />
                     <Route path="login" element={<Login />} />
                     <Route path="category" element={<Category />} />
-                    <Route path="product" element={<Product />} />
+                    <Route path="product">
+                        <Route path=':id' element={<Product />} />
+                    </Route>
                     <Route path="admin" element={<Admin />} />
                     <Route path="checkout" element={<Checkout />} />
                     <Route path="donate" element={<Donate />} />
+                    <Route path="*" element={<h1>Error 404</h1>} />
                 </Route>
             </Routes>
         </AnimatePresence>

@@ -5,8 +5,9 @@ import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { useAppDispatch } from "../../app/hooks";
 import { addToCart } from "../../app/slices/cartSlice";
-import { currency } from "../../utils/constant";
+import { categories, currency } from "../../utils/constant";
 import imageToUrl from "../../utils/functions/imageToUrl";
+import numberWithCommas from "../../utils/functions/numberWithCommas";
 import { Product } from "../../utils/types/Product";
 import './product-card.css';
 
@@ -57,7 +58,7 @@ const ProductCard: React.FC<ProductCardProps> = ({product, tag}) => {
             <div className="product-card-tag">
                 {tag}
             </div>
-            <Link to="/product">
+            <Link to={ `/product/${product.id}` }>
                 <motion.figure
                     className="image is-1by1 block has-cursor-pointer"
                     style={{ overflow: "hidden" }}
@@ -74,7 +75,7 @@ const ProductCard: React.FC<ProductCardProps> = ({product, tag}) => {
             <div className="mt-2 p-4 is-flex is-flex-direction-column is-justify-content-space-between is-flex-grow-1">
                 <div className="has-text-centered">
                     <Link
-                        to="/product"
+                        to={ `/product/${product.id}` }
                         className="product-card-title is-size-5 has-text-weight-bold font-heading"
                     >
                         {product.name}
@@ -82,16 +83,16 @@ const ProductCard: React.FC<ProductCardProps> = ({product, tag}) => {
                 </div>
                 <div>
                     <p
-                        className="has-text-grey is-capitalized mt-1 has-text-centered"
+                        className="has-text-grey is-uppercase mt-1 has-text-centered"
                         style={{ fontSize: "0.8rem" }}
                     >
-                        {product.categories[0]}
+                        {categories.find(category => category.value == product.categories[0])?.label}
                     </p>
 
                     <div className="is-flex is-justify-content-space-between is-align-items-center mb-2 mt-3 px-1">
                         <div className="is-flex is-align-items-center">
                             <h6 className="is-size-5 has-text-weight-semibold ">
-                                {product.price} {currency.vn}
+                                {numberWithCommas(product.price)} {currency.vn}
                             </h6>
                         </div>
                         <ShoppingCart

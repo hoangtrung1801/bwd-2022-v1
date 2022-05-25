@@ -1,4 +1,4 @@
-import { addDoc, getDocs } from "firebase/firestore";
+import { addDoc, deleteDoc, getDocs } from "firebase/firestore";
 import { ref, uploadBytes } from "firebase/storage";
 import { useEffect, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
@@ -8,6 +8,7 @@ import removeVietnameseTones from "../../utils/functions/removeVietnameseTones";
 import { Product } from "../../utils/types/Product";
 import Select from 'react-select';
 import { categories } from "../../utils/constant";
+import getAllProducts from "../../utils/functions/getAllProducts";
 
 const Admin = () => {
 
@@ -57,24 +58,28 @@ const Admin = () => {
     }
 
     useEffect(() => {
-        const fetchData = async() => {
-            const result = await getDocs(collectionProdutcs);
-            const productsArray: Product[] = [];
-            result.forEach(_ => {
-                const data = _.data();
-                const product: Product = {
-                    name: data.name,
-                    description: data.description,
-                    price: typeof data.price === 'string' ? Number.parseFloat(data.price) : data.price ,
-                    categories: [data.categories],
-                    images: [...data.images]
-                }
-                productsArray.push(product);
-            })
-            setProducts(productsArray);
-            console.log(productsArray);
-        }
-        fetchData().catch(e => console.log(e));
+        getAllProducts().then(products => {
+            setProducts(products);
+        })
+        // const fetchData = async() => {
+        //     const result = await getDocs(collectionProdutcs);
+        //     const productsArray: Product[] = [];
+        //     result.forEach(_ => {
+        //         const data = _.data();
+        //         const product: Product = {
+        //             name: data.name,
+        //             description: data.description,
+        //             price: typeof data.price === 'string' ? Number.parseFloat(data.price) : data.price ,
+        //             categories: [data.categories],
+        //             images: [...data.images]
+        //         }
+        //         productsArray.push(product);
+        //     })
+        //     setProducts(productsArray);
+        //     console.log('products ', productsArray);
+        // }
+        // fetchData().catch(e => console.log(e));
+
     },[])
 
     return (

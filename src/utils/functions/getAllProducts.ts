@@ -8,7 +8,7 @@ const getAllProducts = async () : Promise<Product[]>  => {
     querySnapshot.forEach((doc) => {
         products.push({...doc.data(), id: doc.id} as Product);
     })
-    console.log(products);
+    console.log('get all products', products);
     return products;
 }
 

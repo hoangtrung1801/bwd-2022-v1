@@ -9,3 +9,9 @@
 .product-view-images > div:hover, .product-view-images-show  {
     border: 5px solid var(--green-4);
 }
+
+.product-view-content-description {
+    min-height: 6rem;
+    /* height: 6rem;
+    max-height: 6rem; */
+}

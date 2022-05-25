@@ -5,10 +5,9 @@ import { screenLoadingVariants } from "../../utils/variants";
 import "./screen-loading.css";
 
 interface ScreenLoadingProps {
-    loading?: boolean;
 }
 
-const ScreenLoading: React.FC<ScreenLoadingProps> = ({ loading }) => {
+const ScreenLoading: React.FC<ScreenLoadingProps> = () => {
     return (
         <motion.div
             className="screen-loading is-flex is-justify-content-center is-align-items-center"

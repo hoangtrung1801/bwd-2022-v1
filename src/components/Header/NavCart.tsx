@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { addToCart, removeFromCart, removeProductFromCart } from "../../app/slices/cartSlice";
 import { currency } from "../../utils/constant";
+import numberWithCommas from "../../utils/functions/numberWithCommas";
 import Button1 from "../Button/Button1";
 import Button3 from "../Button/Button3";
 
@@ -14,10 +15,6 @@ const NavCart : React.FC<NavCartProps> = ({isCartShow}) => {
     const [hover, setHover] = useState(false);
     const products = useAppSelector(state => state.cart.items);
     const dispatch = useAppDispatch();
-
-    useEffect(() => {
-        console.log(products);
-    }, [products]);
 
     return (
         <div className="nav-cart-wrapper">
@@ -54,7 +51,7 @@ const NavCart : React.FC<NavCartProps> = ({isCartShow}) => {
                                         <span onClick={() => dispatch(addToCart(product.product))}>+</span>
                                     </div>
                                     <div className="item-price is-size-7">
-                                        <span>${product.product.price * product.amount}</span>
+                                        <span>{numberWithCommas(product.product.price * product.amount)}{currency.vn}</span>
                                     </div>
                                 </div>
                                 <div className="item-remove is-size-7">
@@ -69,7 +66,7 @@ const NavCart : React.FC<NavCartProps> = ({isCartShow}) => {
 
                 <div className="nav-cart-total">
                     <span>Tổng tiền hàng: </span>
-                    <span>{currency.vn}{products.reduce((prev, cur) => prev + cur.product.price * cur.amount, 0)}</span>
+                    <span>{numberWithCommas(products.reduce((prev, cur) => prev + cur.product.price * cur.amount, 0))}{currency.vn}</span>
                 </div>
 
                 <hr />

@@ -41,7 +41,9 @@ export const categories = [
     { value: 'bottle', label: 'Chai'},
     { value: 'cup', label: 'Ly'},
     { value: 'others', label: 'Khác'},
-    { value: "new", label: "Mới"}
+    { value: "new", label: "Mới"},
+    { value: "hot", label: "Nổi bật"},
+    { value: "common", label: "Phổ biến"}
 ]
 
 export const routes: Category[] = [

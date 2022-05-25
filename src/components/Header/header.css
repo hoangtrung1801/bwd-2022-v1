@@ -97,6 +97,8 @@
     top: 0;
     left: -100%;
     z-index: -1;
+
+    border-top: 3px solid var(--green-6);
 }
 
 .menu-list::before {

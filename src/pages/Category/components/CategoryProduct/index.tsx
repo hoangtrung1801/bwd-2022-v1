@@ -26,7 +26,7 @@ const CategoryProduct = () => {
             <div className="tile is-ancestor is-flex-wrap-wrap">
                 {
                     products.map((item, id) => (
-                        <div className={ `tile is-parent full-width ${isMobile ? 'is-12' : isTablet ? 'is-6' : 'is-4'}` }>
+                        <div className={ `tile is-parent full-width ${isMobile ? 'is-12' : isTablet ? 'is-6' : 'is-4'}` } key={id}>
                             <div className="tile is-child">
                                 <ProductCard product={item} />
                             </div>
