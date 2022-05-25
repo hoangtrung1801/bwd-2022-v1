@@ -21,7 +21,7 @@ const Header = () => {
     const {isDesktop} = useViewport();
 
     const [menuListHovered, setMenuListHovered] = useState(-1);
-    const [cartHovered, setCartHovered] = useState(false);
+    const [navCartOpen, setNavCartOpen] = useState(false);
     const [dropdownUser, setDropdownUser] = useState(false);
     const [dropdownMenuList, setDropdownMenuList] = useState(false);
     const [dropdownMenuListItemSelected, setDropdownMenuListItemSelected] = useState(-1);
@@ -30,6 +30,13 @@ const Header = () => {
         logout();
         window.location.reload();
     }
+
+    const openNavCart = () => {
+        console.log('open nav cart')
+        setNavCartOpen(true);
+    }
+
+    const closeNavCart = () => { setNavCartOpen(false); }
 
     return (
         <header>
@@ -86,24 +93,14 @@ const Header = () => {
                         </div>
 
                         <div className="header-tool is-flex is-align-items-center">
-                            {/* <Link to="#" className="is-size-4">
-                                <MagnifyingGlass />
-                            </Link> */}
                             <div>
-                                <Link
-                                    to="/checkout"
-                                    className="is-relative is-size-4"
-                                    onMouseOver={() => setCartHovered(true)}
-                                    onMouseLeave={() =>
-                                        setTimeout(
-                                            () => setCartHovered(false),
-                                            300
-                                        )
-                                    }
+                                <span
+                                    className="is-relative is-size-4 is-clickable"
+                                    onClick={openNavCart}
                                 >
                                     <Bag /> <CartAmount />
-                                </Link>
-                                <NavCart isCartShow={cartHovered} />
+                                </span>
+                                <NavCart isCartShow={navCartOpen} closeNavCart={closeNavCart}/>
                             </div>
                             {token ? (
                                 <div className="full-height is-flex is-justify-content-center is-align-items-center is-relative">
@@ -186,17 +183,16 @@ const Header = () => {
                                                         <Link
                                                             to="/checkout"
                                                             className="is-relative is-size-4 has-text-white"
-                                                            onMouseOver={() => setCartHovered(true)}
+                                                            onMouseOver={() => setNavCartOpen(true)}
                                                             onMouseLeave={() =>
                                                                 setTimeout(
-                                                                    () => setCartHovered(false),
+                                                                    () => setNavCartOpen(false),
                                                                     300
                                                                 )
                                                             }
                                                         >
                                                             <Bag /> <CartAmount />
                                                         </Link>
-                                                        <NavCart isCartShow={cartHovered} />
                                                     </div>
 
                                                 </div>

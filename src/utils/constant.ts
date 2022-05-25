@@ -103,7 +103,7 @@ export const routes: Category[] = [
         href: '/donate'
     },
     {
-        name: 'About me',
+        name: 'Về chúng tôi',
         href: '/about-me'
     }
 ]
@@ -184,3 +184,38 @@ export const donateActionSection = {
     title: 'Quyên góp',
     content: 'Số tiền của bạn có thế cứu lấy thế giới. Hãy cùng chúng tôi tiếp tục chung tay góp phần bảo vệ môi trường.'
 }
+
+export const members = [
+    {
+        name: "Lê Kim Hoàng Trung",
+        description: "description",
+        facebook: "https://www.facebook.com/trung181",
+        github: "https://github.com/hoangtrung1801 ",
+        instagram: "https://www.instagram.com/hoangtrung1801",
+        image: "/assets/member-1.jpg"
+    },
+    {
+        name: "Hà Cảnh Hồng Phúc",
+        description: "",
+        facebook: "https://www.facebook.com/hch.phusc.17",
+        github: "https://github.com/LilPhusc ",
+        instagram: "https://www.instagram.com/_.aliz.hngphc/",
+        image: "/assets/member-2.jpg"
+    },
+    {
+        name: "Võ Văn Tuấn",
+        description: "",
+        facebook: "",
+        github: "",
+        instagram: "",
+        image: "/assets/member-3.jpg"
+    },
+    {
+        name: "Trương Đình Dũng",
+        description: "Tôi là người năng động, thân thiên. Lúc rãnh rỗi, tôi thường đọc báo và nghe nhạc.",
+        facebook: " https://www.facebook.com/andrew.td2003/",
+        github: "https://github.com/gitdung",
+        instagram: "",
+        image: '/assets/member-4.jpg'
+    },
+];

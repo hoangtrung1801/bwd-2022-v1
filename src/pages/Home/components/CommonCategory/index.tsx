@@ -29,8 +29,8 @@ const CommonCategory: React.FC<CommonCategoryProps> = ({products}) => {
                         products
                         .map((item, id) => {
                             return (
-                                <div className='column is-3-desktop is-6-tablet is-12-mobile'>
-                                    <ProductCard key={id} product={item} />
+                                <div className='column is-3-desktop is-6-tablet is-12-mobile' key={id}>
+                                    <ProductCard product={item} />
                                 </div>
                              );
                         })}

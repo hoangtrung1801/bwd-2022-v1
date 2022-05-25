@@ -1,6 +1,7 @@
 .about-me {
     background: url('/assets/aboutme.png');
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .about-me::before {
@@ -14,7 +15,7 @@
 }
 
 .about-me-member {
-    height: calc(100vh-80px);
+    height: calc(90vh - 80px);
 }
 
 .about-me .slick-dots li {
@@ -23,6 +24,7 @@
 
 .about-me .dots {
     width: 60px;
+    height: 60px;
 
     overflow: hidden;
     border-radius: 50%;
