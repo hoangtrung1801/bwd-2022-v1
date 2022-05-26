@@ -1,7 +1,9 @@
 .header {
     color: var(--text);
+
     background-color: #fff;
     min-height: 80px;
+    width: 100vw;
 
     position: fixed;
     top: 0;

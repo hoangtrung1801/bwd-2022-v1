@@ -64,14 +64,9 @@ const ProductCard: React.FC<ProductCardProps> = ({product, tag}) => {
                     style={{ overflow: "hidden" }}
                 >
                     <img src={images[0]} alt="" />
-                    {/* <motion.img
-                        src={images[1] || images[0]}
-                        className={` ${
-                            showAnoImg ? "image-show" : "image-hidden"
-                        }`}
-                    /> */}
                 </motion.figure>
             </Link>
+
             <div className="mt-2 p-4 is-flex is-flex-direction-column is-justify-content-space-between is-flex-grow-1">
                 <div className="has-text-centered">
                     <Link

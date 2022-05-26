@@ -52,8 +52,8 @@ const ProductView: React.FC<ProductViewProps> = ({product}) => {
     }, [product])
 
     return (
-        <div className="columns block mb-6">
-            <div className="column is-1 px-0">
+        <div className="product-view columns block mb-6">
+            {/* <div className="column is-1 px-0">
                 <div className="product-view-images">
                     {
                         images
@@ -76,21 +76,57 @@ const ProductView: React.FC<ProductViewProps> = ({product}) => {
                         alt=""
                     />
                 </figure>
+            </div> */}
+            <div className="column is-5">
+                <div>
+                    <div className="product-view-image-main">
+                        <figure className="image is-1by1">
+                            <img src={images[imgId]} alt="" />
+                        </figure>
+                    </div>
+                    <div className="is-flex product-view-images mt-4">
+                        {images.map((imageUrl, id) => (
+                            <div
+                                className={`${id == imgId && 'image-show'} is-clickable`}
+                                onMouseOver={() => setImgId(id)}
+                                key={id}
+                            >
+                                <div className="full-width full-height">
+                                    <figure className="image is-1by1">
+                                        <img src={imageUrl} alt="" />
+                                    </figure>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
-            <div className=" column is-5">
+            <div className=" column is-7">
                 <div className="product-view-content">
-                    <h3 className="is-size-3 has-text-weight-bold">{product.name}</h3>
+                    <h3 className="is-size-3 has-text-weight-bold">
+                        {product.name}
+                    </h3>
                     <div>
                         <div>
                             {Array(5)
                                 .fill(0)
                                 .map((_, id) => (
-                                    <Star className="mr-1" weight="fill" color='#ffd700'  key={id}/>
+                                    <Star
+                                        className="mr-1"
+                                        weight="fill"
+                                        color="#ffd700"
+                                        key={id}
+                                    />
                                 ))}
                         </div>
                     </div>
-                    <h1 className="is-size-4 has-text-weight-bold">{numberWithCommas(product.price)} {currency.vn}</h1>
-                    <p className="product-view-content-description " style={{fontSize: '0.9rem'}}>
+                    <h1 className="is-size-4 has-text-weight-bold">
+                        {numberWithCommas(product.price)} {currency.vn}
+                    </h1>
+                    <p
+                        className="product-view-content-description "
+                        style={{ fontSize: "0.9rem" }}
+                    >
                         {product.description}
                     </p>
                     <div className="product-view-variants block">
@@ -100,7 +136,9 @@ const ProductView: React.FC<ProductViewProps> = ({product}) => {
                             <OptionContainer options={['S', 'M', 'L']}/>
                         </div> */}
                         <div className="product-view-variants-item is-flex is-align-items-center block">
-                            <p className="is-size-7 is-uppercase has-text-weight-bold">Số lượng : </p>
+                            <p className="is-size-7 is-uppercase has-text-weight-bold mr-4">
+                                Số lượng :{" "}
+                            </p>
                             <AmountContainer />
                         </div>
                     </div>

@@ -40,7 +40,7 @@ const Header = () => {
 
     return (
         <header>
-            <div className="header is-flex is-justify-content-space-between is-align-items-stretch px-6 full-width">
+            <div className="header is-flex is-justify-content-space-between is-align-items-stretch px-6">
                 <div className="is-size-1 has-text-weight-bold is-uppercase">
                     <Link to="/" className="header-logo is-unselectable">
                         <figure className="image is-2by1">
