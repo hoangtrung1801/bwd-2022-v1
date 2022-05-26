@@ -58,9 +58,9 @@ const Banner: React.FC<BannerProps> = ({sections}) => {
                                     />
                                 </div>
                                 <div className="banner-content">
-                                    <div className="my-auto mx-auto" style={{width: '80%'}}>
-                                        <h1 className={ `is-size-3 has-text-weight-bold ${isMobile ? 'is-size-3' : 'is-size-1'}` } style={{minHeight: '100px'}}>{item.title}</h1>
-                                        <p className="mt-4" style={{minHeight: '100px'}}>{item.body}</p>
+                                    <div className="my-auto mr-auto">
+                                        <h1 className={ `has-text-weight-bold ${isMobile ? 'is-size-3' : 'is-size-1'}` } style={{minHeight: '6rem'}}>{item.title}</h1>
+                                        <p className="mt-4 banner-content-body">{item.body}</p>
                                         { item.button && (
                                                 <div className="mt-6">
                                                     <Button4>{item.button}</Button4>

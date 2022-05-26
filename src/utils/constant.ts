@@ -4,19 +4,16 @@ export const DONATENOW = "Quyên góp ngay";
 export const DONATE = "Quyên góp";
 
 export const bannerSection = [
-    // {
-    //     image: '/assets/banner-1.jpg',
-    //     title: 'We can change the world together',
-    //     body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed unde doloremque ipsum iure sapiente voluptatem'
-    // },
     {
         image: '/assets/banner-2.jpeg',
-        title: '"Thay đổi thế giới"',
+        title: '" Thay đổi thế giới "',
+        body: 'Chúng ta cần bắt đầu thay đổi thế giới ngay hôm nay, không phải ngày mai. Chúng ta cần giảm số lượng ô tô mà chúng ta mua, giảm lượng năng lượng chúng ta sử dụng và giảm lượng rác thải không thân thiện với môi trường. Chúng ta cần phải hành động và ngừng phàn nàn về những điều tồi tệ hiện tại để chúng ta có cơ hội làm cho chúng tốt hơn. Hãy tưởng tượng một cái cây nhỏ có một cơ hội duy nhất với một con người trên trái đất sống để nó cũng tồn tại - bạn có nghĩ rằng con người này sẽ nhầm cây này không?',
         button: 'Tìm hiểu thêm'
     },
     {
         image: '/assets/banner-3.jpeg',
-        title: '"Tái sử dụng, vì tiềm năng của rác là vô hạn"',
+        title: '" Tái sử dụng, vì tiềm năng của rác là vô hạn "',
+        body: 'Bạn đang cố gắng trở nên xanh và thân thiện với môi trường, nhưng không biết làm thế nào bạn có thể tiết kiệm tài nguyên của môi trường? Hãy tái sử dụng rác thải có thể tái chế.  Hàng ngàn người hiện đang lựa chọn bao bì ni lông để đựng đồ đạc hoặc sử dụng các sản phẩm dùng một lần rồi bỏ đi.',
         button: "Tìm hiểu thêm"
     }
 ]
@@ -30,8 +27,8 @@ export const donateSection = [
     },
     {
         image: '/assets/donate-1.jpg',
-        title: 'We can change the world together',
-        body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed unde doloremque ipsum iure sapiente voluptatem',
+        title: 'Cùng chung tay quyên góp bảo vệ môi trường',
+        body: 'Giúp đỡ lẫn nhau thực hiện các nhu cầu cơ bản của sự sống còn của con người, đấu tranh bảo tồn các nguồn tài nguyên thiên nhiên và chung tay.',
         button: "QUYÊN GÓP NGAY"
     }
 ]

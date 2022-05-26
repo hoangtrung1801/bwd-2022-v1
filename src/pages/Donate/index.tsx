@@ -11,14 +11,14 @@ interface DonateProps {}
 
 const Donate: React.FC<DonateProps> = ({}) => {
 
-    const [donateForm, setDonateForm] = useState(false);
+    const [openDonateForm, setOpenDonateForm] = useState(false);
 
     const showDonateForm = () => {
-        setDonateForm(true);
+        setOpenDonateForm(true);
     }
 
     const closeDonateForm = () => {
-        setDonateForm(false);
+        setOpenDonateForm(false);
     }
 
     return (
@@ -29,7 +29,7 @@ const Donate: React.FC<DonateProps> = ({}) => {
             {/* <DonateAction isLeft={true}/> */}
             <DonateBox showDonateForm={showDonateForm}/>
             {
-                donateForm && <DonateForm closeDonateForm={closeDonateForm}/>
+                openDonateForm && <DonateForm  openDonateForm={openDonateForm} closeDonateForm={closeDonateForm}/>
             }
 
         </Layout>

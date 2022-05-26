@@ -48,7 +48,9 @@
 }
 
 .button4 {
-    width: 20%;
+    min-width: 150px;
+    height: 250px;
+    height: auto;
     background-color: var(--dark);
     color: #fff;
 
@@ -57,7 +59,7 @@
 
     border: none;
     border-radius: 0;
-    padding: 2rem 8rem;
+    padding: 1rem 2rem;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 

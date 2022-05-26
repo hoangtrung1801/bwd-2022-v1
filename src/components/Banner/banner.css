@@ -1,5 +1,5 @@
-.banner {
-
+.banner-wrapper {
+    margin-bottom: -5px;
 }
 
 .banner .item {
@@ -64,7 +64,28 @@
 }
 
 .banner-content > div {
+    width: 70%;
     min-height: 400px;
+    margin-left: 10%;
+
+    background-color: #33333380;
+    /* background: radial-gradient(var(--dark), transparent); */
+    padding: 1rem 2rem;
+}
+
+.banner-content-body {
+    max-height: 70px;
+    overflow: hidden;
+}
+
+.banner-content-body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--dark);
 }
 
 .banner .item > div:first-child::after {
