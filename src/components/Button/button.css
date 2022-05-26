@@ -83,3 +83,30 @@
     background-color: var(--green-6);
     color: #fff;
 }
+
+.social-btn {
+    width: 90%;
+    max-width: 400px;
+    border-radius: 0.5rem;
+    padding: 1.5rem 2rem;
+    padding: 1.5rem 0 1.5rem 2rem;
+    justify-content: flex-start;
+    border: none;
+
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.btn-facebook {
+    background-color: #1877f2;
+    color: #fff;
+}
+
+.btn-facebook:hover {
+    color: #fff;
+    background-color: #016bf7;
+}
+
+.btn-google {
+    background-color: #fff;
+    color: #757575;
+}

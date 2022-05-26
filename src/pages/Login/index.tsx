@@ -1,20 +1,20 @@
 import { useForm } from "react-hook-form";
-import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 import Button1 from "../../components/Button/Button1";
+import FacebookSocialButton from "../../components/Button/FacebookSocialButton";
+import GoogleSocialButton from "../../components/Button/GoogleSocialButton";
 import Header from "../../components/Header";
-import Layout from "../../components/Layout";
-import "./login.css";
 import useToken from "../../utils/hook/useToken";
-import { useNavigate, useRoutes } from "react-router-dom";
+import "./login.css";
 
 const Login = () => {
     const navigate = useNavigate();
 
-    const {register, handleSubmit} = useForm();
-    const {token, setToken} = useToken();
+    const { register, handleSubmit } = useForm();
+    const { token, setToken } = useToken();
 
-    if(token) {
-        navigate('/');
+    if (token) {
+        navigate("/");
     }
 
     const onLogin = async (body: any) => {
@@ -23,11 +23,11 @@ const Login = () => {
             token: "tokentest",
             username: "User",
         };
-        const {token} = result;
+        const { token } = result;
 
         setToken(token);
-        navigate('/');
-    }
+        navigate("/");
+    };
 
     return (
         <div>
@@ -37,14 +37,14 @@ const Login = () => {
                     <div className="columns full-height">
                         <div className="column is-half">
                             <div className="login-column full-height pt-6 px-6 has-text-centered">
-                                <h1 className="is-size-4 has-text-weight-bold">Introduce my team</h1>
-                            </div>
-                        </div>
-                        <div className="column is-half">
-                            <div className="login-column full-height pt-6 px-6 has-text-centered">
                                 <div className="block">
-                                    <h1 className="is-size-3 has-text-weight-bold is-uppercase">Đăng nhập</h1>
-                                    <p className="is-size-7">Chào mừng bạn! Hãy đăng nhập vào tài khoản</p>
+                                    <h1 className="is-size-3 has-text-weight-bold is-uppercase">
+                                        Đăng nhập
+                                    </h1>
+                                    <p className="is-size-7">
+                                        Chào mừng bạn! Hãy đăng nhập vào tài
+                                        khoản
+                                    </p>
                                 </div>
                                 <form onSubmit={handleSubmit(onLogin)}>
                                     <div className="field">
@@ -53,7 +53,7 @@ const Login = () => {
                                                 type="text"
                                                 className="input"
                                                 placeholder="Email"
-                                                {...register('email')}
+                                                {...register("email")}
                                             />
                                         </div>
                                     </div>
@@ -63,23 +63,33 @@ const Login = () => {
                                                 type="password"
                                                 className="input"
                                                 placeholder="Mật khẩu"
-                                                {...register('password')}
+                                                {...register("password")}
                                             />
                                         </div>
                                     </div>
                                     <div className="my-5">
                                         <Button1>Đăng nhập</Button1>
-                                        {/* <button className="button">Login</button> */}
-                                        {/* <button className="color-button">
-                                            Log in
-                                        </button> */}
                                     </div>
                                     <div>
-                                        <a href="#" className="is-italic has-text-grey">
+                                        <a
+                                            href="#"
+                                            className="is-italic has-text-grey"
+                                        >
                                             Bạn quên mật khẩu ?
                                         </a>
                                     </div>
                                 </form>
+                            </div>
+                        </div>
+                        <div className="column is-half">
+                            <div className="login-column full-height pt-6 px-6 has-text-centered">
+                                <h1 className="is-size-3 has-text-weight-bold block is-uppercase">
+                                    hoặc
+                                </h1>
+                                <div>
+                                    <FacebookSocialButton />
+                                    <GoogleSocialButton />
+                                </div>
                             </div>
                         </div>
                     </div>
