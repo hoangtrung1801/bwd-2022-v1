@@ -110,3 +110,14 @@
     background-color: #fff;
     color: #757575;
 }
+
+.btn-github {
+    /* background-color: #000; */
+    background-color: #312f2f;
+    color: #fff;
+}
+
+.btn-github:hover {
+    background-color: #1f1e1e;
+    color: #fff;
+}

@@ -2,12 +2,32 @@
     width: 100vw;
     height: calc(100vh - 80px);
 
-    background-color: #f1f9ff;
-    /* background-color: var(--green-0); */
+    /* background-color: #f1f9ff; */
+    background-color: var(--green-0);
+    background: url('/assets/bg7.jpg');
+    background-size: cover;
+    background-position: bottom;
+    color: #fff;
+
+    z-index: 0;
+}
+
+.donate-box-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: -1;
 }
 
 .donate-box {
     width: 75%;
+    z-index: 1;
+    color: #fff;
 }
 
 .donate-box-title p:first-child {

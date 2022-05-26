@@ -83,8 +83,6 @@
     transition: all ease 0.25s;
     transform-origin: top center;
     opacity: 0;
-    z-index: -1;
-
 }
 
 .menu-list::after {
@@ -102,7 +100,6 @@
 }
 
 .menu-list::before {
-    content: '';
     width: 200vw;
     height: 100vh;
 
@@ -117,6 +114,10 @@
 .menu-list-show {
     transform: scaleY(1);
     opacity: 1;
+}
+
+.menu-list-show::before {
+    content: '';
 }
 
 .menu-list-item {

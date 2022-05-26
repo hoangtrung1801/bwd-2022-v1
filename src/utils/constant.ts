@@ -66,35 +66,37 @@ export const routes: Category[] = [
         subcategories: [
             {
                 name: 'Vải',
-                href: ''
+                href: '/category?type=canvas'
+
             },
             {
                 name: 'Tre',
-                href: ''
+                href: '/category?type=bamboo',
             },
             {
                 name: 'Túi phân hủy',
-                href: ''
+                href: '/category?type=disposable-nilon'
+
             },
             {
                 name: 'Bàn chải',
-                href: ''
+                href: '/category?type=tooth-brush'
             },
             {
                 name: 'Ống hút',
-                href: ''
+                href: '/category?type=straw'
             },
             {
                 name: 'Chai',
-                href: ''
+                href: '/category?type=bottle'
             },
             {
                 name: 'Ly',
-                href: ''
+                href: '/category?type=cup'
             },
             {
                 name: 'Khác',
-                href: ''
+                href: '/category?type=others'
             }
         ]
     },
@@ -119,35 +121,35 @@ export const categoriesEN: Category[] = [
         subcategories: [
             {
                 name: 'canvas',
-                href: ''
+                href: '/category?type=canvas'
             },
             {
                 name: 'bamboo',
-                href: ''
+                href: '/category?type=bamboo'
             },
             {
                 name: 'disposable nilon',
-                href: ''
+                href: '/category?type=disposable-nilon'
             },
             {
-                name: 'tooth brushe',
-                href: ''
+                name: 'tooth brush',
+                href: '/category?type=tooth-brush'
             },
             {
                 name: 'straw',
-                href: ''
+                href: '/category?type=straw'
             },
             {
                 name: 'glass bottle',
-                href: ''
+                href: '/category?type=bottle'
             },
             {
                 name: 'cup',
-                href: ''
+                href: '/category?type=cup'
             },
             {
                 name: 'others',
-                href: ''
+                href: '/category?type=others'
             }
         ]
     },

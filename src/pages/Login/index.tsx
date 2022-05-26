@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Button1 from "../../components/Button/Button1";
 import FacebookSocialButton from "../../components/Button/FacebookSocialButton";
+import GithubSocialButton from "../../components/Button/GithubSocialButtont";
 import GoogleSocialButton from "../../components/Button/GoogleSocialButton";
 import Header from "../../components/Header";
 import useToken from "../../utils/hook/useToken";
@@ -89,6 +90,7 @@ const Login = () => {
                                 <div>
                                     <FacebookSocialButton />
                                     <GoogleSocialButton />
+                                    <GithubSocialButton />
                                 </div>
                             </div>
                         </div>

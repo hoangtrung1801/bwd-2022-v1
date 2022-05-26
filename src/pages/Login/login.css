@@ -1,8 +1,11 @@
 .login {
     height: calc(100vh - 80px);
-    background-color: #ebfbee;
-
     padding: 6rem 5rem;
+
+    /* background-color: #ebfbee; */
+    background: url('/assets/bg4.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .login-column {

@@ -1,5 +1,6 @@
 .donate-value-wrapper {
-    background-color: #f1f9ff;
+    /* background-color: #f1f9ff; */
+    background-color: var(--green-0);
     padding: 3rem 6rem;
 }
 

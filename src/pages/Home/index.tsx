@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Banner from "../../components/Banner";
+import BannerOne from "../../components/BannerOne";
 import Layout from "../../components/Layout";
 import { bannerSection } from "../../utils/constant";
 import getAllProducts from "../../utils/functions/getAllProducts";
@@ -40,6 +41,7 @@ const Home = () => {
             <ProductCarousel products={newArrivals} />
             <FeaturedProduct products={featuredProduct} />
             <CommonCategory products={commonCategory} />
+            <BannerOne />
         </Layout>
     );
 };

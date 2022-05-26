@@ -1,12 +1,11 @@
+import { CaretLeft, CaretRight } from "phosphor-react";
 // @ts-ignore
 import Slider from "react-slick";
-import { CaretLeft, CaretRight } from "phosphor-react";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import './banner.css';
-import Button3 from "../Button/Button3";
+import { useViewport } from "../../utils/hook/useViewport";
 import Button4 from "../Button/Button4";
-import { DONATENOW } from "../../utils/constant";
+import './banner.css';
 
 const NextArrowCarousel = ({onClick} : {onClick?: React.MouseEventHandler}) =>  (
     <div className="next ">
@@ -32,14 +31,16 @@ interface BannerProps {
 
 const Banner: React.FC<BannerProps> = ({sections}) => {
 
+    const {isMobile} = useViewport();
+
     const settings = {
         infinite: true,
         speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
-        nextArrow: <NextArrowCarousel />,
-        prevArrow: <PrevArrowCarousel />,
-        autoplay: true,
+        nextArrow: !isMobile && <NextArrowCarousel />,
+        prevArrow: !isMobile && <PrevArrowCarousel />,
+        // autoplay: true,
         autoplaySpeed: 5000,
     }
     return (
@@ -49,7 +50,7 @@ const Banner: React.FC<BannerProps> = ({sections}) => {
                     {
                         sections
                         .map((item, id) => (
-                            <div className="item is-relative" key={id}>
+                            <div className={ `is-relative ${isMobile ? 'item-mobile' : 'item'}` } key={id}>
                                 <div className="full-height">
                                     <img
                                         src={item.image}
@@ -57,8 +58,8 @@ const Banner: React.FC<BannerProps> = ({sections}) => {
                                     />
                                 </div>
                                 <div className="banner-content">
-                                    <div className="my-auto">
-                                        <h1 className='is-size-1 has-text-weight-bold' style={{minHeight: '100px'}}>{item.title}</h1>
+                                    <div className="my-auto mx-auto" style={{width: '80%'}}>
+                                        <h1 className={ `is-size-3 has-text-weight-bold ${isMobile ? 'is-size-3' : 'is-size-1'}` } style={{minHeight: '100px'}}>{item.title}</h1>
                                         <p className="mt-4" style={{minHeight: '100px'}}>{item.body}</p>
                                         { item.button && (
                                                 <div className="mt-6">
@@ -67,19 +68,6 @@ const Banner: React.FC<BannerProps> = ({sections}) => {
                                         )}
                                     </div>
                                 </div>
-                                {
-                                    // showContent && (
-                                    //     <div className="banner-content">
-                                    //         <h1 className='is-size-1 has-text-weight-bold'>{item.title}</h1>
-                                    //         <p className="mt-4">{item.body}</p>
-
-                                    //         <div className="mt-6">
-                                    //             <Button4>{DONATENOW}</Button4>
-                                    //         </div>
-                                    //         {/* <Button3>Donate</Button3> */}
-                                    //     </div>
-                                    // )
-                                }
                             </div>
                         ))}
                 </Slider>

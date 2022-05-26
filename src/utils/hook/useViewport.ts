@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive"
 
 export const useViewport = () => {
