@@ -32,3 +32,22 @@
     left: 50%;
     transform: translateX(-50%);
 }
+
+.featured-product-title::after, .featured-product-title::before {
+    content: '';
+    width: 5rem;
+    height: 3px;
+    background: #fff;
+
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.featured-product-title::before {
+    left: calc(50% - 11rem);
+}
+
+.featured-product-title::after {
+    right: calc(50% - 16rem);
+}

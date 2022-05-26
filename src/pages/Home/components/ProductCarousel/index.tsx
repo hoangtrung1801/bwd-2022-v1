@@ -54,13 +54,13 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({products}) => {
     return (
         <div className="px-5 product-carousel-wrapper">
             <div className="has-text-centered" style={{letterSpacing: '1px'}}>
-                {/* <h1 className="is-size-3 is-uppercase has-text-weight-bold"></h1>
-                <p></p> */}
-                <p className="is-size-4 has-text-weight-bold">
+                <p className="is-size-4 has-text-weight-bold is-relative product-carousel-title is-uppercase">
                     Sản phẩm mới
                 </p>
-                <p className="is-size-7">
-                    Một dòng gì đó nên được ghi ở đây
+                <p className="is-size-7" style={{maxHeight: '100px'}}>
+                    {/* Một dòng gì đó nên được ghi ở đây */}
+                    {/* Những sản phẩm ống hút vừa được ra mắt, với đa dạng ống hút làm từ các nguyên liệu thiên nhiên khác nhau, giúp giảm thải khí nhựa rất nhiều so với sản phẩm ống hút nhựa thông thường */}
+                    Những sản phẩm mới sẽ luôn được cập nhật ở đây
                 </p>
             </div>
 

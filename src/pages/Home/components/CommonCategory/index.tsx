@@ -17,11 +17,11 @@ const CommonCategory: React.FC<CommonCategoryProps> = ({products}) => {
         <div className="common-category">
             <div className="has-text-centered p-6">
                 <div style={{letterSpacing: '1px'}}>
-                    <p className="is-size-4 has-text-weight-bold">
+                    <p className="is-size-4 has-text-weight-bold is-relative common-category-title">
                         Sản phẩm phổ biến
                     </p>
                     <p className="is-size-7">
-                        Một dòng gì đó nên được ghi ở đây
+                        Những sản phẩm bán chạy trong năm nay
                     </p>
                 </div>
                 <div className="columns is-flex-wrap-wrap is-justify-content-center my-4">

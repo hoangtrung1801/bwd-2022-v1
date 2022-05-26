@@ -11,3 +11,22 @@
 .common-category-button {
     width: 80%;
 }
+
+.common-category-title::after, .common-category-title::before {
+    content: '';
+    width: 5rem;
+    height: 3px;
+    background: var(--dark);
+
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.common-category-title::before {
+    left: calc(50% - 11rem);
+}
+
+.common-category-title::after {
+    right: calc(50% - 16rem);
+}

@@ -91,9 +91,13 @@ const Footer = () => {
                         Địa chỉ: 470 Đường Trần Đại Nghĩa, Hoà Hải, Ngũ Hành
                         Sơn, Đà Nẵng{" "}
                     </p>
-                    <figure className="image mt-4" style={{ width: "100px" }}>
-                        <img src="/assets/vku.png" alt="" />
-                    </figure>
+                    {
+                        !isMobile && (
+                            <figure className="image mt-4" style={{ width: "40%" }}>
+                                <img src="/assets/vku.png" alt="" />
+                            </figure>
+                        )
+                    }
                 </div>
             </div>
         </div>

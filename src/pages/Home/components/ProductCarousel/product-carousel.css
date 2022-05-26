@@ -40,3 +40,22 @@
 .carousel-next:hover, .carousel-prev:hover {
     border: 1px solid rgb(116, 121, 124);
 }
+
+.product-carousel-title::after, .product-carousel-title::before {
+    content: '';
+    width: 5rem;
+    height: 3px;
+    background: var(--dark);
+
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.product-carousel-title::before {
+    left: calc(50% - 9rem);
+}
+
+.product-carousel-title::after {
+    right: calc(50% - 14rem);
+}

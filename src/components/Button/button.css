@@ -1,3 +1,7 @@
+.button {
+    letter-spacing: 0.5px;
+}
+
 .button1 {
     background-color: var(--green-4);
     color: #fff;
@@ -48,8 +52,7 @@
 }
 
 .button4 {
-    min-width: 150px;
-    height: 250px;
+    min-width: 200px;
     height: auto;
     background-color: var(--dark);
     color: #fff;

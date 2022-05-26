@@ -15,11 +15,11 @@ const FeaturedProduct: React.FC<FeaturedProductProps> = ({products}) => {
     return (
         <div className="featured-product">
             <div className='has-text-centered has-text-white mb-4' style={{letterSpacing: '1px'}}>
-                <p className="is-size-4 has-text-weight-bold">
+                <p className="is-size-4 has-text-weight-bold is-relative featured-product-title is-uppercase">
                     Sản phẩm nổi bật
                 </p>
                 <p className="is-size-7">
-                    Một dòng gì đó nên được ghi ở đây
+                    Hãy thử và trải nghiệm sản phẩm nổi bật của chúng tôi
                 </p>
             </div>
             <div className="columns is-justify-content-center is-align-items-center">
