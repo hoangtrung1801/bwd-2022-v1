@@ -1,3 +1,4 @@
+import { ArrowRight } from "phosphor-react";
 import "./button.css";
 
 interface Button4Props {
@@ -13,6 +14,7 @@ const Button4: React.FC<Button4Props> = ({ children, onClick, className }) => {
             onClick={onClick || undefined}
         >
             {children}
+            {/* <ArrowRight className="icon"/> */}
         </button>
     );
 };

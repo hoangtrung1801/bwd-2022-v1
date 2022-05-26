@@ -1,5 +1,7 @@
 // @ts-ignore
 import Slider from "react-slick";
+import { motion, useAnimation, Variants } from "framer-motion";
+import { InView } from 'react-intersection-observer';
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import NextArrowCarousel from "../../../../components/NextArrowCarousel";
@@ -13,7 +15,14 @@ interface ProductCarouselProps {
     products: Product[]
 }
 
+const variant: Variants = {
+
+}
+
 const ProductCarousel: React.FC<ProductCarouselProps> = ({products}) => {
+
+    const animation = useAnimation();
+
     const settings = {
         dots: true,
         infinite: true,
@@ -51,29 +60,47 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({products}) => {
         ],
     };
 
-    return (
-        <div className="px-5 product-carousel-wrapper">
-            <div className="has-text-centered" style={{letterSpacing: '1px'}}>
-                <p className="is-size-4 has-text-weight-bold is-relative product-carousel-title is-uppercase">
-                    Sản phẩm mới
-                </p>
-                <p className="is-size-7" style={{maxHeight: '100px'}}>
-                    {/* Một dòng gì đó nên được ghi ở đây */}
-                    {/* Những sản phẩm ống hút vừa được ra mắt, với đa dạng ống hút làm từ các nguyên liệu thiên nhiên khác nhau, giúp giảm thải khí nhựa rất nhiều so với sản phẩm ống hút nhựa thông thường */}
-                    Những sản phẩm mới sẽ luôn được cập nhật ở đây
-                </p>
-            </div>
+    const handleInView = (inView: boolean) => {
+        if(inView) {
+            animation.start({
+                x: 0,
+                opacity: 1,
+                transition: {
+                    type: 'spring',
+                    duration: 0.75
+                }
+            })
+        }
+    }
 
-            <div className="px-6 py-2 is-relative product-carousel">
-                <Slider {...settings}>
-                    {products.map((product, id) => (
-                        <div className="px-1 py-4" key={id}>
-                            <ProductCard product={product} tag={<TagNew />}/>
-                        </div>
-                    ))}
-                </Slider>
-            </div>
-        </div>
+    return (
+        <InView as='div' onChange={handleInView} threshold={0.4}>
+            <motion.div className="px-5 product-carousel-wrapper"
+                initial={{x: '-100vw', opacity: 0}}
+                animate={animation}
+            >
+                <div className="has-text-centered" style={{letterSpacing: '1px'}}>
+                    <p className="is-size-4 has-text-weight-bold is-relative product-carousel-title is-uppercase">
+                        Sản phẩm mới
+                    </p>
+                    <p className="is-size-7" style={{maxHeight: '100px'}}>
+                        {/* Một dòng gì đó nên được ghi ở đây */}
+                        {/* Những sản phẩm ống hút vừa được ra mắt, với đa dạng ống hút làm từ các nguyên liệu thiên nhiên khác nhau, giúp giảm thải khí nhựa rất nhiều so với sản phẩm ống hút nhựa thông thường */}
+                        Những sản phẩm mới sẽ luôn được cập nhật ở đây
+                    </p>
+                </div>
+
+                <div className="px-6 py-2 is-relative product-carousel">
+                    <Slider {...settings}>
+                        {products.map((product, id) => (
+                            <div className="px-1 py-4" key={id}>
+                                <ProductCard product={product} tag={<TagNew />}/>
+                            </div>
+                        ))}
+                    </Slider>
+                </div>
+            </motion.div>
+        </InView>
     );
 };
 

@@ -71,6 +71,7 @@
     background-color: #33333380;
     /* background: radial-gradient(var(--dark), transparent); */
     padding: 1rem 2rem;
+    z-index: -1;
 }
 
 .banner-content-body {
