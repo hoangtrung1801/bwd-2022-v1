@@ -75,8 +75,10 @@
 }
 
 .banner-content-body {
-    max-height: 70px;
+    max-height: 120px;
     overflow: hidden;
+
+    flex-grow: 1;
 }
 
 .banner-content-body::before {

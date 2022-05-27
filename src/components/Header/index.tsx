@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Bag, CaretDown, Gear, List, SignIn, SignOut, X } from 'phosphor-react';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
@@ -53,11 +54,11 @@ const Header = () => {
                         <div className="header-menu full-height is-flex is-relative">
                             {routes.map((category, id) => (
                                 <>
-                                    <div className="is-flex is-align-items-center">
+                                    <div className="is-flex is-align-items-center is-relative">
                                         <Link
                                             to={category.href}
                                             key={id}
-                                            className={`is-size-6 has-text-weight-bold is-flex is-justify-content-center is-align-items-center font-heading ${
+                                            className={`header-menu-item is-size-6 has-text-weight-bold is-flex is-justify-content-center is-align-items-center font-heading ${
                                                 location.pathname ===
                                                 category.href
                                                     ? "header-menu-active"
@@ -76,6 +77,11 @@ const Header = () => {
                                             {category.subcategories ? (
                                                 <CaretDown />
                                             ) : null}
+                                            {
+                                                location.pathname === category.href ? (
+                                                    <motion.div className='header-menu-underline' layoutId='underline'></motion.div>
+                                                ) : null
+                                            }
                                         </Link>
                                     </div>
 

@@ -7,13 +7,13 @@ export const bannerSection = [
     {
         image: '/assets/banner-2.jpeg',
         title: '" Thay đổi thế giới "',
-        body: 'Chúng ta cần bắt đầu thay đổi thế giới ngay hôm nay, không phải ngày mai. Chúng ta cần giảm số lượng ô tô mà chúng ta mua, giảm lượng năng lượng chúng ta sử dụng và giảm lượng rác thải không thân thiện với môi trường. Chúng ta cần phải hành động và ngừng phàn nàn về những điều tồi tệ hiện tại để chúng ta có cơ hội làm cho chúng tốt hơn. Hãy tưởng tượng một cái cây nhỏ có một cơ hội duy nhất với một con người trên trái đất sống để nó cũng tồn tại - bạn có nghĩ rằng con người này sẽ nhầm cây này không?',
+        body: 'Chúng ta cần bắt đầu thay đổi thế giới ngay hôm nay, không phải ngày mai. Chúng ta cần phải hành động và ngừng phàn nàn về những điều tồi tệ hiện tại để chúng ta có cơ hội làm cho chúng tốt hơn. Hãy cùng chung tay với chúng tôi?',
         button: 'Tìm hiểu thêm'
     },
     {
         image: '/assets/banner-3.jpeg',
         title: '" Tái sử dụng, vì tiềm năng của rác là vô hạn "',
-        body: 'Bạn đang cố gắng trở nên xanh và thân thiện với môi trường, nhưng không biết làm thế nào bạn có thể tiết kiệm tài nguyên của môi trường? Hãy tái sử dụng rác thải có thể tái chế.  Hàng ngàn người hiện đang lựa chọn bao bì ni lông để đựng đồ đạc hoặc sử dụng các sản phẩm dùng một lần rồi bỏ đi.',
+        body: 'Bạn đang cố gắng trở nên xanh và thân thiện với môi trường, nhưng không biết làm thế nào bạn có thể tiết kiệm tài nguyên của môi trường? Hãy tái sử dụng rác thải có thể tái chế.',
         button: "Tìm hiểu thêm"
     }
 ]
@@ -187,7 +187,7 @@ export const donateActionSection = {
 export const members = [
     {
         name: "Lê Kim Hoàng Trung",
-        description: "description",
+        description: "Tôi là người năng động, luôn thích thú, chủ động tìm những công nghệ mới hiện nay. Vì là người năng động nên cả ngày tôi chỉ cười, có lúc không.",
         facebook: "https://www.facebook.com/trung181",
         github: "https://github.com/hoangtrung1801 ",
         instagram: "https://www.instagram.com/hoangtrung1801",
@@ -195,7 +195,7 @@ export const members = [
     },
     {
         name: "Hà Cảnh Hồng Phúc",
-        description: "",
+        description: "Là một phần của thế hệ GenZ, tôi tin rằng không có bất kỳ mục tiêu không thể nào không được công nhận. Nếu chúng ta đủ kiên định, tương lai là của chúng ta.",
         facebook: "https://www.facebook.com/hch.phusc.17",
         github: "https://github.com/LilPhusc ",
         instagram: "https://www.instagram.com/_.aliz.hngphc/",
@@ -203,8 +203,8 @@ export const members = [
     },
     {
         name: "Võ Văn Tuấn",
-        description: "",
-        facebook: "",
+        description: "Tôi là một người có tổ chức và luôn tập trung vào việc tạo ra kết quả. Trong khi đặt ra mục tiêu tôi luôn rất thực tế, tôi luôn nỗ lực phát triển các cách để hoàn thành được công việc một cách hiệu quả và thậm chí thường đạt được nhiều hơn những gì tôi mong đợi.",
+        facebook: "https://www.facebook.com/profile.php?id=100013422558737",
         github: "",
         instagram: "",
         image: "/assets/member-3.jpg"

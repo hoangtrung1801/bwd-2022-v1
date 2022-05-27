@@ -1,32 +1,37 @@
 import { motion, Variants } from "framer-motion";
 import { X } from "phosphor-react";
-import Button3 from "../../../../components/Button/Button3";
 import Button4 from "../../../../components/Button/Button4";
 import { DONATENOW } from "../../../../utils/constant";
 import "./donate-form.css";
 
 interface DonateFormProps {
-    closeDonateForm: () => void,
-    openDonateForm: boolean
+    closeDonateForm: () => void;
+    openDonateForm: boolean;
 }
 
 const donateFormVariant: Variants = {
-    initial: {
-        y: '-100%',
-        opacity: 0,
-    },
     close: {
         opacity: 0,
-        y: '-100%'
+        y: "-100%",
+        transition: {
+            type: "spring",
+            duration: 0.5,
+        },
     },
     open: {
         opacity: 1,
-        y: 0
-    }
-}
+        y: 0,
+        transition: {
+            type: "spring",
+            duration: 0.5,
+        },
+    },
+};
 
-const DonateForm: React.FC<DonateFormProps> = ({openDonateForm, closeDonateForm}) => {
-
+const DonateForm: React.FC<DonateFormProps> = ({
+    openDonateForm,
+    closeDonateForm,
+}) => {
     return (
         <motion.div
             className="donate-form-wrapper is-flex is-justify-content-center is-align-items-center"
@@ -37,14 +42,22 @@ const DonateForm: React.FC<DonateFormProps> = ({openDonateForm, closeDonateForm}
                 opacity: 1,
             }}
             transition={{
-                duration: 0.01
+                duration: 0.01,
+            }}
+            exit={{
+                opacity: 0,
+                transition: {
+                    when: 'afterChildren'
+                }
             }}
         >
             <motion.div
+                key="donate-form-box"
                 className="donate-form has-text-centered has-background-white p-6 is-relative"
                 variants={donateFormVariant}
-                initial="initial"
+                initial="close"
                 animate={openDonateForm ? "open" : "close"}
+                exit="close"
             >
                 <div className="block has-text-centered">
                     <p className="is-size-5 has-text-weight-semibold">

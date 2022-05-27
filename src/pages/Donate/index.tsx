@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Banner from "../../components/Banner";
 import Layout from "../../components/Layout";
@@ -28,9 +29,13 @@ const Donate: React.FC<DonateProps> = ({}) => {
             <DonateAction />
             {/* <DonateAction isLeft={true}/> */}
             <DonateBox showDonateForm={showDonateForm}/>
-            {
-                openDonateForm && <DonateForm  openDonateForm={openDonateForm} closeDonateForm={closeDonateForm}/>
-            }
+            <AnimatePresence exitBeforeEnter>
+                {
+                    openDonateForm && (
+                        <DonateForm key='donate-form'  openDonateForm={openDonateForm} closeDonateForm={closeDonateForm} />
+                    )
+                }
+            </AnimatePresence>
 
         </Layout>
     );

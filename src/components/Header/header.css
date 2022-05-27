@@ -30,9 +30,11 @@
 }
 
 .header-menu > div {
-    padding: 0 1.5rem;
+    /* padding: 0 1.5rem; */
     font-size: 0.9rem;
     min-height: 80px;
+    min-width: 150px;
+    text-align: center;
 }
 
 .header-menu a > *:first-child {
@@ -41,6 +43,20 @@
 
 .header-menu-active {
     color: var(--green-8) !important;
+}
+
+.header-menu-underline {
+    width: 75%;
+    height: 5px;
+    background: var(--green-5);
+    border-radius: 1rem;
+
+    position: absolute;
+    bottom: 15px;
+/* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+/* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+/* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
 }
 
 .header-tool > * {
