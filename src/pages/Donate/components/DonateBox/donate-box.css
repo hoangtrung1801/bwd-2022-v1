@@ -1,6 +1,7 @@
 .donate-box-wrapper {
     width: 100vw;
-    height: calc(100vh - 80px);
+    /* min-height: 75vh; */
+    padding: 1rem 0;
 
     /* background-color: #f1f9ff; */
     background-color: var(--green-0);
@@ -29,6 +30,8 @@
     width: 75%;
     z-index: 1;
     color: #fff;
+
+    min-height: 75vh;
 }
 
 .donate-box-title p:first-child {

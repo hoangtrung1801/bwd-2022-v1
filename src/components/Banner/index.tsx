@@ -37,7 +37,6 @@ const Banner: React.FC<BannerProps> = ({sections}) => {
 
     const [idInView, setIdInView] = useState(0);
     const {isMobile} = useViewport();
-    const animation = useAnimation();
 
     const settings = {
         infinite: true,

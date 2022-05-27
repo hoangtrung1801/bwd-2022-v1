@@ -19,8 +19,8 @@ const AboutMe = () => {
         slidesToScroll: 1,
         nextArrow: <NextArrowCarousel />,
         prevArrow: <PrevArrowCarousel />,
-        // autoplay: true,
-        // autoplaySpeed: 5000,
+        autoplay: true,
+        autoplaySpeed: 5000,
         dots: true,
         customPaging: function (i: number) {
             return (
@@ -42,16 +42,16 @@ const AboutMe = () => {
                             <div className="columns full-height">
                                 <div className="column is-half">
                                     <div
-                                        className={`full-height is-flex is-flex-direction-column is-justify-content-center has-text-right ${
+                                        className={`full-height is-flex is-flex-direction-column is-justify-content-center  ${
                                             isMobile
-                                                ? "is-align-items-center"
-                                                : "is-align-items-end"
+                                                ? "is-align-items-center has-text-centered"
+                                                : "is-align-items-end has-text-right"
                                         }`}
                                     >
                                         <h1 className="title is-1 block is-uppercase">
                                             {member.name}
                                         </h1>
-                                        <p className="block has-text-right">
+                                        <p className="block">
                                             {member.description}
                                         </p>
                                         <div className="is-size-3 block">
