@@ -316,7 +316,7 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
     /* background-color: #fff; */
     background-color: var(--green-5);
-    height: 0;
+    /* height: 0; */
     width: 100vw;
 
     overflow: hidden;
@@ -324,7 +324,7 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .dropdown-menu-list-show {
-    height: calc(100vh - 80px);
+    /* height: calc(100vh - 80px); */
 }
 
 .dropdown-menu-list-item {
@@ -375,4 +375,38 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 .dropdown-menu-list-button button:hover {
     background-color: var(--green-8);
+}
+
+.menu-bar {
+    height: 80px;
+}
+
+.menu-bar i {
+    display: block;
+    width: 42px;
+    height: 2px;
+    background-color: var(--dark);
+
+    margin: 5px;
+    transition: transform .5s cubic-bezier(.43,.77,.15,1.5),background .3s ease;
+}
+
+.menu-bar:hover i:first-child {
+    transform: translateY(-4px);
+}
+
+.menu-bar:hover i:last-child {
+    transform: translateY(4px);
+}
+
+.menu-bar-open i:first-child {
+    transform: translate(0, 12px) rotate(45deg) scale(1.2) !important;
+}
+
+.menu-bar-open i:last-child {
+    transform: translate(0, -12px) rotate(-45deg) scale(1.2) !important;
+}
+
+.menu-bar-open i:nth-child(2) {
+    opacity: 0;
 }

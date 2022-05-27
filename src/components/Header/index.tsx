@@ -1,43 +1,20 @@
-import { motion } from 'framer-motion';
-import { Bag, CaretDown, Gear, List, SignIn, SignOut, X } from 'phosphor-react';
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import Logo from '../../logo.png';
-import { routes } from '../../utils/constant';
-import logout from '../../utils/functions/logout';
-import useToken from '../../utils/hook/useToken';
-import { useViewport } from '../../utils/hook/useViewport';
-import Button3 from '../Button/Button3';
-import CartAmount from './CartAmount';
-import DropdownUser from './DropdownUser';
-import './header.css';
-import MenuList from './MenuList';
-import NavCart from './NavCart';
+import { Bag, CaretDown, List, SignOut, X } from "phosphor-react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import Logo from "../../logo.png";
+import { routes } from "../../utils/constant";
+import logout from "../../utils/functions/logout";
+import useToken from "../../utils/hook/useToken";
+import { useViewport } from "../../utils/hook/useViewport";
+import Button3 from "../Button/Button3";
+import CartAmount from "./CartAmount";
+import "./header.css";
+import HeaderMenuDesktop from "./HeaderMenuDesktop";
+import HeaderMenuMobile from "./HeaderMenuMobile";
 
 const Header = () => {
-
-    const location = useLocation();
-
-    const {token, setToken} = useToken();
-    const {isDesktop} = useViewport();
-
-    const [menuListHovered, setMenuListHovered] = useState(-1);
-    const [navCartOpen, setNavCartOpen] = useState(false);
-    const [dropdownUser, setDropdownUser] = useState(false);
-    const [dropdownMenuList, setDropdownMenuList] = useState(false);
-    const [dropdownMenuListItemSelected, setDropdownMenuListItemSelected] = useState(-1);
-
-    const handleLogout = () => {
-        logout();
-        window.location.reload();
-    }
-
-    const openNavCart = () => {
-        console.log('open nav cart')
-        setNavCartOpen(true);
-    }
-
-    const closeNavCart = () => { setNavCartOpen(false); }
+    const { token, setToken } = useToken();
+    const { isDesktop } = useViewport();
 
     return (
         <header>
@@ -50,175 +27,13 @@ const Header = () => {
                     </Link>
                 </div>
                 {isDesktop ? (
-                    <>
-                        <div className="header-menu full-height is-flex is-relative">
-                            {routes.map((category, id) => (
-                                <>
-                                    <div className="is-flex is-align-items-center is-relative">
-                                        <Link
-                                            to={category.href}
-                                            key={id}
-                                            className={`header-menu-item is-size-6 has-text-weight-bold is-flex is-justify-content-center is-align-items-center font-heading ${
-                                                location.pathname ===
-                                                category.href
-                                                    ? "header-menu-active"
-                                                    : ""
-                                            }`}
-                                            onMouseOver={() =>
-                                                setMenuListHovered(id)
-                                            }
-                                            onMouseLeave={() => {
-                                                setTimeout(() => {
-                                                    setMenuListHovered(-1);
-                                                }, 300)
-                                            }}
-                                        >
-                                            <span>{category.name}</span>
-                                            {category.subcategories ? (
-                                                <CaretDown />
-                                            ) : null}
-                                            {
-                                                location.pathname === category.href ? (
-                                                    <motion.div className='header-menu-underline' layoutId='underline'></motion.div>
-                                                ) : null
-                                            }
-                                        </Link>
-                                    </div>
-
-                                    {category.subcategories ? (
-                                        <MenuList
-                                            content={category.subcategories}
-                                            menuListHovered={
-                                                menuListHovered === id
-                                                    ? true
-                                                    : false
-                                            }
-                                        />
-                                    ) : null}
-                                </>
-                            ))}
-                        </div>
-
-                        <div className="header-tool is-flex is-align-items-center">
-                            <div>
-                                <span
-                                    className="is-relative is-size-4 is-clickable"
-                                    onClick={openNavCart}
-                                >
-                                    <Bag /> <CartAmount />
-                                </span>
-                                <NavCart isCartShow={navCartOpen} closeNavCart={closeNavCart}/>
-                            </div>
-                            {token ? (
-                                <div className="full-height is-flex is-justify-content-center is-align-items-center is-relative">
-                                    <p
-                                        className="header-username font-heading has-text-weight-semibold is-clickable"
-                                    >
-                                        username
-                                    </p>
-                                    <a href="#">
-                                        <Gear className='is-size-4 ml-3'
-                                            onClick={() => setDropdownUser(!dropdownUser)}
-                                        />
-                                    </a>
-                                    <DropdownUser
-                                        dropdownUserHovered={
-                                            dropdownUser
-                                        }
-                                    />
-                                </div>
-                            ) : (
-                                <Link to="/login" className="is-size-4">
-                                    <SignIn />
-                                </Link>
-                            )}
-
-                        </div>
-                    </>
+                    <HeaderMenuDesktop token={token} />
                 ) : (
-                    <>
-                        <div className='is-flex is-align-items-center'>
-                            <div className='is-size-3 is-flex is-align-items-center is-clickable' onClick={() => setDropdownMenuList(!dropdownMenuList)}>
-                                {
-                                    dropdownMenuList ? <X /> : <List />
-                                }
-                            </div>
-                            <div className={ `dropdown-menu-list is-flex is-justify-content-center ${dropdownMenuList ? 'dropdown-menu-list-show' : ''}` }>
-                                <div className='full-width py-6'>
-                                    <div className='block'>
-                                        {
-                                            routes.map((category, id) => (
-                                                <div key={id}>
-                                                        <div className={ `dropdown-menu-list-item is-relative is-size-5 is-uppercase has-text-weight-semibold py-5 mx-auto is-flex is-align-items-center is-justify-content-center is-clickable ${dropdownMenuListItemSelected === id ? 'dropdown-menu-list-item-show': ''}` }>
-                                                            <Link to={category.href} className='has-text-light'>
-                                                                {category.name}
-                                                            </Link>
-                                                            {
-                                                                category.subcategories &&
-                                                                <div onClick={() => setDropdownMenuListItemSelected(dropdownMenuListItemSelected === id ? -1 : id)}>
-                                                                    <CaretDown size={28} weight='bold' className='item-expand'/>
-                                                                </div>
-                                                            }
-                                                        </div>
-                                                    {
-                                                        category.subcategories && (
-                                                            <div className={ `list-subcategory is-uppercase has-text-weight-bold mx-auto is-flex is-justify-content-center is-align-items-center is-flex-direction-column ${dropdownMenuListItemSelected === id ? 'list-subcategory-show' : ''}` }>
-                                                                {
-                                                                    category.subcategories.map((item, j) => (
-                                                                        <Link to={item.href} key={j} className='subcategory py-2 px-2'>
-                                                                            <span>{item.name}</span>
-                                                                        </Link>
-                                                                    ))
-                                                                }
-                                                            </div>
-                                                        )
-                                                    }
-                                                </div>
-                                            ))
-                                        }
-                                    </div>
-                                    <div className='is-flex px-6' >
-                                        {
-                                            token ? (
-                                                <div className='full-width is-flex is-align-items-center is-justify-content-space-between has-text-white'>
-                                                    <div className='is-flex is-align-items-center'>
-                                                        <p className='has-text-weight-semibold mr-4 font-heading'>username</p>
-                                                        <SignOut className='is-size-5 is-clickable' weight='bold' onClick={() => handleLogout()}/>
-                                                    </div>
-
-                                                    <div>
-                                                        <Link
-                                                            to="/checkout"
-                                                            className="is-relative is-size-4 has-text-white"
-                                                            onMouseOver={() => setNavCartOpen(true)}
-                                                            onMouseLeave={() =>
-                                                                setTimeout(
-                                                                    () => setNavCartOpen(false),
-                                                                    300
-                                                                )
-                                                            }
-                                                        >
-                                                            <Bag /> <CartAmount />
-                                                        </Link>
-                                                    </div>
-
-                                                </div>
-                                            ) : (
-                                                <Link to='/login' className='dropdown-menu-list-button mx-auto '>
-                                                    <Button3 className='is-size-5 has-text-weight-semibold py-5'>Sign in</Button3>
-                                                </Link>
-                                            )
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </>
-                )
-            }
+                    <HeaderMenuMobile token={token} />
+                )}
             </div>
         </header>
     );
-}
+};
 
 export default Header;
