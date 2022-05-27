@@ -1,3 +1,4 @@
+import CategoryItem from "./types/CategoryItem";
 import { Category } from "./types/Cattegory"
 
 export const DONATENOW = "Quyên góp ngay";
@@ -38,7 +39,7 @@ export const currency = {
     vn: '₫',
 }
 
-export const categories = [
+export const categories: CategoryItem[] = [
     { value: 'canvas', label: 'Vải'},
     { value: 'bamboo', label: 'Tre'},
     { value: 'disposable-nilon', label: 'Túi phân hủy'},

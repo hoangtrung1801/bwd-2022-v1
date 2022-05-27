@@ -46,7 +46,7 @@ const ProductCard: React.FC<ProductCardProps> = ({product, tag}) => {
             setImages(result);
         }
         getImages();
-    }, []);
+    }, [product]);
 
     return (
         <motion.div
