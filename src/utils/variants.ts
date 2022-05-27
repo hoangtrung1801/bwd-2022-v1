@@ -5,9 +5,26 @@ export const screenLoadingVariants: Variants = {
         y: 0
     },
     exit: {
-        y: '-100%',
+        y: '100%',
         transition: {
-            duration: 1
+            type: 'tween',
+            duration: 0.75,
+            delay: 0.20
+        }
+    }
+}
+
+export const screenLoadingImageVariants: Variants = {
+    initial: {
+        y: 0,
+        opacity: 1,
+    },
+    exit: {
+        y: '-100%',
+        opacity: 0,
+        transition: {
+            type: 'tween',
+            duration: 0.3,
         }
     }
 }
@@ -26,7 +43,7 @@ export const carouselItemContentVariatns: Variants = {
         opacity: 1,
         transition: {
             type: 'spring',
-            delay: 0.75
+            delay: 0.75,
         }
     }
 }

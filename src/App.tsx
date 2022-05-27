@@ -19,43 +19,38 @@ function App() {
     const location = useLocation();
 
     useEffect(() => {
-        document.body.style.height = '100vh';
-        document.body.style.overflow = 'hidden';
+        document.body.style.height = "100vh";
+        document.body.style.overflow = "hidden";
 
         if (loading) setTimeout(() => setLoading(false), 3000);
     }, []);
 
     useEffect(() => {
-        window.scrollTo({top : 0});
+        window.scrollTo({ top: 0 });
     }, [location.pathname]);
 
     return (
         <>
-        <AnimatePresence>
-            {
-                loading && (
-                    <ScreenLoading />
-                )
-            }
+            <AnimatePresence>
+                {loading && <ScreenLoading />}
 
-            <Routes location={location} key={location.key}>
-                {/* <Route path="/" element={<Test />} /> */}
-                <Route path="/">
-                    <Route index element={<Home />} />
-                    <Route path="login" element={<Login />} />
-                    <Route path="category" element={<Category />} />
-                    <Route path="product">
-                        <Route path=':id' element={<Product />} />
+                <Routes location={location} key={location.key}>
+                    <Route path="/" >
+                        <Route index element={<Home />} />
+                        <Route path="login" element={<Login />} />
+                        <Route path="category" element={<Category />} />
+                        <Route path="product">
+                            <Route path=":id" element={<Product />} />
+                        </Route>
+                        <Route path="admin" element={<Admin />} />
+                        <Route path="checkout" element={<Checkout />} />
+                        <Route path="donate" element={<Donate />} />
+                        <Route path="about-me" element={<AboutMe />} />
+                        <Route path="test" element={<Test />} />
+                        <Route path="*" element={<h1>Error 404</h1>} />
                     </Route>
-                    <Route path="admin" element={<Admin />} />
-                    <Route path="checkout" element={<Checkout />} />
-                    <Route path="donate" element={<Donate />} />
-                    <Route path='about-me' element={<AboutMe />} />
-                    <Route path='test' element={<Test />} />
-                    <Route path="*" element={<h1>Error 404</h1>} />
-                </Route>
-            </Routes>
-        </AnimatePresence>
+                </Routes>
+            </AnimatePresence>
         </>
     );
 }
@@ -75,49 +70,62 @@ const Test = () => {
         visible: {
             opacity: 1,
             transition: {
-                when: 'beforeChildren',
+                when: "beforeChildren",
                 staggerChildren: 0.1,
-                delay: 5
-            }
-        }
-    }
+                delay: 5,
+            },
+        },
+    };
 
     const child: Variants = {
         hidden: {
-            scale: 0.9
+            scale: 0.9,
         },
         visible: {
-            scale: 1
-        }
-
-    }
+            scale: 1,
+        },
+    };
 
     return (
         <>
-            {/* <AnimatePresence
-                exitBeforeEnter={true}
-                onExitComplete={() => console.log("exit complete")}
-            > */}
+            <motion.div variants={parent} initial="hidden" animate="visible">
                 <motion.div
-                    variants={parent}
-                    initial='hidden'
-                    animate='visible'
-                >
-                    <motion.div style={{width: '100px', height:'100px', margin:'1rem', backgroundColor: 'red'}}
-                        variants={child}
-                    ></motion.div>
-                    <motion.div style={{width: '100px', height:'100px', margin:'1rem', backgroundColor: 'red'}}
-                        variants={child}
-                    ></motion.div>
-                    <motion.div style={{width: '100px', height:'100px', margin:'1rem', backgroundColor: 'red'}}
-                        variants={child}
-                    ></motion.div>
-                    <motion.div style={{width: '100px', height:'100px', margin:'1rem', backgroundColor: 'red'}}
-                        variants={child}
-                    ></motion.div>
-
-                </motion.div>
-            {/* </AnimatePresence> */}
+                    style={{
+                        width: "100px",
+                        height: "100px",
+                        margin: "1rem",
+                        backgroundColor: "red",
+                    }}
+                    variants={child}
+                ></motion.div>
+                <motion.div
+                    style={{
+                        width: "100px",
+                        height: "100px",
+                        margin: "1rem",
+                        backgroundColor: "red",
+                    }}
+                    variants={child}
+                ></motion.div>
+                <motion.div
+                    style={{
+                        width: "100px",
+                        height: "100px",
+                        margin: "1rem",
+                        backgroundColor: "red",
+                    }}
+                    variants={child}
+                ></motion.div>
+                <motion.div
+                    style={{
+                        width: "100px",
+                        height: "100px",
+                        margin: "1rem",
+                        backgroundColor: "red",
+                    }}
+                    variants={child}
+                ></motion.div>
+            </motion.div>
         </>
     );
 };

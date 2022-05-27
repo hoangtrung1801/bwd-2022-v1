@@ -1,7 +1,7 @@
 import { Player } from "@lottiefiles/react-lottie-player";
 import { doc } from "firebase/firestore";
 import { motion } from "framer-motion";
-import { screenLoadingVariants } from "../../utils/variants";
+import { screenLoadingImageVariants, screenLoadingVariants } from "../../utils/variants";
 import "./screen-loading.css";
 
 interface ScreenLoadingProps {
@@ -20,12 +20,18 @@ const ScreenLoading: React.FC<ScreenLoadingProps> = () => {
                 document.body.style.removeProperty('height');
             }}
         >
-            <Player
-                autoplay
-                loop
-                src="https://assets6.lottiefiles.com/packages/lf20_CIPL1V.json"
-                style={{ height: "500px", width: "500px" }}
-            />
+            <motion.div
+                variants={screenLoadingImageVariants}
+                initial="initial"
+                exit="exit"
+            >
+                <Player
+                    autoplay
+                    loop
+                    src="https://assets6.lottiefiles.com/packages/lf20_CIPL1V.json"
+                    style={{ height: "500px", width: "500px" }}
+                />
+            </motion.div>
         </motion.div>
     );
 };
