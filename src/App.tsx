@@ -1,6 +1,6 @@
 import "bulma-helpers/css/bulma-helpers.min.css";
 import "bulma/css/bulma.css";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
@@ -51,6 +51,7 @@ function App() {
                     <Route path="checkout" element={<Checkout />} />
                     <Route path="donate" element={<Donate />} />
                     <Route path='about-me' element={<AboutMe />} />
+                    <Route path='test' element={<Test />} />
                     <Route path="*" element={<h1>Error 404</h1>} />
                 </Route>
             </Routes>
@@ -67,28 +68,56 @@ const Test = () => {
         setTimeout(() => setVisible(false), 2000);
     }, []);
 
+    const parent: Variants = {
+        hidden: {
+            opacity: 0,
+        },
+        visible: {
+            opacity: 1,
+            transition: {
+                when: 'beforeChildren',
+                staggerChildren: 0.1,
+                delay: 5
+            }
+        }
+    }
+
+    const child: Variants = {
+        hidden: {
+            scale: 0.9
+        },
+        visible: {
+            scale: 1
+        }
+
+    }
+
     return (
         <>
-            <AnimatePresence
+            {/* <AnimatePresence
                 exitBeforeEnter={true}
                 onExitComplete={() => console.log("exit complete")}
-            >
-                {visible && (
-                    <motion.div
-                        key={location.key}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        style={{
-                            width: "100vw",
-                            height: "100vh",
-                            backgroundColor: "red",
-                        }}
-                    >
-                        hello world
-                    </motion.div>
-                )}
-            </AnimatePresence>
+            > */}
+                <motion.div
+                    variants={parent}
+                    initial='hidden'
+                    animate='visible'
+                >
+                    <motion.div style={{width: '100px', height:'100px', margin:'1rem', backgroundColor: 'red'}}
+                        variants={child}
+                    ></motion.div>
+                    <motion.div style={{width: '100px', height:'100px', margin:'1rem', backgroundColor: 'red'}}
+                        variants={child}
+                    ></motion.div>
+                    <motion.div style={{width: '100px', height:'100px', margin:'1rem', backgroundColor: 'red'}}
+                        variants={child}
+                    ></motion.div>
+                    <motion.div style={{width: '100px', height:'100px', margin:'1rem', backgroundColor: 'red'}}
+                        variants={child}
+                    ></motion.div>
+
+                </motion.div>
+            {/* </AnimatePresence> */}
         </>
     );
 };

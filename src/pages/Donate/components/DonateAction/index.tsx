@@ -1,5 +1,7 @@
+import { motion } from "framer-motion";
 import { donateActionSection, DONATENOW } from "../../../../utils/constant";
 import { useViewport } from "../../../../utils/hook/useViewport";
+import { categoryItemShow, inViewFromLeftShow, inViewFromRightShow } from "../../../../utils/variants";
 import "./donate-action.css";
 
 interface DonateActionProps {
@@ -12,19 +14,28 @@ const DonateAction: React.FC<DonateActionProps> = ({ isLeft = false }) => {
 
     return (
         <div className="donate-action-wrapper is-flex is-justify-content-center is-align-items-center">
-            <div className="donate-action is-relative">
-                <figure
+            <motion.div className="donate-action is-relative">
+                <motion.figure
                     className="image is-9by6"
                     style={{
                         width: "100%",
                         maxHeight: "500px",
                         overflow: "hidden",
                     }}
+                            variants={inViewFromLeftShow}
+                            initial='hidden'
+                            whileInView='visible'
+                            viewport={{once: true}}
+
                 >
                     <img src={donateActionSection.image} alt="" />
-                </figure>
-                <div
+                </motion.figure>
+                <motion.div
                     className={`donate-action-content ${ isLeft && "donate-action-content-left"} ${isMobileTablet && 'donate-action-content-mobile'}`}
+                    variants={inViewFromRightShow}
+                    initial='hidden'
+                    whileInView='visible'
+                    viewport={{once: true}}
                 >
                     <div className="block">
                         <h2 className="is-size-2 has-text-weight-bold">
@@ -42,8 +53,8 @@ const DonateAction: React.FC<DonateActionProps> = ({ isLeft = false }) => {
                             {DONATENOW}
                         </a>
                     </div>
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
         </div>
     );
 };

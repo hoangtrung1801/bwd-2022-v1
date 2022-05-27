@@ -39,6 +39,10 @@ body {
 
   /* font-family: 'Poppins', sans-serif; */
   font-family: 'Plus Jakarta Sans', 'Inter', 'Roboto', 'Montserrat', sans-serif;
+
+  /* scroll smooth */
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 
 a {
@@ -76,13 +80,14 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--green-1);
-  width: 0.5rem;
+  background-color: rgba(222, 222, 222, .75);
+  width: 0.6rem;
   margin-block: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--green-3);
+  /* background-color: var(--green-3); */
+  background-color: rgba(0, 0, 0, .5);
   border-radius: 1rem;
 }
 

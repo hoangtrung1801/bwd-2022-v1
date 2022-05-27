@@ -5,6 +5,7 @@
     background: url("/assets/bg6.jpg");
     background-size: cover;
     background-position: bottom;
+    background-attachment: fixed;
 }
 
 .banner-one::before {

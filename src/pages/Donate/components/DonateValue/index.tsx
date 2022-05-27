@@ -1,5 +1,8 @@
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import { DONATENOW, donateValueSections } from '../../../../utils/constant';
 import { useViewport } from '../../../../utils/hook/useViewport';
+import { donateValueShow, inViewDropupShow, inViewParentShow } from '../../../../utils/variants';
 import './donate-value.css';
 
 interface DonateValueProps {
@@ -8,12 +11,21 @@ interface DonateValueProps {
 const DonateValue: React.FC<DonateValueProps> = ({}) => {
 
     const {isMobile, isMobileTablet} = useViewport();
+    const {inView, ref} = useInView();
 
     return (
         <div className={ `donate-value-wrapper ${isMobile && 'px-4'}` }>
-            <div className="donate-value tile is-ancestor is-flex-wrap-wrap">
+            <motion.div className="donate-value tile is-ancestor is-flex-wrap-wrap"
+                ref={ref}
+                variants={inViewParentShow}
+                initial='hidden'
+                whileInView='visible'
+                viewport={{once: true}}
+            >
                 {donateValueSections.map((item, id) => (
-                    <div className={ `tile is-parent ${isMobileTablet && 'is-12'}` }>
+                    <motion.div className={ `tile is-parent ${isMobileTablet && 'is-12'}` }
+                        variants={donateValueShow}
+                    >
                         <div className='donate-value-item p-6 tile is-child is-flex is-flex-direction-column is-justify-content-space-between'>
                             <div className="block">
                                 <h2 className='is-size-5 has-text-weight-bold is-uppercase'>{item.title}</h2>
@@ -27,9 +39,9 @@ const DonateValue: React.FC<DonateValueProps> = ({}) => {
                                 <a href="#" className='is-uppercase is-size-7 has-text-weight-semibold font-body'>{DONATENOW}</a>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
-            </div>
+            </motion.div>
         </div>
     );
 };

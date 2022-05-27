@@ -33,7 +33,6 @@ interface BannerProps {
 }
 
 
-
 const Banner: React.FC<BannerProps> = ({sections}) => {
 
     const [idInView, setIdInView] = useState(0);

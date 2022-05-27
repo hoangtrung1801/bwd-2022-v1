@@ -1,10 +1,13 @@
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import Button1 from '../../../../components/Button/Button1';
 import Button2 from '../../../../components/Button/Button2';
 import Button3 from '../../../../components/Button/Button3';
 import ProductCard from '../../../../components/ProductCard';
 import imageToUrl from '../../../../utils/functions/imageToUrl';
 import { Product } from '../../../../utils/types/Product';
+import { inViewScaleChildShow, inViewScaleParentShow } from '../../../../utils/variants';
 import './common-category.css';
 
 interface CommonCategoryProps {
@@ -13,8 +16,10 @@ interface CommonCategoryProps {
 
 const CommonCategory: React.FC<CommonCategoryProps> = ({products}) => {
 
+    const {inView, ref} = useInView({threshold: 0.2});
+
     return (
-        <div className="common-category">
+        <div className="common-category" ref={ref}>
             <div className="has-text-centered p-6">
                 <div style={{letterSpacing: '1px'}}>
                     <p className="is-size-4 has-text-weight-bold is-relative common-category-title">
@@ -24,17 +29,23 @@ const CommonCategory: React.FC<CommonCategoryProps> = ({products}) => {
                         Những sản phẩm bán chạy trong năm nay
                     </p>
                 </div>
-                <div className="columns is-flex-wrap-wrap is-justify-content-center my-4">
+                <motion.div className="columns is-flex-wrap-wrap is-justify-content-center my-4"
+                    variants={inViewScaleParentShow}
+                    initial='hidden'
+                    animate={inView && 'visible'}
+                >
                     {
                         products
                         .map((item, id) => {
                             return (
-                                <div className='column is-3-desktop is-6-tablet is-12-mobile' key={id}>
+                                <motion.div className='column is-3-desktop is-6-tablet is-12-mobile' key={id}
+                                    variants={inViewScaleChildShow}
+                                >
                                     <ProductCard product={item} />
-                                </div>
+                                </motion.div>
                              );
                         })}
-                </div>
+                </motion.div>
             </div>
         </div>
     );

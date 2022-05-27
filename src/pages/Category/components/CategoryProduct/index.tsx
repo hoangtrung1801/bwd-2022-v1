@@ -1,8 +1,10 @@
+import { motion } from "framer-motion";
 import ProductCard from "../../../../components/ProductCard";
 import { categories } from "../../../../utils/constant";
 import { useViewport } from "../../../../utils/hook/useViewport";
 import CategoryItem from "../../../../utils/types/CategoryItem";
 import { Product } from "../../../../utils/types/Product";
+import { categoryItemShow, inViewParentShow, inViewScaleShow } from "../../../../utils/variants";
 import SortBy from "../SortBy";
 
 interface CategoryProductProps {
@@ -21,7 +23,8 @@ const CategoryProduct: React.FC<CategoryProductProps> = ({idsChoose, products}) 
             </h3>
             <SortBy />
             {/* <div className="columns is-flex-wrap-wrap is-variable is-2"> */}
-            <div className="tile is-ancestor is-flex-wrap-wrap">
+            <motion.div className="tile is-ancestor is-flex-wrap-wrap"
+            >
                 {products
                     .filter((product) => {
                         if (!idsChoose.length) return true;
@@ -36,18 +39,22 @@ const CategoryProduct: React.FC<CategoryProductProps> = ({idsChoose, products}) 
                         return right;
                     })
                     .map((item, id) => (
-                        <div
+                        <motion.div
                             className={`tile is-parent full-width ${
                                 isMobile ? "is-12" : isTablet ? "is-6" : "is-4"
                             }`}
                             key={id}
+                            variants={categoryItemShow}
+                            initial='hidden'
+                            whileInView='visible'
+                            viewport={{once: true}}
                         >
                             <div className="tile is-child">
                                 <ProductCard product={item} />
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-            </div>
+            </motion.div>
         </div>
     );
 }

@@ -9,6 +9,7 @@
     background: url('/assets/donate-1.jpg');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
 }
 
 .featured-product > div {

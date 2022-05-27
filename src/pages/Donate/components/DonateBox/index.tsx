@@ -1,5 +1,8 @@
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import Button3 from "../../../../components/Button/Button3";
 import { DONATENOW } from "../../../../utils/constant";
+import { inViewDropupShow, inViewParentShow } from "../../../../utils/variants";
 import "./donate-box.css";
 
 interface DonateBoxProps {
@@ -9,11 +12,20 @@ interface DonateBoxProps {
 const amountDonate = [50, 100, 200, 500, 1000];
 
 const DonateBox: React.FC<DonateBoxProps> = ({ showDonateForm }) => {
+    const {inView, ref} = useInView({threshold: 0.5});
+
     return (
         <div className="donate-box-wrapper is-relative">
             <div className="full-width full-height" style={{zIndex: 1}}>
-                <div className="donate-box full-height is-flex is-flex-direction-column is-align-items-center is-justify-content-center mx-auto">
-                    <div className="donate-box-title block has-text-centered mb-6">
+                <motion.div className="donate-box full-height is-flex is-flex-direction-column is-align-items-center is-justify-content-center mx-auto"
+                    ref={ref}
+                    variants={inViewParentShow}
+                    initial='hidden'
+                    animate={inView && 'visible'}
+                >
+                    <motion.div className="donate-box-title block has-text-centered mb-6"
+                        variants={inViewDropupShow}
+                    >
                         <p className="is-size-5 is-uppercase has-text-weight-semibold font-heading">
                             Quyên góp
                         </p>
@@ -25,8 +37,10 @@ const DonateBox: React.FC<DonateBoxProps> = ({ showDonateForm }) => {
                             bạn đều mang lại sự thay đổi tích cực cho môi
                             trường.
                         </p>
-                    </div>
-                    <div className="block donate-box-amount mb-6 is-flex is-flex-wrap-wrap is-justify-content-center is-align-items-center">
+                    </motion.div>
+                    <motion.div className="block donate-box-amount mb-6 is-flex is-flex-wrap-wrap is-justify-content-center is-align-items-center"
+                        variants={inViewDropupShow}
+                    >
                         {amountDonate.map((amount, id) => (
                             <button
                                 className="button has-text-weight-semibold my-2"
@@ -35,16 +49,18 @@ const DonateBox: React.FC<DonateBoxProps> = ({ showDonateForm }) => {
                                 {amount}K
                             </button>
                         ))}
-                    </div>
-                    <div className="block donate-box-button">
+                    </motion.div>
+                    <motion.div className="block donate-box-button"
+                        variants={inViewDropupShow}
+                    >
                         <Button3
                             className="is-uppercase has-text-weight-bold"
                             onClick={showDonateForm}
                         >
                             {DONATENOW}
                         </Button3>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             </div>
         </div>
     );
