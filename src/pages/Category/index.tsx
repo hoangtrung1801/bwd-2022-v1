@@ -30,7 +30,7 @@ const Category = () => {
         })
         if(searchParams.get('type')) {
             console.log(searchParams.get('type'))
-            console.log(categories[categories.findIndex(e => e.value === searchParams.get('type'))]);
+            console.log(categories[categories.findIndex((e: CategoryItem) => e.value === searchParams.get('type'))]);
         }
     }, []);
 
