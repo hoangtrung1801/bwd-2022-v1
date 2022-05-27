@@ -25,7 +25,7 @@ const Filter: React.FC<FilterProps> = ({setCategory}) => {
                 <ul className='is-flex is-flex-wrap-wrap'>
                     {
                         categories.map((category, id) => (
-                            <li className="filter-item is-flex is-align-items-center my-2">
+                            <li className="filter-item is-flex is-align-items-center my-2" key={id}>
                                 <input type="checkbox" name={`cb-${id}`} id={`cb-${id}`} className="is-size-5 mr-4 is-clickable" onClick={(e: any) => e.target.checked ? chooseCategory(id) : removeCategory(id)}/>
                                 <label htmlFor={`cb-${id}`} className="has-cursor-pointer">{category.label}</label>
                             </li>

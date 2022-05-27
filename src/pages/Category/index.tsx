@@ -28,11 +28,11 @@ const Category = () => {
         getAllProducts().then((data: Product[]) => {
             setProducts(data);
         })
+        if(searchParams.get('type')) {
+            console.log(searchParams.get('type'))
+            console.log(categories[categories.findIndex(e => e.value === searchParams.get('type'))]);
+        }
     }, []);
-
-    useEffect(() => {
-        setIdsChoose([...idsChoose, categories.findIndex(e => e.value === searchParams.get('type'))]);
-    }, [ searchParams ]);
 
     return (
         <Layout>

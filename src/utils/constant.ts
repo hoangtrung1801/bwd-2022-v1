@@ -78,7 +78,7 @@ export const routes: Category[] = [
             },
             {
                 name: 'Bàn chải',
-                href: '/category?type=tooth-brush'
+                href: '/category?type=toothbrush'
             },
             {
                 name: 'Ống hút',
@@ -131,7 +131,7 @@ export const categoriesEN: Category[] = [
             },
             {
                 name: 'tooth brush',
-                href: '/category?type=tooth-brush'
+                href: '/category?type=toothbrush'
             },
             {
                 name: 'straw',

@@ -5,6 +5,7 @@ import { categories } from "../../../../utils/constant";
 import { fetchData } from "../../../../utils/functions/fetchData";
 import getAllProducts from "../../../../utils/functions/getAllProducts";
 import { useViewport } from "../../../../utils/hook/useViewport";
+import CategoryItem from "../../../../utils/types/CategoryItem";
 import { Product } from "../../../../utils/types/Product";
 import SortBy from "../SortBy";
 
@@ -28,7 +29,7 @@ const CategoryProduct: React.FC<CategoryProductProps> = ({idsChoose, products}) 
                 {products
                     .filter((product) => {
                         if (!idsChoose.length) return true;
-                        const categoryChosen = idsChoose.map(
+                        const categoryChosen: CategoryItem[] = idsChoose.map(
                             (id) => categories[id]
                         );
                         let right = true;
