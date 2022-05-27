@@ -1,3 +1,4 @@
+import { FacebookLogo, GithubLogo, GoogleLogo } from "phosphor-react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Button1 from "../../components/Button/Button1";
@@ -6,6 +7,7 @@ import GithubSocialButton from "../../components/Button/GithubSocialButtont";
 import GoogleSocialButton from "../../components/Button/GoogleSocialButton";
 import Header from "../../components/Header";
 import useToken from "../../utils/hook/useToken";
+import { useViewport } from "../../utils/hook/useViewport";
 import "./login.css";
 
 const Login = () => {
@@ -13,6 +15,7 @@ const Login = () => {
 
     const { register, handleSubmit } = useForm();
     const { token, setToken } = useToken();
+    const {isMobile} = useViewport();
 
     if (token) {
         navigate("/");
@@ -34,10 +37,10 @@ const Login = () => {
         <div>
             <Header />
             <main className="main">
-                <div className="login">
+                <div className="login" style={{padding: isMobile ? '1rem' : '6rem 5rem'}}>
                     <div className="columns full-height">
                         <div className="column is-half">
-                            <div className="login-column full-height pt-6 px-6 has-text-centered">
+                            <div className="login-column full-height p-6 has-text-centered">
                                 <div className="block">
                                     <h1 className="is-size-3 has-text-weight-bold is-uppercase">
                                         Đăng nhập
@@ -83,15 +86,25 @@ const Login = () => {
                             </div>
                         </div>
                         <div className="column is-half">
-                            <div className="login-column full-height pt-6 px-6 has-text-centered">
+                            <div className="login-column full-height p-6 has-text-centered">
                                 <h1 className="is-size-3 has-text-weight-bold block is-uppercase">
                                     hoặc
                                 </h1>
-                                <div>
-                                    <FacebookSocialButton />
-                                    <GoogleSocialButton />
-                                    <GithubSocialButton />
-                                </div>
+                                {
+                                    isMobile ? (
+                                        <div className="social-btn-mobile">
+                                            <FacebookLogo className="btn-facebook"/>
+                                            <GoogleLogo className="btn-google"/>
+                                            <GithubLogo className='btn-github'/>
+                                        </div>
+                                    ) : (
+                                        <div>
+                                            <FacebookSocialButton />
+                                            <GoogleSocialButton />
+                                            <GithubSocialButton />
+                                        </div>
+                                    )
+                                }
                             </div>
                         </div>
                     </div>
