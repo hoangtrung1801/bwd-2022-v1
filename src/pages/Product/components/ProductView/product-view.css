@@ -1,11 +1,7 @@
-.product-view .image {
-    border-radius: 1rem;
-    overflow: hidden;
-
-}
-
 .product-view-image-main .image {
+    border-radius: 2rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    overflow: hidden;
 }
 
 .product-view-images > div {
@@ -16,8 +12,14 @@
     padding-right: 6px;
 }
 
+.product-view-images .image {
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    overflow: hidden;;
+}
+
 .product-view-images .image-show .image {
-    border: 2px solid black;
+    border: 5px solid var(--green-6);
 }
 
 .product-view-content > * {

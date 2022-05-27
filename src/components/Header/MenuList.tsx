@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Category } from "../../utils/types/Cattegory";
 
 interface MenuListProps {
@@ -15,7 +16,7 @@ const MenuList : React.FC<MenuListProps> = ({content, menuListHovered}) => {
                 {
                     content?.map((category, id ) => (
                         <div className="menu-list-item" key={id}>
-                            <a href={category.href} className='is-capitalized has-text-grey'>{category.name}</a>
+                            <Link to={category.href} className='is-capitalized has-text-grey has-text-left'>{category.name}</Link>
                         </div>
                     ))
                 }

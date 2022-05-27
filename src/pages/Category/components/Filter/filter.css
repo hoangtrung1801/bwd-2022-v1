@@ -1,0 +1,10 @@
+.filter-item {
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px;
+
+    height: 4rem;
+    width: 100%;
+    padding: 0 2rem;
+
+}

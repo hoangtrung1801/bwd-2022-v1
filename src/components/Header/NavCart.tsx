@@ -1,5 +1,5 @@
 import { motion, Variants } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import {
@@ -8,6 +8,8 @@ import {
     removeProductFromCart,
 } from "../../app/slices/cartSlice";
 import { currency } from "../../utils/constant";
+import getImageUrl from "../../utils/functions/getImageUrl";
+import imageToUrl from "../../utils/functions/imageToUrl";
 import numberWithCommas from "../../utils/functions/numberWithCommas";
 import { ItemCart } from "../../utils/types/ItemCart";
 import { Product } from "../../utils/types/Product";
@@ -95,10 +97,33 @@ const CartItemList: React.FC<CartItemListProps> = ({products}) => {
             </p>
         ) : (
             products.map((product, id) => (
-                <div className="nav-cart-list-item" key={id}>
+                <CartItem product={product} key={id} />
+            ))
+        )}
+    </div>;
+}
+
+interface CartItemProps {
+    product: ItemCart
+}
+
+const CartItem: React.FC<CartItemProps> = ({product}) => {
+    const dispatch = useAppDispatch();
+    const [images, setImages] = useState<string[]>([]);
+
+    useEffect(() => {
+        const getImages = async () => {
+            const result = await imageToUrl(product.product.images);
+            setImages(result);
+        }
+        getImages().catch(e => console.log(e));
+    }, []);
+
+    return (
+                 <div className="nav-cart-list-item">
                     <div className="item-image-wrapper">
                         <div className="item-image">
-                            <img src="https://picsum.photos/200/300" />
+                            <img src={images[0]} />
                         </div>
                     </div>
                     <div className="item-content">
@@ -152,9 +177,7 @@ const CartItemList: React.FC<CartItemListProps> = ({products}) => {
                         </div>
                     </div>
                 </div>
-            ))
-        )}
-    </div>;
+   )
 }
 
 export default NavCart;

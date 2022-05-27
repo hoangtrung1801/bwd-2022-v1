@@ -8,11 +8,11 @@ const Category = () => {
         <Layout>
             <div className="container py-6 px-4">
                 <div className="columns">
-                    <div className="column is-4">
+                    <div className="column is-3">
                         <Filter />
                     </div>
 
-                    <div className="column is-8">
+                    <div className="column is-9">
                         <CategoryProduct />
                     </div>
                 </div>
