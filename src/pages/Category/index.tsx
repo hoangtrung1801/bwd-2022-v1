@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { useLocation, useSearchParams } from "react-router-dom";
 import Layout from "../../components/Layout";
-import { categories as categoryList } from "../../utils/constant";
+import { categories, categories as categoryList } from "../../utils/constant";
 import getAllProducts from "../../utils/functions/getAllProducts";
 import CategoryItem from "../../utils/types/CategoryItem";
 import { Product } from "../../utils/types/Product";
@@ -9,6 +10,8 @@ import CategoryProduct from "./components/CategoryProduct";
 import Filter from "./components/Filter";
 
 const Category = () => {
+
+    const [searchParams, setSearchParams] = useSearchParams();
 
     const [idsChoose, setIdsChoose] = useState<number[]>([]);
     const [products, setProducts] = useState<Product[]>([]);
@@ -22,11 +25,14 @@ const Category = () => {
     }
 
     useEffect(() => {
-        console.log('reload category product');
         getAllProducts().then((data: Product[]) => {
             setProducts(data);
         })
     }, []);
+
+    useEffect(() => {
+        setIdsChoose([...idsChoose, categories.findIndex(e => e.value === searchParams.get('type'))]);
+    }, [ searchParams ]);
 
     return (
         <Layout>
