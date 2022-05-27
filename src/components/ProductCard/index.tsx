@@ -8,6 +8,7 @@ import { addToCart } from "../../app/slices/cartSlice";
 import { categories, currency } from "../../utils/constant";
 import imageToUrl from "../../utils/functions/imageToUrl";
 import numberWithCommas from "../../utils/functions/numberWithCommas";
+import toastAddToCart from "../../utils/functions/toastAddToCart";
 import { Product } from "../../utils/types/Product";
 import './product-card.css';
 
@@ -30,14 +31,7 @@ const ProductCard: React.FC<ProductCardProps> = ({product, tag}) => {
             }, 800)
         })
 
-        toast.promise(
-            fakeFetch,
-            {
-                loading: <b>Loading...</b>,
-                success: <b>Added to cart</b>,
-                error: <b>Error</b>,
-            }
-        )
+        toastAddToCart(fakeFetch);
     }
 
     useEffect(() => {

@@ -29,8 +29,7 @@ const Category = () => {
             setProducts(data);
         })
         if(searchParams.get('type')) {
-            console.log(searchParams.get('type'))
-            console.log(categories[categories.findIndex((e: CategoryItem) => e.value === searchParams.get('type'))]);
+            setIdsChoose([...idsChoose, categories.findIndex((e: CategoryItem) => e.value === searchParams.get('type'))])
         }
     }, []);
 

@@ -1,9 +1,5 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import ProductCard from "../../../../components/ProductCard";
 import { categories } from "../../../../utils/constant";
-import { fetchData } from "../../../../utils/functions/fetchData";
-import getAllProducts from "../../../../utils/functions/getAllProducts";
 import { useViewport } from "../../../../utils/hook/useViewport";
 import CategoryItem from "../../../../utils/types/CategoryItem";
 import { Product } from "../../../../utils/types/Product";
