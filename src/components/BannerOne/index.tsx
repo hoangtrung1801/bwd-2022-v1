@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
-import { inViewDropdownShow, inViewParentShow, inViewScaleChildShow, inViewScaleParentShow } from "../../utils/variants";
+import { inViewDropdownShow, inViewDropupShow, inViewParentShow, inViewScaleChildShow, inViewScaleParentShow } from "../../utils/variants";
 import Button4 from "../Button/Button4";
 import "./banner-one.css";
 
@@ -28,9 +28,13 @@ const BannerOne = () => {
                         Giúp đỡ lẫn nhau thực hiện các nhu cầu cơ bản của sự sống còn của con người, đấu tranh bảo tồn các nguồn tài nguyên thiên nhiên và chung tay.
                     </motion.p>
                 </div>
-                <Link to="/donate">
-                    <Button4>Quyên góp</Button4>
-                </Link>
+                <motion.div
+                    variants={inViewDropdownShow}
+                >
+                    <Link to="/donate">
+                        <Button4>Quyên góp</Button4>
+                    </Link>
+                </motion.div>
             </div>
         </motion.div>
     );
