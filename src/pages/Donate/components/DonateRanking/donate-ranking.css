@@ -1,0 +1,18 @@
+.donate-ranking-title p::before, .donate-ranking-title p::after {
+    /* content: ''; */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 4rem;
+    height: 3px;
+    background-color: currentColor;
+}
+
+.donate-ranking-title p::before {
+    left: calc(50% - 9rem);
+}
+
+.donate-ranking-title p::after {
+    right: calc(50% - 9rem);
+}

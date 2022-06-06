@@ -6,6 +6,7 @@ import { donateSection } from "../../utils/constant";
 import DonateAction from "./components/DonateAction";
 import DonateBox from "./components/DonateBox";
 import DonateForm from "./components/DonateForm";
+import DonateRanking from "./components/DonateRanking";
 import DonateValue from "./components/DonateValue";
 
 interface DonateProps {}
@@ -36,7 +37,7 @@ const Donate: React.FC<DonateProps> = ({}) => {
                     )
                 }
             </AnimatePresence>
-
+            <DonateRanking />
         </Layout>
     );
 };

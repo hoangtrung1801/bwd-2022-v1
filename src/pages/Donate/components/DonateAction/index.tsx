@@ -32,10 +32,12 @@ const DonateAction: React.FC<DonateActionProps> = ({ isLeft = false }) => {
                 </motion.figure>
                 <motion.div
                     className={`donate-action-content ${ isLeft && "donate-action-content-left"} ${isMobileTablet && 'donate-action-content-mobile'}`}
+                    style={{padding: `${isMobileTablet ? '2rem' : '4rem 5rem'}`}}
                     variants={inViewFromRightShow}
                     initial='hidden'
                     whileInView='visible'
                     viewport={{once: true}}
+
                 >
                     <div className="block">
                         <h2 className="is-size-2 has-text-weight-bold">

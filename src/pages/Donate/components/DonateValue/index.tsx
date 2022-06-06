@@ -28,7 +28,7 @@ const DonateValue: React.FC<DonateValueProps> = ({}) => {
                     >
                         <div className='donate-value-item p-6 tile is-child is-flex is-flex-direction-column is-justify-content-space-between'>
                             <div className="block">
-                                <h2 className='is-size-5 has-text-weight-bold is-uppercase'>{item.title}</h2>
+                                <h2 className='is-size-5 has-text-weight-bold is-uppercase' style={{color: 'var(--green-6)'}}>{item.title}</h2>
                             </div>
                             <div className='block'>
                                 <p className='has-text-grey'>

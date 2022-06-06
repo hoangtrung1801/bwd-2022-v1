@@ -1,7 +1,7 @@
 .donate-value-wrapper {
     /* background-color: #f1f9ff; */
     background-color: var(--green-0);
-    padding: 3rem 6rem;
+    padding: 6rem;
 }
 
 .donate-value-item {
@@ -29,10 +29,11 @@
     height: 0;
     border-style: solid;
     border-width: 25px 0 0 25px;
-    border-color: transparent transparent transparent #e1eaf0;
+    border-color: transparent transparent transparent var(--green-0);
     transition: all 0.5s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
 .donate-value-item:hover::before {
+    /* border-left-color: var(--color-1); */
     border-left-color: var(--green-6);
 }

@@ -13,6 +13,37 @@
   --dark: #333;
   --color-1: #EA7E5D;
   --color-2: #FDECEF;
+
+  --green-0: #ebfbee;
+  --green-1: #d3f9d8;
+  --green-2: #b2f2bb;
+  --green-3: #8ce99a;
+  --green-4: #69db7c;
+  --green-5: #51cf66;
+  --green-6: #40c057;
+  --green-7: #37b24d;
+  --green-8: #2f9e44;
+  --green-9: #2b8a3e;
+  --text: #404040;
+  --dark: #333;
+  --color-1: #F4743B;
+  --color-2: #5BC0EB;
+
+  /* --green-0: #f6fdf6;
+  --green-1: #d9f8db;
+  --green-2: #bdf2bf;
+  --green-3: #a0eda4;
+  --green-4: #84e788;
+  --green-5: #67e26d;
+  --green-6: #4add52;
+  --green-7: #2ed736;
+  --green-8: #24bf2c;
+  --green-9: #1fa225;
+  --text: #404040;
+  --dark: #333;
+  --color-1: #017260;
+  --color-2: #003855; */
+
 }
 
 * {
