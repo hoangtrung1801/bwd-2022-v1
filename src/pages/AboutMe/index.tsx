@@ -51,6 +51,9 @@ const AboutMe = () => {
                                         <h1 className="title is-1 block is-uppercase">
                                             {member.name}
                                         </h1>
+                                        <p className="block has-text-grey is-italic">
+                                            {member.role}
+                                        </p>
                                         <p className="block">
                                             {member.description}
                                         </p>

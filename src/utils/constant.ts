@@ -192,7 +192,8 @@ export const members = [
         facebook: "https://www.facebook.com/trung181",
         github: "https://github.com/hoangtrung1801 ",
         instagram: "https://www.instagram.com/hoangtrung1801",
-        image: "/assets/member-1.jpg"
+        image: "/assets/member-1.jpg",
+        role: 'Đội trưởng'
     },
     {
         name: "Hà Cảnh Hồng Phúc",
@@ -200,7 +201,8 @@ export const members = [
         facebook: "https://www.facebook.com/hch.phusc.17",
         github: "https://github.com/LilPhusc ",
         instagram: "https://www.instagram.com/_.aliz.hngphc/",
-        image: "/assets/member-2.jpg"
+        image: "/assets/member-2.jpg",
+        role: 'Thành viên'
     },
     {
         name: "Võ Văn Tuấn",
@@ -208,7 +210,8 @@ export const members = [
         facebook: "https://www.facebook.com/profile.php?id=100013422558737",
         github: "",
         instagram: "",
-        image: "/assets/member-3.jpg"
+        image: "/assets/member-3.jpg",
+        role: 'Thành viên'
     },
     {
         name: "Trương Đình Dũng",
@@ -216,6 +219,7 @@ export const members = [
         facebook: " https://www.facebook.com/andrew.td2003/",
         github: "https://github.com/gitdung",
         instagram: "",
-        image: '/assets/member-4.jpg'
+        image: '/assets/member-4.jpg',
+        role: 'Thành viên'
     },
 ];

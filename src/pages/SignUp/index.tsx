@@ -1,19 +1,21 @@
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { FirebaseError } from "firebase/app";
+import { AuthError, createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import { addDoc } from "firebase/firestore";
 import { FacebookLogo, GithubLogo, GoogleLogo } from "phosphor-react";
-import { useEffect } from "react";
+import { ErrorInfo, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Button1 from "../../components/Button/Button1";
 import FacebookSocialButton from "../../components/Button/FacebookSocialButton";
 import GithubSocialButton from "../../components/Button/GithubSocialButtont";
 import GoogleSocialButton from "../../components/Button/GoogleSocialButton";
 import Header from "../../components/Header";
-import { auth } from "../../firebase";
+import { auth, collectionUsers } from "../../firebase";
 import useToken from "../../utils/hook/useToken";
 import { useViewport } from "../../utils/hook/useViewport";
-import "./login.css";
 
-const Login = () => {
+const SignUp = () => {
     const navigate = useNavigate();
 
     const { register, handleSubmit } = useForm();
@@ -24,27 +26,44 @@ const Login = () => {
         navigate("/");
     }
 
-    // useEffect(() => {
-    //     signOut(auth);
-    // })
+    const onSignUp = async (body: any) => {
+        const {username, email, password, confirmPassword} = body;
 
-    const onLogin = async (body: any) => {
-        const {email, password} = body;
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        // check password twice
+        if(password != confirmPassword) {
+            toast.error("Mật khẩu phải giống nhau");
+            return;
+        }
 
-        setToken(userCredential.user.uid);
+        // create user
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const uid = userCredential.user.uid;
 
-        // setToken(userCredential.user.getIdToken);)
-        // const result = await axios.post('/api/login', body);
-        // const { token } = result;
+            const doc = await addDoc(collectionUsers, {
+                id: uid,
+                username,
+                email
+            });
+            setToken(doc.id);
 
-        // setToken(token);
-
-        navigate("/");
-    };
+            // noty to user
+            // toast.success("Đăng kí thành công");
+            navigate('/');
+        }  catch(e: FirebaseError | any) {
+            if(e.code === 'auth/email-already-in-use') {
+                toast.error('Email đã được sử dụng');
+            }
+            console.error('error', e.message);
+        }
+    }
 
     return (
         <div>
+            <div>
+                <Toaster position="top-right" />
+            </div>
+
             <Header />
             <main className="main">
                 <div className="login" style={{padding: isMobile ? '1rem' : '6rem 5rem'}}>
@@ -53,14 +72,24 @@ const Login = () => {
                             <div className="login-column full-height p-6 has-text-centered">
                                 <div className="block">
                                     <h1 className="is-size-3 has-text-weight-bold is-uppercase">
-                                        Đăng nhập
+                                        Đăng kí
                                     </h1>
-                                    <p className="is-size-7">
+                                    {/* <p className="is-size-7">
                                         Chào mừng bạn! Hãy đăng nhập vào tài
                                         khoản
-                                    </p>
+                                    </p> */}
                                 </div>
-                                <form onSubmit={handleSubmit(onLogin)}>
+                                <form onSubmit={handleSubmit(onSignUp)}>
+                                    <div className="field">
+                                        <div className="control">
+                                                <input
+                                                    type="text"
+                                                    className="input"
+                                                    placeholder="Tên hiển thị"
+                                                    {...register("username")}
+                                                />
+                                        </div>
+                                    </div>
                                     <div className="field">
                                         <div className="control">
                                             <input
@@ -81,16 +110,18 @@ const Login = () => {
                                             />
                                         </div>
                                     </div>
-                                    <div className="my-5">
-                                        <Button1 >Đăng nhập</Button1>
+                                    <div className="field">
+                                        <div className="control">
+                                            <input
+                                                type="password"
+                                                className="input"
+                                                placeholder="Nhập lại mật khẩu"
+                                                {...register("confirmPassword")}
+                                            />
+                                        </div>
                                     </div>
-                                    <div>
-                                        <a
-                                            href="#"
-                                            className="is-italic has-text-grey"
-                                        >
-                                            Bạn quên mật khẩu ?
-                                        </a>
+                                    <div className="my-5">
+                                        <Button1 >Đăng kí</Button1>
                                     </div>
                                 </form>
                             </div>
@@ -124,4 +155,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUp;

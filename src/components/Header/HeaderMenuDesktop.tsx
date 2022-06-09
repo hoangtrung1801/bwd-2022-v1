@@ -1,18 +1,24 @@
+import { doc, getDoc } from "firebase/firestore";
 import { motion } from "framer-motion";
 import { Bag, CaretDown, Gear, SignIn } from "phosphor-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "../../app/hooks";
+import { auth, collectionUsers, db } from "../../firebase";
 import { routes } from "../../utils/constant";
+import useToken from "../../utils/hook/useToken";
+import User from "../../utils/types/User";
 import CartAmount from "./CartAmount";
 import DropdownUser from "./DropdownUser";
 import MenuList from "./MenuList";
 import NavCart from "./NavCart";
 
 interface HeaderMenuDesktopProps {
-    token: string | null
+    // token: string | null
+    user: User | undefined
 }
 
-const HeaderMenuDesktop: React.FC<HeaderMenuDesktopProps> = ({token}) => {
+const HeaderMenuDesktop: React.FC<HeaderMenuDesktopProps> = ({user}) => {
     const [menuListHovered, setMenuListHovered] = useState(-1);
     const [navCartOpen, setNavCartOpen] = useState(false);
     const [dropdownUser, setDropdownUser] = useState(false);
@@ -80,17 +86,14 @@ const HeaderMenuDesktop: React.FC<HeaderMenuDesktopProps> = ({token}) => {
                         closeNavCart={closeNavCart}
                     />
                 </div>
-                {token ? (
+                {user ? (
                     <div className="full-height is-flex is-justify-content-center is-align-items-center is-relative">
-                        <p className="header-username font-heading has-text-weight-semibold is-clickable">
-                            username
+                        <p className="header-username font-heading has-text-weight-semibold is-clickable"
+                            onClick={() => setDropdownUser(!dropdownUser)}
+                        >
+                            {user.username}
+                            <span className="ml-2 is-size-7"><CaretDown/></span>
                         </p>
-                        <a href="#">
-                            <Gear
-                                className="is-size-4 ml-3"
-                                onClick={() => setDropdownUser(!dropdownUser)}
-                            />
-                        </a>
                         <DropdownUser dropdownUserHovered={dropdownUser} />
                     </div>
                 ) : (

@@ -37,7 +37,7 @@ const Donate: React.FC<DonateProps> = ({}) => {
                     )
                 }
             </AnimatePresence>
-            <DonateRanking />
+            {/* <DonateRanking /> */}
         </Layout>
     );
 };

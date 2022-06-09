@@ -13,6 +13,7 @@ import Donate from "./pages/Donate";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Product from "./pages/Product";
+import SignUp from "./pages/SignUp";
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -38,6 +39,7 @@ function App() {
                     <Route path="/" >
                         <Route index element={<Home />} />
                         <Route path="login" element={<Login />} />
+                        <Route path="signup" element={<SignUp />} />
                         <Route path="category" element={<Category />} />
                         <Route path="product">
                             <Route path=":id" element={<Product />} />

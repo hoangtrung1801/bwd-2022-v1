@@ -12,7 +12,7 @@ const useToken = () => {
     }
 
     return {
-        token,
+        token: JSON.parse(token || ""),
         setToken: saveToken
     }
 }

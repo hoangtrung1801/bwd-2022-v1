@@ -1,6 +1,8 @@
+import { signOut } from "firebase/auth";
 import { AnimatePresence, motion } from "framer-motion";
 import { CSSProperties, useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
+import { auth } from "../../firebase";
 import { useViewport } from "../../utils/hook/useViewport";
 import Footer from "../Footer";
 import Header from "../Header";

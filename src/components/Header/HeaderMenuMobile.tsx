@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { routes } from "../../utils/constant";
 import logout from "../../utils/functions/logout";
+import User from "../../utils/types/User";
 import Button3 from "../Button/Button3";
 import CartAmount from "./CartAmount";
 
@@ -28,10 +29,11 @@ const dropdownSubcategoryMobileVariants: Variants = {
 
 
 interface HeaderMenuMobileProps {
-    token: string | null
+    // token: string | null,
+    user: User | undefined
 }
 
-const HeaderMenuMobile: React.FC<HeaderMenuMobileProps> = ({token}) => {
+const HeaderMenuMobile: React.FC<HeaderMenuMobileProps> = ({user}) => {
     const [dropdownMenuList, setDropdownMenuList] = useState(false);
     const [dropdownMenuListItemSelected, setDropdownMenuListItemSelected] = useState(-1);
 
@@ -117,11 +119,11 @@ const HeaderMenuMobile: React.FC<HeaderMenuMobileProps> = ({token}) => {
                             ))}
                         </div>
                         <div className="is-flex px-6">
-                            {token ? (
+                            {user ? (
                                 <div className="full-width is-flex is-align-items-center is-justify-content-space-between has-text-white">
                                     <div className="is-flex is-align-items-center">
                                         <p className="has-text-weight-semibold mr-4 font-heading">
-                                            username
+                                            {user.username}
                                         </p>
                                         <SignOut
                                             className="is-size-5 is-clickable"

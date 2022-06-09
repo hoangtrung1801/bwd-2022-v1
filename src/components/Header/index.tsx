@@ -1,20 +1,43 @@
-import { Bag, CaretDown, List, SignOut, X } from "phosphor-react";
-import { useState } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { db } from "../../firebase";
 import Logo from "../../logo.png";
-import { routes } from "../../utils/constant";
-import logout from "../../utils/functions/logout";
 import useToken from "../../utils/hook/useToken";
 import { useViewport } from "../../utils/hook/useViewport";
-import Button3 from "../Button/Button3";
-import CartAmount from "./CartAmount";
+import User from "../../utils/types/User";
 import "./header.css";
 import HeaderMenuDesktop from "./HeaderMenuDesktop";
 import HeaderMenuMobile from "./HeaderMenuMobile";
 
 const Header = () => {
-    const { token, setToken } = useToken();
+    const {token} = useToken();
     const { isDesktop } = useViewport();
+    const [user, setUser] = useState<User>();
+
+    useEffect(() => {
+        const fetch = async(): Promise<User | null> => {
+            const userRef = doc(db, 'users', token);
+            const userSnap = await getDoc(userRef);
+            const userData = await userSnap.data();
+
+            if(userData) {
+                const user: User = {
+                    username: userData.username,
+                    email: userData.email,
+                    id: userData.id
+                }
+
+                return user;
+            }
+            return null;
+        }
+
+        fetch().then(( user: User | null ) => {
+            if(user) setUser(user);
+        })
+
+    })
 
     return (
         <header>
@@ -27,9 +50,9 @@ const Header = () => {
                     </Link>
                 </div>
                 {isDesktop ? (
-                    <HeaderMenuDesktop token={token} />
+                    <HeaderMenuDesktop user={user} />
                 ) : (
-                    <HeaderMenuMobile token={token} />
+                    <HeaderMenuMobile user={user} />
                 )}
             </div>
         </header>

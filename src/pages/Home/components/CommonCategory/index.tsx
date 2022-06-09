@@ -19,7 +19,7 @@ const CommonCategory: React.FC<CommonCategoryProps> = ({products}) => {
     const {inView, ref} = useInView({threshold: 0.2});
 
     return (
-        <div className="common-category" ref={ref}>
+        <div className="common-category py-4" ref={ref}>
             <div className="has-text-centered p-6">
                 <div style={{letterSpacing: '1px'}}>
                     <p className="is-size-4 has-text-weight-bold is-relative common-category-title">
