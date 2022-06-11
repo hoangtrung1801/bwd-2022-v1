@@ -15,10 +15,11 @@ import NavCart from "./NavCart";
 
 interface HeaderMenuDesktopProps {
     // token: string | null
-    user: User | undefined
+    user: User | undefined,
+    onLogOut: () => void
 }
 
-const HeaderMenuDesktop: React.FC<HeaderMenuDesktopProps> = ({user}) => {
+const HeaderMenuDesktop: React.FC<HeaderMenuDesktopProps> = ({user, onLogOut}) => {
     const [menuListHovered, setMenuListHovered] = useState(-1);
     const [navCartOpen, setNavCartOpen] = useState(false);
     const [dropdownUser, setDropdownUser] = useState(false);
@@ -34,10 +35,9 @@ const HeaderMenuDesktop: React.FC<HeaderMenuDesktopProps> = ({user}) => {
             <div className="header-menu full-height is-flex is-relative">
                 {routes.map((category, id) => (
                     <>
-                        <div className="is-flex is-align-items-center is-relative">
+                        <div className="is-flex is-align-items-center is-relative" key={id}>
                             <Link
                                 to={category.href}
-                                key={id}
                                 className={`header-menu-item is-size-6 has-text-weight-bold is-flex is-justify-content-center is-align-items-center font-heading ${
                                     location.pathname === category.href
                                         ? "header-menu-active"
@@ -63,6 +63,7 @@ const HeaderMenuDesktop: React.FC<HeaderMenuDesktopProps> = ({user}) => {
 
                         {category.subcategories ? (
                             <MenuList
+                                key={id+100}
                                 content={category.subcategories}
                                 menuListHovered={
                                     menuListHovered === id ? true : false
@@ -86,6 +87,7 @@ const HeaderMenuDesktop: React.FC<HeaderMenuDesktopProps> = ({user}) => {
                         closeNavCart={closeNavCart}
                     />
                 </div>
+                {/* Log in & sign out */}
                 {user ? (
                     <div className="full-height is-flex is-justify-content-center is-align-items-center is-relative">
                         <p className="header-username font-heading has-text-weight-semibold is-clickable"
@@ -94,7 +96,7 @@ const HeaderMenuDesktop: React.FC<HeaderMenuDesktopProps> = ({user}) => {
                             {user.username}
                             <span className="ml-2 is-size-7"><CaretDown/></span>
                         </p>
-                        <DropdownUser dropdownUserHovered={dropdownUser} />
+                        <DropdownUser dropdownUserHovered={dropdownUser} onLogOut={onLogOut}/>
                     </div>
                 ) : (
                     <Link to="/login" className="is-size-4">

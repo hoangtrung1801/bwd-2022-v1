@@ -2,51 +2,40 @@ import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { FacebookLogo, GithubLogo, GoogleLogo } from "phosphor-react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Button1 from "../../components/Button/Button1";
 import FacebookSocialButton from "../../components/Button/FacebookSocialButton";
 import GithubSocialButton from "../../components/Button/GithubSocialButtont";
 import GoogleSocialButton from "../../components/Button/GoogleSocialButton";
 import Header from "../../components/Header";
+import Layout from "../../components/Layout";
 import { auth } from "../../firebase";
 import useToken from "../../utils/hook/useToken";
 import { useViewport } from "../../utils/hook/useViewport";
 import "./login.css";
 
 const Login = () => {
-    const navigate = useNavigate();
-
     const { register, handleSubmit } = useForm();
     const { token, setToken } = useToken();
     const {isMobile} = useViewport();
 
     if (token) {
-        navigate("/");
+        return <Navigate to='/' />
     }
-
-    // useEffect(() => {
-    //     signOut(auth);
-    // })
 
     const onLogin = async (body: any) => {
         const {email, password} = body;
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
 
         setToken(userCredential.user.uid);
-
-        // setToken(userCredential.user.getIdToken);)
-        // const result = await axios.post('/api/login', body);
-        // const { token } = result;
-
-        // setToken(token);
-
-        navigate("/");
+        // navigate("/");
+        return <Navigate to='/signup' />
     };
 
     return (
-        <div>
-            <Header />
-            <main className="main">
+        // <div>
+        //     <Header />
+        <Layout >
                 <div className="login" style={{padding: isMobile ? '1rem' : '6rem 5rem'}}>
                     <div className="columns full-height">
                         <div className="column is-half">
@@ -85,12 +74,12 @@ const Login = () => {
                                         <Button1 >Đăng nhập</Button1>
                                     </div>
                                     <div>
-                                        <a
-                                            href="#"
+                                        <Link
+                                            to='/signup'
                                             className="is-italic has-text-grey"
                                         >
-                                            Bạn quên mật khẩu ?
-                                        </a>
+                                            Bạn chưa có tài khoản ? Đăng ký ngay
+                                        </Link>
                                     </div>
                                 </form>
                             </div>
@@ -119,8 +108,7 @@ const Login = () => {
                         </div>
                     </div>
                 </div>
-            </main>
-        </div>
+        </Layout>
     );
 };
 

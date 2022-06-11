@@ -1,7 +1,9 @@
+import { signOut } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
+import { CloudFog } from "phosphor-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { db } from "../../firebase";
+import { auth, db } from "../../firebase";
 import Logo from "../../logo.png";
 import useToken from "../../utils/hook/useToken";
 import { useViewport } from "../../utils/hook/useViewport";
@@ -11,13 +13,19 @@ import HeaderMenuDesktop from "./HeaderMenuDesktop";
 import HeaderMenuMobile from "./HeaderMenuMobile";
 
 const Header = () => {
-    const {token} = useToken();
+    const {token, setToken} = useToken();
     const { isDesktop } = useViewport();
     const [user, setUser] = useState<User>();
 
+    const onLogOut = () => {
+        setToken("");
+        signOut(auth);
+        window.location.reload();
+    }
+
     useEffect(() => {
         const fetch = async(): Promise<User | null> => {
-            const userRef = doc(db, 'users', token);
+            const userRef = doc(db, 'users', token || "");
             const userSnap = await getDoc(userRef);
             const userData = await userSnap.data();
 
@@ -34,10 +42,11 @@ const Header = () => {
         }
 
         fetch().then(( user: User | null ) => {
+            console.log(user);
             if(user) setUser(user);
         })
 
-    })
+    },[]);
 
     return (
         <header>
@@ -50,7 +59,7 @@ const Header = () => {
                     </Link>
                 </div>
                 {isDesktop ? (
-                    <HeaderMenuDesktop user={user} />
+                    <HeaderMenuDesktop user={user} onLogOut={onLogOut} />
                 ) : (
                     <HeaderMenuMobile user={user} />
                 )}
