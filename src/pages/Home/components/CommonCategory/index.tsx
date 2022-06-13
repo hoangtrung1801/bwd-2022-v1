@@ -1,11 +1,6 @@
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import Button1 from '../../../../components/Button/Button1';
-import Button2 from '../../../../components/Button/Button2';
-import Button3 from '../../../../components/Button/Button3';
 import ProductCard from '../../../../components/ProductCard';
-import imageToUrl from '../../../../utils/functions/imageToUrl';
 import { Product } from '../../../../utils/types/Product';
 import { inViewScaleChildShow, inViewScaleParentShow } from '../../../../utils/variants';
 import './common-category.css';
@@ -50,41 +45,5 @@ const CommonCategory: React.FC<CommonCategoryProps> = ({products}) => {
         </div>
     );
 }
-
-const CommonCategoryItem = ({ product }: { product: Product }) => {
-    const [images, setImages] = useState<string[]>([]);
-
-    useEffect(() => {
-        const getImages = async () => {
-            const result = await imageToUrl(product.images);
-            setImages(result);
-        };
-        getImages();
-    }, []);
-    return (
-        <div className="common-category-item column is-3-desktop is-4-tablet is-12-mobile">
-            <div>
-                <figure className="image is-1by1">
-                    {/* <img
-                    src={ `https://picsum.photos/id/${Math.ceil( Math.random() * 100 + 10)}/1200` }
-                    alt="" /> */}
-                    <img src={images[0]} alt="" />
-                </figure>
-                <div className="has-text-centered my-4">
-                    <p className="has-text-weight-bold mb-2">
-                        Bright Idea Moisturizer
-                    </p>
-                    <p className="is-size-7">
-                        Vitamin C + Tri-Peptide Collagen Protecting &
-                        Brightening Moisturizer
-                    </p>
-                </div>
-                <div>
-                    <Button2>ADD TO BAG</Button2>
-                </div>
-            </div>
-        </div>
-    );
-};
 
 export default CommonCategory;

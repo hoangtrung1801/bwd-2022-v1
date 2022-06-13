@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import toast from "react-hot-toast";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../app/hooks";
 import Button3 from "../../components/Button/Button3";
 import Layout from "../../components/Layout";
@@ -12,13 +12,18 @@ import CheckoutForm from "./components/CheckoutForm";
 interface CheckoutProps {}
 
 const Checkout: React.FC<CheckoutProps> = () => {
+    const navigate = useNavigate();
     const products = useAppSelector(state => state.cart.items);
     const {token, setToken} = useToken();
 
-    if(!token) {
-        toast.error("Vui lòng đăng nhập!", {duration: 1000});
-        return <Navigate to='/'/>
-    }
+    useEffect(() => {
+        if(!token) {
+            toast.error("Vui lòng đăng nhập!", {duration: 1000});
+            setTimeout(() => {
+                navigate('/');
+            }, 1000);
+        }
+    }, []);
 
     return (
         <Layout>

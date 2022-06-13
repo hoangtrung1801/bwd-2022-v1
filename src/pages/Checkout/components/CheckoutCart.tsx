@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Button3 from "../../../components/Button/Button3";
 import Button4 from "../../../components/Button/Button4";
 import { currency } from "../../../utils/constant";
 import imageToUrl from "../../../utils/functions/imageToUrl";
@@ -13,16 +12,16 @@ interface CheckoutCartProps {
 const CheckoutCart: React.FC<CheckoutCartProps> = ({products}) => {
 
     return (
-        <div className="checkout-cart has-shadow px-4 py-5">
+        <div className="checkout-cart has-shadow px-4 py-5 full-height is-flex is-flex-direction-column">
             <div className="block">
                 <h2 className="is-size-5 has-text-weight-bold is-uppercase">
                     Sản phẩm
                 </h2>
                 <p className="is-size-7 is-italic has-text-grey has-text-weight-light">
-                    ({products.length} items)
+                    ({products.length} sản phẩm)
                 </p>
             </div>
-            <div className="block">
+            <div className="block mb-auto">
                 {products.map((item, id) => (
                     <CheckoutCartItem item={item} key={id} />
                 ))}

@@ -1,19 +1,12 @@
 import { FirebaseError } from "firebase/app";
-import { AuthError, createUserWithEmailAndPassword, signOut } from "firebase/auth";
-import { addDoc, doc, setDoc } from "firebase/firestore";
-import { FacebookLogo, GithubLogo, GoogleLogo } from "phosphor-react";
-import { ErrorInfo, useEffect } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 import { useForm } from "react-hook-form";
-import toast, { Toaster } from "react-hot-toast";
-import { Navigate, useNavigate } from "react-router-dom";
-import Button1 from "../../components/Button/Button1";
+import toast from "react-hot-toast";
+import { Navigate } from "react-router-dom";
 import Button4 from "../../components/Button/Button4";
-import FacebookSocialButton from "../../components/Button/FacebookSocialButton";
-import GithubSocialButton from "../../components/Button/GithubSocialButtont";
-import GoogleSocialButton from "../../components/Button/GoogleSocialButton";
-import Header from "../../components/Header";
 import Layout from "../../components/Layout";
-import { auth, collectionUsers, db } from "../../firebase";
+import { auth, db } from "../../firebase";
 import useToken from "../../utils/hook/useToken";
 import { useViewport } from "../../utils/hook/useViewport";
 
@@ -130,15 +123,17 @@ const SignUp = () => {
 
                         </div>
                     </div>
-                    <div className="column is-6 p-0 is-relative">
-                        <div className="login-background is-flex is-align-items-center">
+                    {!isMobile && (
+                        <div className="column is-6 p-0 is-relative">
+                            <div className="login-background is-flex is-align-items-center">
+                            </div>
+                            <div className='full-width full-height has-text-centered is-flex is-flex-direction-column is-align-items-center' style={{marginTop: '6rem'}}>
+                                <h1 className="is-size-2 has-text-white has-text-weight-bold ">LAVIE</h1>
+                                <h1 className="is-size-6 has-text-white has-text-white mb-6">Cùng chung tay bảo vệ môi trường</h1>
+                                <img src="/assets/login.svg" alt="" style={{height: '60%'}} />
+                            </div>
                         </div>
-                        <div className='full-width full-height has-text-centered is-flex is-flex-direction-column is-align-items-center' style={{marginTop: '6rem'}}>
-                            <h1 className="is-size-2 has-text-white has-text-weight-bold ">LAVIE</h1>
-                            <h1 className="is-size-6 has-text-white has-text-white mb-6">Cùng chung tay bảo vệ môi trường</h1>
-                            <img src="/assets/login.svg" alt="" style={{height: '60%'}} />
-                        </div>
-                    </div>
+                    )}
                 </div>
             </div>
         </Layout>

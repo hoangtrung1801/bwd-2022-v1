@@ -30,10 +30,11 @@ const dropdownSubcategoryMobileVariants: Variants = {
 
 interface HeaderMenuMobileProps {
     // token: string | null,
-    user: User | undefined
+    user: User | undefined,
+    onLogOut: () => void
 }
 
-const HeaderMenuMobile: React.FC<HeaderMenuMobileProps> = ({user}) => {
+const HeaderMenuMobile: React.FC<HeaderMenuMobileProps> = ({user, onLogOut}) => {
     const [dropdownMenuList, setDropdownMenuList] = useState(false);
     const [dropdownMenuListItemSelected, setDropdownMenuListItemSelected] = useState(-1);
 
@@ -128,7 +129,7 @@ const HeaderMenuMobile: React.FC<HeaderMenuMobileProps> = ({user}) => {
                                         <SignOut
                                             className="is-size-5 is-clickable"
                                             weight="bold"
-                                            onClick={() => handleLogout()}
+                                            onClick={() => onLogOut()}
                                         />
                                     </div>
 

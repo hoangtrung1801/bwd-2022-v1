@@ -61,7 +61,7 @@ const Header = () => {
                 {isDesktop ? (
                     <HeaderMenuDesktop user={user} onLogOut={onLogOut} />
                 ) : (
-                    <HeaderMenuMobile user={user} />
+                    <HeaderMenuMobile user={user} onLogOut={onLogOut}/>
                 )}
             </div>
         </header>
