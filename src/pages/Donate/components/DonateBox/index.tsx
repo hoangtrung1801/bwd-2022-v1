@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import Button3 from "../../../../components/Button/Button3";
 import { DONATENOW } from "../../../../utils/constant";
@@ -12,6 +13,8 @@ interface DonateBoxProps {
 const amountDonate = [50, 100, 200, 500, 1000];
 
 const DonateBox: React.FC<DonateBoxProps> = ({ showDonateForm }) => {
+    const [amountId, setAmountId] = useState(0);
+
     const {inView, ref} = useInView({threshold: 0.5});
 
     return (
@@ -26,7 +29,7 @@ const DonateBox: React.FC<DonateBoxProps> = ({ showDonateForm }) => {
                     <motion.div className="donate-box-title block has-text-centered mb-6"
                         variants={inViewDropupShow}
                     >
-                        <p className="is-size-5 is-uppercase has-text-weight-semibold font-heading">
+                        <p className="is-size-5 is-uppercase has-text-weight-bold font-heading">
                             Quyên góp
                         </p>
                         <p className="is-size-2 is-uppercase has-text-weight-bold font-heading has-text-white">
@@ -43,8 +46,9 @@ const DonateBox: React.FC<DonateBoxProps> = ({ showDonateForm }) => {
                     >
                         {amountDonate.map((amount, id) => (
                             <button
-                                className="button has-text-weight-semibold my-2"
+                                className={ `button has-text-weight-semibold my-2 ${id === amountId && 'donate-box-amount-selected'}` }
                                 key={id}
+                                onClick={() => setAmountId(id)}
                             >
                                 {amount}K
                             </button>

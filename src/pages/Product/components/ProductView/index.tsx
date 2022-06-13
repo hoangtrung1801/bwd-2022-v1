@@ -5,6 +5,7 @@ import { useAppDispatch } from "../../../../app/hooks";
 import { addToCart } from "../../../../app/slices/cartSlice";
 import AmountContainer from "../../../../components/AmountContainer";
 import Button2 from "../../../../components/Button/Button2";
+import Button3 from "../../../../components/Button/Button3";
 import Button4 from "../../../../components/Button/Button4";
 import Button5 from "../../../../components/Button/Button5";
 import { currency } from "../../../../utils/constant";
@@ -47,30 +48,6 @@ const ProductView: React.FC<ProductViewProps> = ({product}) => {
 
     return (
         <div className="product-view columns block mb-6">
-            {/* <div className="column is-1 px-0">
-                <div className="product-view-images">
-                    {
-                        images
-                        .map((imageUrl, id) => (
-                            <div className={ `mb-1 has-cursor-pointer ${id === imgId ? 'product-view-images-show' : ''}` } onMouseOver={() => setImgId(id)} key={id}>
-                                <figure className="image is-1by1">
-                                    <img
-                                        src={imageUrl}
-                                        alt=""
-                                    />
-                                </figure>
-                            </div>
-                        ))}
-                </div>
-            </div>
-            <div className="column is-5">
-                <figure className="image is-1by1">
-                    <img
-                        src={images[imgId]}
-                        alt=""
-                    />
-                </figure>
-            </div> */}
             <div className="column is-5">
                 <div>
                     <div className="product-view-image-main">
@@ -136,7 +113,8 @@ const ProductView: React.FC<ProductViewProps> = ({product}) => {
                             <AmountContainer />
                         </div>
                     </div>
-                    <div>
+                    <div className='is-uppercase'>
+                        {/* <Button3 onClick={handleAdd}>Thêm vào giỏ</Button3> */}
                         {/* <Button4 onClick={handleAdd}>Thêm vào giỏ</Button4> */}
                         <Button5 onClick={handleAdd}>Thêm vào giỏ</Button5>
                     </div>

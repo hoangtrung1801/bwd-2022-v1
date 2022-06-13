@@ -1,6 +1,8 @@
 .product-view-image-main .image {
-    border-radius: 2rem;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    /* border-radius: 2rem; */
+    /* border-radius: 6px; */
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     overflow: hidden;
 }
 
@@ -13,13 +15,22 @@
 }
 
 .product-view-images .image {
-    border-radius: 1rem;
+    /* border-radius: 1rem; */
+    border-radius: 3px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     overflow: hidden;;
+
+    outline: 3px solid #fff;
+
+    transition: all 0.25s ease;
 }
 
 .product-view-images .image-show .image {
-    border: 5px solid var(--green-6);
+    /* border: 5px solid var(--green-6); */
+    /* outline: 5px solid var(--green-2); */
+    outline-color: var(--green-3);
+    z-index: 10;
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
 }
 
 .product-view-content > * {

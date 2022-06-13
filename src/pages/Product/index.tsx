@@ -22,7 +22,7 @@ const Product = () => {
 
     return (
         <Layout>
-            <div className={ `container is-max-widescreen py-6 ${isMobileTablet && 'px-4'}` }>
+            <div className={ `container is-max-widescreen px-4 py-6 ${isMobileTablet && 'px-6'}` }>
                 <ProductView product={product}/>
                 <ProductReivews />
             </div>

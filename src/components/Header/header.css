@@ -186,7 +186,8 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .nav-cart hr {
-  background-color: var(--green-4);
+  background-color: var(--green-1);
+  /* background: -webkit-linear-gradient(left, #a6f77b, #2dbd6e); */
   height: 1.5px;
 }
 
