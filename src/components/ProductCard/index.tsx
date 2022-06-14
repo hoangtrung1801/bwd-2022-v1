@@ -72,7 +72,7 @@ const ProductCard: React.FC<ProductCardProps> = ({product, tag}) => {
                 </div>
                 <div>
                     <p
-                        className="has-text-grey is-uppercase mt-1 has-text-centered"
+                        className="is-size-7 has-text-grey is-italic mt-1 has-text-centered"
                         style={{ fontSize: "0.8rem" }}
                     >
                         {categories.find(category => category.value == product.categories[0])?.label}

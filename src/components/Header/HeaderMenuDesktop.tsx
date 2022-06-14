@@ -1,12 +1,8 @@
-import { doc, getDoc } from "firebase/firestore";
 import { motion } from "framer-motion";
-import { Bag, CaretDown, Gear, SignIn } from "phosphor-react";
-import { useEffect, useState } from "react";
+import { Bag, CaretDown, SignIn } from "phosphor-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useAppSelector } from "../../app/hooks";
-import { auth, collectionUsers, db } from "../../firebase";
 import { routes } from "../../utils/constant";
-import useToken from "../../utils/hook/useToken";
 import User from "../../utils/types/User";
 import CartAmount from "./CartAmount";
 import DropdownUser from "./DropdownUser";

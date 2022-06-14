@@ -1,7 +1,5 @@
-import { Dispatch, SetStateAction } from 'react';
 import { categories } from '../../../../utils/constant';
-import CategoryItem from '../../../../utils/types/CategoryItem';
-import './filter.css'
+import './filter.css';
 
 interface FilterProps {
     setCategory: (id: number, state: boolean) => void,
@@ -19,7 +17,7 @@ const Filter: React.FC<FilterProps> = ({setCategory}) => {
 
     return (
         <div className='filter'>
-            <h3 className="is-size-5 has-text-weight-bold is-uppercase block">Phân loại</h3>
+            <h3 className="is-size-4 has-text-weight-semibold block">Phân loại</h3>
             <div className=''>
                 <p className="has-text-weight-medium is-uppercase mb-5">Thể loại</p>
                 <ul className='is-flex is-flex-wrap-wrap'>

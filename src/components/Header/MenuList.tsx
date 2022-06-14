@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { categories } from "../../utils/constant";
 import { Category } from "../../utils/types/Cattegory";
+import MenuListItemIcon from "./MenuListItemIcon";
 
 interface MenuListProps {
     content?: Category[],
@@ -16,7 +18,12 @@ const MenuList : React.FC<MenuListProps> = ({content, menuListHovered}) => {
                 {
                     content?.map((category, id ) => (
                         <div className="menu-list-item" key={id}>
-                            <Link to={category.href} className='is-capitalized has-text-grey has-text-left'>{category.name}</Link>
+                            <Link to={category.href} className='is-capitalized has-text-grey has-text-left has-text-weight-semibold is-flex is-align-items-center'>
+                                <MenuListItemIcon iconName={categories.find(e => e.label === category.name)?.value} />
+                                <span className="ml-1">
+                                    {category.name}
+                                </span>
+                            </Link>
                         </div>
                     ))
                 }

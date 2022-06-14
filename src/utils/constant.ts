@@ -65,7 +65,6 @@ export const routes: Category[] = [
             {
                 name: 'Vải',
                 href: '/category?type=canvas'
-
             },
             {
                 name: 'Tre',

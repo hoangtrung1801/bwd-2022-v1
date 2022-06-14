@@ -139,12 +139,14 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .menu-list-item {
-    width: 50%;
-    line-height: 1rem;
+    width: calc(100% / 3);
+    line-height: 2.5rem;
+    font-size: 0.9rem;
 }
 
 .menu-list-item > a:hover {
     color: var(--green-8) !important;
+    background-color: var(--green-2);
 }
 
 /* Nav cart */

@@ -4,7 +4,7 @@ import { categories } from "../../../../utils/constant";
 import { useViewport } from "../../../../utils/hook/useViewport";
 import CategoryItem from "../../../../utils/types/CategoryItem";
 import { Product } from "../../../../utils/types/Product";
-import { categoryItemShow, inViewParentShow, inViewScaleShow } from "../../../../utils/variants";
+import { categoryItemShow } from "../../../../utils/variants";
 import SortBy from "../SortBy";
 
 interface CategoryProductProps {
@@ -18,8 +18,9 @@ const CategoryProduct: React.FC<CategoryProductProps> = ({idsChoose, products}) 
 
     return (
         <div className="category-product">
-            <h3 className="is-size-5 has-text-weight-bold is-uppercase block">
-                Danh mục
+            <h3 className="is-size-4 has-text-weight-semibold block">
+                {/* Danh mục */}
+                Danh sách sản phẩm
             </h3>
             <SortBy />
             {/* <div className="columns is-flex-wrap-wrap is-variable is-2"> */}
