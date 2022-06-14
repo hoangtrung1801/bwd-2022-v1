@@ -58,7 +58,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ products }) => {
         <motion.div
             className="px-5 py-6 product-carousel-wrapper"
         >
-            <div className="has-text-centered" style={{ letterSpacing: "1px" }}>
+            <div className="has-text-centered block" style={{ letterSpacing: "1px" }}>
                 <p className="is-size-4 has-text-weight-bold is-relative product-carousel-title is-uppercase">
                     Sản phẩm mới
                 </p>

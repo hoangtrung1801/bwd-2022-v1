@@ -7,13 +7,13 @@ export const DONATE = "Quyên góp";
 export const bannerSection = [
     {
         image: '/assets/banner-2.jpeg',
-        title: '" Thay đổi thế giới "',
+        title: 'Thay đổi thế giới',
         body: 'Chúng ta cần bắt đầu thay đổi thế giới ngay hôm nay, không phải ngày mai. Chúng ta cần phải hành động và ngừng phàn nàn về những điều tồi tệ hiện tại để chúng ta có cơ hội làm cho chúng tốt hơn. Hãy cùng chung tay với chúng tôi?',
         button: 'Tìm hiểu thêm'
     },
     {
         image: '/assets/banner-3.jpeg',
-        title: '" Tái sử dụng, vì tiềm năng của rác là vô hạn "',
+        title: 'Tái sử dụng, vì tiềm năng của rác là vô hạn',
         body: 'Bạn đang cố gắng trở nên xanh và thân thiện với môi trường, nhưng không biết làm thế nào bạn có thể tiết kiệm tài nguyên của môi trường? Hãy tái sử dụng rác thải có thể tái chế.',
         button: "Tìm hiểu thêm"
     }

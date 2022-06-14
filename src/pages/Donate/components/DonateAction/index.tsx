@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Handshake } from "phosphor-react";
 import { donateActionSection, DONATENOW } from "../../../../utils/constant";
 import { useViewport } from "../../../../utils/hook/useViewport";
 import { categoryItemShow, inViewFromLeftShow, inViewFromRightShow } from "../../../../utils/variants";
@@ -40,7 +41,8 @@ const DonateAction: React.FC<DonateActionProps> = ({ isLeft = false }) => {
 
                 >
                     <div className="block">
-                        <h2 className="is-size-2 has-text-weight-bold">
+                        <h2 className="is-size-2 has-text-weight-bold is-flex is-align-items-center">
+                            {/* <Handshake size={64} weight='bold' className="mr-4"/> */}
                             {donateActionSection.title}
                         </h2>
                     </div>

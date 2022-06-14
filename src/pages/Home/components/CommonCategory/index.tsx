@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import ProductCard from '../../../../components/ProductCard';
+import TagCommon from '../../../../components/Tag/TagCommon';
 import { Product } from '../../../../utils/types/Product';
 import { inViewScaleChildShow, inViewScaleParentShow } from '../../../../utils/variants';
 import './common-category.css';
@@ -16,7 +17,7 @@ const CommonCategory: React.FC<CommonCategoryProps> = ({products}) => {
     return (
         <div className="common-category py-4" ref={ref}>
             <div className="has-text-centered p-6">
-                <div style={{letterSpacing: '1px'}}>
+                <div style={{letterSpacing: '1px'}} className="block">
                     <p className="is-size-4 has-text-weight-bold is-relative common-category-title">
                         Sản phẩm phổ biến
                     </p>
@@ -36,7 +37,7 @@ const CommonCategory: React.FC<CommonCategoryProps> = ({products}) => {
                                 <motion.div className='column is-3-desktop is-6-tablet is-12-mobile' key={id}
                                     variants={inViewScaleChildShow}
                                 >
-                                    <ProductCard product={item} />
+                                    <ProductCard product={item} tag={<TagCommon />}/>
                                 </motion.div>
                              );
                         })}

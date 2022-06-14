@@ -46,7 +46,7 @@ const FeaturedProduct: React.FC<FeaturedProductProps> = ({ products }) => {
     return (
         <div className="featured-product py-6">
             <div
-                className="has-text-centered has-text-white mb-4"
+                className="has-text-centered has-text-white block"
                 style={{ letterSpacing: "1px" }}
             >
                 <p className="is-size-4 has-text-weight-bold is-relative featured-product-title is-uppercase">

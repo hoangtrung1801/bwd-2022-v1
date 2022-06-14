@@ -18,7 +18,7 @@ const DonateBox: React.FC<DonateBoxProps> = ({ showDonateForm }) => {
     const {inView, ref} = useInView({threshold: 0.5});
 
     return (
-        <div className="donate-box-wrapper is-relative">
+        <div className="donate-box-wrapper is-relative" id="donate">
             <div className="full-width full-height" style={{zIndex: 1}}>
                 <motion.div className="donate-box full-height is-flex is-flex-direction-column is-align-items-center is-justify-content-center mx-auto"
                     ref={ref}
