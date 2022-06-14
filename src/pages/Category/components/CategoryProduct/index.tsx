@@ -22,7 +22,7 @@ const CategoryProduct: React.FC<CategoryProductProps> = ({idsChoose, products}) 
                 {/* Danh mục */}
                 Danh sách sản phẩm
             </h3>
-            <SortBy />
+            {/* <SortBy /> */}
             {/* <div className="columns is-flex-wrap-wrap is-variable is-2"> */}
             <motion.div className="tile is-ancestor is-flex-wrap-wrap"
             >

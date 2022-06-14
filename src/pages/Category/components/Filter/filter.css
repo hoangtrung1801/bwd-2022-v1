@@ -1,10 +1,19 @@
+
+.filter {
+    border-right: 3.5px solid rgb(247, 247, 247);
+    height: 100%;
+    margin-right: 1rem;
+    padding-right: 2rem;
+}
+
 .filter-item {
     background-color: #fff;
-    border-radius: 1rem;
-    box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px;
+    /* border-radius: 1rem; */
+    /* box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px; */
 
-    height: 4rem;
+    /* height: 4rem; */
     width: 100%;
-    padding: 0 2rem;
+    font-size: 0.85rem;
+    /* padding: 0 2rem; */
 
 }
