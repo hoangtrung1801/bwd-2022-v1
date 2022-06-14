@@ -5,7 +5,6 @@ import { useViewport } from "../../../../utils/hook/useViewport";
 import CategoryItem from "../../../../utils/types/CategoryItem";
 import { Product } from "../../../../utils/types/Product";
 import { categoryItemShow } from "../../../../utils/variants";
-import SortBy from "../SortBy";
 
 interface CategoryProductProps {
     idsChoose: number[],

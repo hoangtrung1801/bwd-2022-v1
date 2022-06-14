@@ -1,8 +1,6 @@
-import { signOut } from "firebase/auth";
-import { AnimatePresence, motion } from "framer-motion";
-import { CSSProperties, useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
-import { auth } from "../../firebase";
 import { useViewport } from "../../utils/hook/useViewport";
 import Footer from "../Footer";
 import Header from "../Header";
@@ -32,7 +30,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <AnimatePresence exitBeforeEnter>
                 {( loading && !isMobile ) && <Loading />}
             </AnimatePresence>
-            <main className="main">{children}</main>
+            <main className="main" style={{paddingBottom: '3rem'}}>{children}</main>
             <Footer />
         </div>
     );

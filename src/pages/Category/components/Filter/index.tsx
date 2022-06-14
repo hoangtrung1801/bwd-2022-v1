@@ -1,5 +1,7 @@
 import { CaretDown } from 'phosphor-react';
+import { useSearchParams } from 'react-router-dom';
 import { categories } from '../../../../utils/constant';
+import { useViewport } from '../../../../utils/hook/useViewport';
 import './filter.css';
 
 interface FilterProps {
@@ -7,6 +9,8 @@ interface FilterProps {
 }
 
 const Filter: React.FC<FilterProps> = ({setCategory}) => {
+
+    const {isMobile} = useViewport();
 
     const chooseCategory = (id: number) => {
         setCategory(id, true);
@@ -17,7 +21,7 @@ const Filter: React.FC<FilterProps> = ({setCategory}) => {
     }
 
     return (
-        <div className='filter'>
+        <div className='filter' style={isMobile ? {border: 'none'} : {}}>
             <h3 className="is-size-4 has-text-weight-semibold block">Phân loại</h3>
             <div className='mb-3'>
                 <p className="has-text-weight-semibold mb-2 is-flex is-justify-content-space-between is-align-items-center" style={{lineHeight: '2rem'}}>

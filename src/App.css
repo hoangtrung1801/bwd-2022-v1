@@ -310,7 +310,7 @@ input[type="checkbox"]:checked::before {
   transform: scale(1);
 }
 
-input[type="text"], textarea {
+input[type="text"], input[type="password"], textarea {
   border-radius: 0;
   border-color: #e1eaf0 !important;
   border-width: 3px !important;
@@ -322,7 +322,7 @@ input[type="text"], textarea {
   transition: all 0.2s ease-in-out;
 }
 
-input[type="text"]:focus, textarea:focus {
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
   box-shadow: none;
   outline: none;
   border-color: var(--green-8) !important;

@@ -31,7 +31,7 @@ const HeaderMenuDesktop: React.FC<HeaderMenuDesktopProps> = ({user, onLogOut}) =
             <div className="header-menu full-height is-flex is-relative">
                 {routes.map((category, id) => (
                     <>
-                        <div className="is-flex is-align-items-center is-relative" key={id}>
+                        <div className="is-flex is-align-items-center is-relative px-3" key={id}>
                             <Link
                                 to={category.href}
                                 className={`header-menu-item is-size-6 has-text-weight-bold is-flex is-justify-content-center is-align-items-center font-heading ${
@@ -70,7 +70,7 @@ const HeaderMenuDesktop: React.FC<HeaderMenuDesktopProps> = ({user, onLogOut}) =
                 ))}
             </div>
 
-            <div className="header-tool is-flex is-align-items-center">
+            <div className="header-tool is-flex is-align-items-center is-justify-content-flex-end">
                 <div>
                     <span
                         className="is-relative is-size-4 is-clickable"
