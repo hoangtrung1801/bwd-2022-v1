@@ -37,17 +37,17 @@
     /* background-color: var(--green-6); */
     color: #fff;
     border-radius: 0;
-  background: -webkit-linear-gradient(right, #a6f77b, #2dbd6e);
-  border: none;
-  /* border-radius: 21px; */
-  box-shadow: 0px 1px 8px var(--green-4);
-  padding: 1.5rem;
+    background: -webkit-linear-gradient(right, #a6f77b, #2dbd6e);
+    border: none;
+    /* border-radius: 21px; */
+    box-shadow: 0px 1px 8px var(--green-4);
+    padding: 1.5rem;
 
     transition: all 0.4s ease;
 }
 
 .button3:hover {
-  box-shadow: 0px 1px 18px var(--green-4);
+    box-shadow: 0px 1px 18px var(--green-4);
     /* background-color: var(--green-8); */
     color: #fff;
 }
@@ -61,8 +61,7 @@
 .button4 {
     min-width: 200px;
     height: auto;
-    background-color: var(--dark);
-    color: #fff;
+    color: #fff !important;
 
     font-weight: bold;
     text-transform: uppercase;
@@ -73,15 +72,16 @@
     /* transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); */
     transition: 0.5s;
 
-    background-image: linear-gradient(to right, #232526 0%, #414345  51%, #232526  100%);
+    background-color: var(--dark);
+    background-image: linear-gradient(to right, #232526 0%, #414345 51%, #232526 100%);
     background-size: 200% auto;
 
 }
 
 .button4:hover {
-    /* background-color: var(--green-8) !important; */
-    background-position: right center; /* change the direction of the change here */
-    color: #fff;
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff !important;
 }
 
 .button5 {

@@ -1,5 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import ReactConfetti from "react-confetti";
+import Confetti from "react-confetti/dist/types/Confetti";
 import Banner from "../../components/Banner";
 import Layout from "../../components/Layout";
 import { donateSection } from "../../utils/constant";

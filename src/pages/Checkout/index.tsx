@@ -16,6 +16,35 @@ const Checkout: React.FC<CheckoutProps> = () => {
     const products = useAppSelector(state => state.cart.items);
     const {token, setToken} = useToken();
 
+
+    const onCheckout = () => {
+        const fakeFetch = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(0);
+            }, 1000)
+        })
+
+        toast.promise(fakeFetch, {
+            loading: ( <b>Đang thanh toán...</b> ),
+            success: <b>Bạn đã thanh toán thành công !</b>,
+            error: <b>Lỗi</b>,
+        }, {
+            style: {
+                padding: '2rem 2rem',
+                backgroundColor: 'var(--color-1)',
+                color: 'white',
+                fontWeight: 'bold',
+            },
+            iconTheme: {
+                primary: 'white',
+                secondary: 'var(--dark)'
+            },
+            duration: 3000
+        })
+
+        setTimeout(() => navigate('/'), 3000);
+    }
+
     useEffect(() => {
         if(!token) {
             toast.error("Vui lòng đăng nhập!", {duration: 1000});
@@ -34,7 +63,7 @@ const Checkout: React.FC<CheckoutProps> = () => {
                     </div>
 
                     <div className="column is-4">
-                        <CheckoutCart products={products} />
+                        <CheckoutCart products={products} onCheckout={onCheckout} />
                     </div>
                 </div>
             </div>

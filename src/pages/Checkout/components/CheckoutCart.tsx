@@ -7,9 +7,10 @@ import { ItemCart } from "../../../utils/types/ItemCart";
 
 interface CheckoutCartProps {
     products: ItemCart[],
+    onCheckout: () => void
 }
 
-const CheckoutCart: React.FC<CheckoutCartProps> = ({products}) => {
+const CheckoutCart: React.FC<CheckoutCartProps> = ({products, onCheckout}) => {
 
     return (
         <div className="checkout-cart has-shadow px-4 py-5 full-height is-flex is-flex-direction-column">
@@ -54,7 +55,7 @@ const CheckoutCart: React.FC<CheckoutCartProps> = ({products}) => {
             <hr />
             <div className="is-flex is-justify-content-flex-end">
                 {/* <Button3 className="checkout-button">Thanh toán</Button3> */}
-                <Button4 className='checkout-button'>Thanh toán</Button4>
+                <Button4 className='checkout-button' onClick={() => onCheckout()}>Thanh toán</Button4>
             </div>
         </div>
     );

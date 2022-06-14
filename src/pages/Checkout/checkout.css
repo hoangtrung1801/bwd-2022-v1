@@ -18,7 +18,7 @@
     transition: all 0.15s ease-in-out;
 }
 
-.checkout-form input:focus{
+.checkout-form input:focus, .checkout-form textarea:focus{
     color: inherit;
     box-shadow: none;
     border-color: var(--green-8);

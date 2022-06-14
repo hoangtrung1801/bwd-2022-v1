@@ -1,12 +1,15 @@
 import { motion, Variants } from "framer-motion";
 import { X } from "phosphor-react";
+import { useState } from "react";
+import ReactConfetti from "react-confetti";
+import toast from "react-hot-toast";
 import Button4 from "../../../../components/Button/Button4";
 import { DONATENOW } from "../../../../utils/constant";
 import "./donate-form.css";
 
 interface DonateFormProps {
-    closeDonateForm: () => void;
-    openDonateForm: boolean;
+    closeDonateForm: () => void,
+    openDonateForm: boolean,
 }
 
 const donateFormVariant: Variants = {
@@ -32,6 +35,28 @@ const DonateForm: React.FC<DonateFormProps> = ({
     openDonateForm,
     closeDonateForm,
 }) => {
+
+    const [confetti, setConfetti] = useState(false);
+
+    const onDonate = (e: any) => {
+        e.preventDefault();
+
+        toast.success("Cảm ơn bạn đã quyên góp !", {
+            icon: '👏',
+            style: {
+                padding: '2rem 3rem',
+                backgroundColor: 'var(--color-1)',
+                color: 'white',
+                fontWeight: 'bold',
+            },
+        });
+        setConfetti(true);
+
+        setTimeout(() => {
+            setConfetti(false);
+        }, 4000);
+    }
+
     return (
         <motion.div
             className="donate-form-wrapper is-flex is-justify-content-center is-align-items-center"
@@ -64,7 +89,7 @@ const DonateForm: React.FC<DonateFormProps> = ({
                         Thông tin của bạn
                     </p>
                 </div>
-                <form action="" className="block">
+                <form className="block">
                     <div className="field columns">
                         <div className="control column is-6">
                             <input
@@ -100,7 +125,7 @@ const DonateForm: React.FC<DonateFormProps> = ({
                         </div>
                     </div>
                     <div className="mt-6">
-                        <Button4>{DONATENOW}</Button4>
+                        <Button4 onClick={onDonate}>{DONATENOW}</Button4>
                     </div>
                 </form>
                 <div
@@ -110,6 +135,11 @@ const DonateForm: React.FC<DonateFormProps> = ({
                     <X size={32} />
                 </div>
             </motion.div>
+
+            {
+                confetti && <ReactConfetti recycle={false} />
+            }
+
         </motion.div>
     );
 };
