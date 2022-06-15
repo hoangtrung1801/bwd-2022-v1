@@ -30,7 +30,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <AnimatePresence exitBeforeEnter>
                 {( loading && !isMobile ) && <Loading />}
             </AnimatePresence>
-            <main className="main" style={{paddingBottom: '3rem'}}>{children}</main>
+            <main className="main">{children}</main>
             <Footer />
         </div>
     );

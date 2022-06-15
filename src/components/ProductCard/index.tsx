@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ShoppingCart } from "phosphor-react";
+import { ShoppingCart, Star } from "phosphor-react";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
@@ -18,6 +18,8 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({product, tag}) => {
+
+    const star = Math.ceil(Math.random() * 3 + 2);
 
     const [showAnoImg, setShowAnoImg] = useState(false);
     const [images, setImages] = useState<string[]>([]);
@@ -62,7 +64,7 @@ const ProductCard: React.FC<ProductCardProps> = ({product, tag}) => {
             </Link>
 
             <div className="mt-2 p-4 is-flex is-flex-direction-column is-justify-content-space-between is-flex-grow-1">
-                <div className="has-text-centered">
+                <div className="has-text-centered" style={{height: '2rem', overflow: 'hidden', textOverflow: 'clip'}}>
                     <Link
                         to={ `/product/${product.id}` }
                         className="product-card-title is-size-5 has-text-weight-bold font-heading"
@@ -70,9 +72,21 @@ const ProductCard: React.FC<ProductCardProps> = ({product, tag}) => {
                         {product.name}
                     </Link>
                 </div>
-                <div>
+                <div className="mt-1">
+                    <div className="has-text-centered">
+                        {
+                            Array(star).fill(0).map((_, id) => (
+                                <Star key={id} weight='fill' color='var(--color-1)'/>
+                            ))
+                        }
+                        {
+                            Array(5 - star).fill(0).map((_, id) => (
+                                <Star />
+                            ))
+                        }
+                    </div>
                     <p
-                        className="is-size-7 has-text-grey is-italic mt-1 has-text-centered"
+                        className="is-size-7 has-text-grey is-italic has-text-centered"
                         style={{ fontSize: "0.8rem" }}
                     >
                         {categories.find(category => category.value == product.categories[0])?.label}

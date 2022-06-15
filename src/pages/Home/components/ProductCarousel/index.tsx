@@ -77,7 +77,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ products }) => {
             >
                 <Slider {...settings}>
                     {products.map((product, id) => (
-                        <div className="px-1 py-4" key={id}>
+                        <div className="px-2 py-4" key={id}>
                             <ProductCard product={product} tag={<TagNew />} />
                         </div>
                     ))}
