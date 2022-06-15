@@ -25,7 +25,13 @@
     left: -5% !important;
 }
 
-.donate-action-content a:hover {
+.donate-action-link:hover span {
     transition: all 0.4s ease;
-    color: #fff;
+    /* color: #fff; */
+    color: var(--green-1) !important;
+}
+
+.donate-action-link:hover svg {
+    transition: all 0.4s ease;
+    fill: var(--green-1) !important;
 }

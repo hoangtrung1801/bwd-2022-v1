@@ -17,11 +17,15 @@ const Category = () => {
     const [products, setProducts] = useState<Product[]>([]);
 
     const setCategory = (id: number, state: boolean) => {
+        const temp = products;
+        setProducts([]);
         if(state) {
             setIdsChoose([...idsChoose, id]);
         } else {
             setIdsChoose([...idsChoose.filter(e => e != id)]);
         }
+
+        setTimeout(() => setProducts(temp), 0);
     }
 
     useEffect(() => {

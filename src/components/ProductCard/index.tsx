@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ShoppingCart, Star } from "phosphor-react";
+import { Heart, ShoppingCart, Star } from "phosphor-react";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
@@ -63,7 +63,7 @@ const ProductCard: React.FC<ProductCardProps> = ({product, tag}) => {
                 </motion.figure>
             </Link>
 
-            <div className="mt-2 p-4 is-flex is-flex-direction-column is-justify-content-space-between is-flex-grow-1">
+            <div className="mt-2 px-4 py-2 is-flex is-flex-direction-column is-justify-content-space-between is-flex-grow-1">
                 <div className="has-text-centered" style={{height: '2rem', overflow: 'hidden', textOverflow: 'clip'}}>
                     <Link
                         to={ `/product/${product.id}` }
@@ -76,7 +76,7 @@ const ProductCard: React.FC<ProductCardProps> = ({product, tag}) => {
                     <div className="has-text-centered">
                         {
                             Array(star).fill(0).map((_, id) => (
-                                <Star key={id} weight='fill' color='var(--color-1)'/>
+                                <Star key={id} weight='fill' color='var(--color-3)'/>
                             ))
                         }
                         {
@@ -85,15 +85,16 @@ const ProductCard: React.FC<ProductCardProps> = ({product, tag}) => {
                             ))
                         }
                     </div>
-                    <p
+                    {/* <p
                         className="is-size-7 has-text-grey is-italic has-text-centered"
                         style={{ fontSize: "0.8rem" }}
                     >
                         {categories.find(category => category.value == product.categories[0])?.label}
-                    </p>
+                    </p> */}
 
                     <div className="is-flex is-justify-content-space-between is-align-items-center mb-2 mt-3 px-1">
-                        <div className="is-flex is-align-items-center">
+                        <Heart className="is-size-4 is-clickable"/>
+                        <div className="is-flex is-align-items-center is-justify-content-center is-flex-grow-1">
                             <h6 className="is-size-5 has-text-weight-semibold ">
                                 {numberWithCommas(product.price)} {currency.vn}
                             </h6>

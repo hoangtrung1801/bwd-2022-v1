@@ -50,18 +50,18 @@ export const carouselItemContentVariatns: Variants = {
 
 export const categoryItemShow: Variants = {
     hidden: {
-        // scale: 0.8,
+        scale: 0.95,
         // y: 50,
         opacity: 0,
     },
     visible: {
-        // scale: 1,
+        scale: 1,
         // y: 0,
         opacity: 1,
         transition: {
             type: 'tween',
             delay: 0.2,
-            duration: 0.75,
+            duration: 0.25,
         }
     }
 
