@@ -86,3 +86,7 @@
 .donate-box-button button {
     padding: 2rem 5rem;
 }
+
+.donate-ranking-link:hover {
+    text-decoration: underline;
+}

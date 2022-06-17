@@ -201,3 +201,35 @@ export const inViewFromRightShow: Variants = {
         }
     }
 }
+
+export const filterTypeVariants: Variants = {
+    hidden: {
+        height: 0,
+        transition: {
+            // ease: [0.5, 0.67, 0.83, 0.5],
+            duration: 0.35
+        }
+    },
+    visible: {
+        height: 'auto',
+        transition: {
+            // ease: [0.5, 0.67, 0.83, 0.5],
+            duration: 0.35
+        }
+    }
+}
+
+export const donateRankingParentVariants: Variants = {
+    hidden: {
+        opacity: 1,
+    },
+    visible: {
+        opacity: 1,
+        transition: {
+            when: "beforeChildren",
+            staggerChildren: 0.05,
+            delay: 2.2
+        },
+    },
+
+}

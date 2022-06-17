@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 import Button3 from "../../../../components/Button/Button3";
 import { DONATENOW } from "../../../../utils/constant";
 import { inViewDropupShow, inViewParentShow } from "../../../../utils/variants";
@@ -63,6 +64,13 @@ const DonateBox: React.FC<DonateBoxProps> = ({ showDonateForm }) => {
                         >
                             {DONATENOW}
                         </Button3>
+                    </motion.div>
+                    <motion.div style={{marginTop: '-1rem'}}
+                        variants={inViewDropupShow}
+                    >
+                        <Link to='/donate-ranking'>
+                            <a href="#" className="is-italic donate-ranking-link" style={{color: 'var(--green-5)', letterSpacing: '0.5px', fontSize: '0.9rem'}}>Xem danh sách</a>
+                        </Link>
                     </motion.div>
                 </motion.div>
             </div>

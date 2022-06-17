@@ -10,6 +10,7 @@ import Admin from "./pages/Admin";
 import Category from "./pages/Category";
 import Checkout from "./pages/Checkout";
 import Donate from "./pages/Donate";
+import DonateRanking from "./pages/DonateRanking";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Product from "./pages/Product";
@@ -47,6 +48,7 @@ function App() {
                         <Route path="admin" element={<Admin />} />
                         <Route path="checkout" element={<Checkout />} />
                         <Route path="donate" element={<Donate />} />
+                        <Route path="donate-ranking" element={<DonateRanking />} />
                         <Route path="about-me" element={<AboutMe />} />
                         <Route path="test" element={<Test />} />
                         <Route path="*" element={<h1>Error 404</h1>} />
