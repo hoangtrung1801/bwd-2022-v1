@@ -46,6 +46,7 @@ const DonateRanking: React.FC<DonateRankingProps> = () => {
                         >
                             Bảng quyên góp
                         </p>
+                        <p className='has-text-centered' style={{maxWidth: '800px'}}>Cảm ơn bạn đã quyên góp cho chúng tôi. Chúng tôi không thể thực hiện hành động gây quỹ này nếu không có sự ủng hộ của các bạn. Toàn bộ số tiền gây quỹ đến từ các bạn sẽ được dùng cho hoạt động bảo vệ môi trường.</p>
                     </motion.div>
 
                     <motion.div className="container" variants={inViewDropupShow}>

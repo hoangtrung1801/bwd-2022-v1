@@ -5,6 +5,7 @@ import Button3 from "../../../../components/Button/Button3";
 import ProductCard from "../../../../components/ProductCard";
 import TagHot from "../../../../components/Tag/TagHot";
 import imageToUrl from "../../../../utils/functions/imageToUrl";
+import { useViewport } from "../../../../utils/hook/useViewport";
 import { Product } from "../../../../utils/types/Product";
 import {
     inViewScaleChildShow,
@@ -39,6 +40,7 @@ const childVariants: Variants = {
 };
 
 const FeaturedProduct: React.FC<FeaturedProductProps> = ({ products }) => {
+    const {isMobile} = useViewport();
     const { inView, ref } = useInView({
         threshold: 0.2,
     });
@@ -59,7 +61,7 @@ const FeaturedProduct: React.FC<FeaturedProductProps> = ({ products }) => {
             <motion.div
                 ref={ref}
                 className="columns is-justify-content-center is-align-items-center is-flex-wrap-wrap"
-                style={{padding: '3rem 6rem'}}
+                style={{padding: isMobile ? '3rem 1rem' : '3rem 6rem'}}
                 variants={inViewScaleParentShow}
                 initial="hidden"
                 animate={inView && "visible"}

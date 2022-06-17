@@ -6,15 +6,25 @@ import useToken from "./utils/hook/useToken";
 
 // Set the configuration for your app
 // TODO: Replace with your app's config object
+// const firebaseConfig = {
+//     apiKey: "AIzaSyDNMrVuhVFP8JY98L7FWnMzq23VSCX5iJg",
+//     authDomain: "bwd-2022.firebaseapp.com",
+//     projectId: "bwd-2022",
+//     storageBucket: "bwd-2022.appspot.com",
+//     messagingSenderId: "478205951443",
+//     appId: "1:478205951443:web:4968b9d23ca67963490326",
+//     measurementId: "G-TFKJ9JPZBX",
+// };
 const firebaseConfig = {
-    apiKey: "AIzaSyDNMrVuhVFP8JY98L7FWnMzq23VSCX5iJg",
-    authDomain: "bwd-2022.firebaseapp.com",
-    projectId: "bwd-2022",
-    storageBucket: "bwd-2022.appspot.com",
-    messagingSenderId: "478205951443",
-    appId: "1:478205951443:web:4968b9d23ca67963490326",
-    measurementId: "G-TFKJ9JPZBX",
+  apiKey: "AIzaSyCkj7Lc9jfhzFzKLPnjUyqcUTJ44KMR5qI",
+  authDomain: "bwdd-3dc88.firebaseapp.com",
+  projectId: "bwdd-3dc88",
+  storageBucket: "bwdd-3dc88.appspot.com",
+  messagingSenderId: "487427224978",
+  appId: "1:487427224978:web:969bf089165dae6d923d4b",
+  measurementId: "G-8N2XVGEM1B"
 };
+
 
 const firebaseApp = initializeApp(firebaseConfig);
 

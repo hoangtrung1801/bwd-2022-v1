@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import ProductCard from '../../../../components/ProductCard';
 import TagCommon from '../../../../components/Tag/TagCommon';
+import { useViewport } from '../../../../utils/hook/useViewport';
 import { Product } from '../../../../utils/types/Product';
 import { inViewScaleChildShow, inViewScaleParentShow } from '../../../../utils/variants';
 import './common-category.css';
@@ -12,12 +13,13 @@ interface CommonCategoryProps {
 
 const CommonCategory: React.FC<CommonCategoryProps> = ({products}) => {
 
+    const {isMobile} = useViewport();
     const {inView, ref} = useInView({threshold: 0.2});
 
     return (
         <div className="common-category py-4" ref={ref}>
             <div className="has-text-centered"
-                style={{padding: '3rem 6rem'}}
+                style={{padding: isMobile ? '3rem 1rem' : '3rem 6rem'}}
             >
                 <div style={{letterSpacing: '1px'}} className="block">
                     <p className="is-size-4 has-text-weight-bold is-relative common-category-title">

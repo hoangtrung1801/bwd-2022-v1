@@ -10,12 +10,15 @@ import TagNew from "../../../../components/Tag/TagNew";
 import { Product } from "../../../../utils/types/Product";
 import "./product-carousel.css";
 import { inViewDropupShow } from "../../../../utils/variants";
+import { useViewport } from "../../../../utils/hook/useViewport";
 
 interface ProductCarouselProps {
     products: Product[];
 }
 
 const ProductCarousel: React.FC<ProductCarouselProps> = ({ products }) => {
+    const {isMobile} = useViewport();
+
     const settings = {
         dots: true,
         infinite: true,
@@ -65,7 +68,8 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ products }) => {
                 </p>
             </div>
 
-            <motion.div className="px-6 py-2 is-relative product-carousel"
+            <motion.div className="py-2 is-relative product-carousel"
+                style={{padding: isMobile ? '0.5rem 1rem' : '0.5rem 3rem'}}
                 variants={inViewDropupShow}
                 initial='hidden'
                 whileInView='visible'
