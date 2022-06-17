@@ -2,14 +2,18 @@ import { motion, Variants } from "framer-motion";
 import { X } from "phosphor-react";
 import { useState } from "react";
 import ReactConfetti from "react-confetti";
+import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { Navigate, useNavigate } from "react-router-dom";
 import Button4 from "../../../../components/Button/Button4";
-import { DONATENOW } from "../../../../utils/constant";
+import { DONATENOW, amountDonate } from "../../../../utils/constant";
+import addNewDonater from "../../../../utils/functions/addNewDonater";
 import "./donate-form.css";
 
 interface DonateFormProps {
     closeDonateForm: () => void,
     openDonateForm: boolean,
+    amountDonateId: number
 }
 
 const donateFormVariant: Variants = {
@@ -34,13 +38,14 @@ const donateFormVariant: Variants = {
 const DonateForm: React.FC<DonateFormProps> = ({
     openDonateForm,
     closeDonateForm,
+    amountDonateId
 }) => {
+
+    const {register, handleSubmit, control} = useForm();
 
     const [confetti, setConfetti] = useState(false);
 
-    const onDonate = (e: any) => {
-        e.preventDefault();
-
+    const donateSucces = () => {
         toast.success("Cảm ơn bạn đã quyên góp !", {
             icon: '👏',
             style: {
@@ -55,6 +60,11 @@ const DonateForm: React.FC<DonateFormProps> = ({
         setTimeout(() => {
             setConfetti(false);
         }, 4000);
+    }
+
+    const onSubmit = (body: any) => {
+        addNewDonater({...body, amount: amountDonate[amountDonateId]})
+        donateSucces();
     }
 
     return (
@@ -89,13 +99,14 @@ const DonateForm: React.FC<DonateFormProps> = ({
                         Thông tin của bạn
                     </p>
                 </div>
-                <form className="block">
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="field columns">
                         <div className="control column is-6">
                             <input
                                 type="text"
                                 className="input"
                                 placeholder="Họ"
+                                {...register('lastName')}
                             />
                         </div>
                         <div className="control column is-6">
@@ -103,6 +114,7 @@ const DonateForm: React.FC<DonateFormProps> = ({
                                 type="text"
                                 className="input"
                                 placeholder="Tên"
+                                {...register('firstName')}
                             />
                         </div>
                     </div>
@@ -112,6 +124,7 @@ const DonateForm: React.FC<DonateFormProps> = ({
                                 type="text"
                                 className="input"
                                 placeholder="Email"
+                                {...register('email')}
                             />
                         </div>
                     </div>
@@ -121,11 +134,18 @@ const DonateForm: React.FC<DonateFormProps> = ({
                                 type="text"
                                 className="input"
                                 placeholder="Trường bạn đang học"
+                                {...register('school')}
                             />
                         </div>
                     </div>
-                    <div className="mt-6">
-                        <Button4 onClick={onDonate}>{DONATENOW}</Button4>
+                    <div>
+                        <p className="has-text-weight-medium" style={{fontSize: '1.2rem'}}>
+                            Số tiền bạn muốn quyên góp :
+                        </p>
+                            <span className="has-text-weight-semibold is-size-4" style={{textDecoration: 'underline', textDecorationColor: 'var(--color-1)', textUnderlineOffset: '3px', color: 'var(--color-1)'}}>{amountDonate[amountDonateId]}K</span>
+                    </div>
+                    <div className="mt-4">
+                        <Button4 >{DONATENOW}</Button4>
                     </div>
                 </form>
                 <div

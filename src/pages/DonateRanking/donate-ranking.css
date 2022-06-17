@@ -3,6 +3,7 @@
     /* background: -webkit-linear-gradient(right, #a6f77b, #2dbd6e); */
     /* background-color: #eee; */
     background-color: var(--green-0);
+    min-height: 100vh;
 }
 
 .donate-ranking table {

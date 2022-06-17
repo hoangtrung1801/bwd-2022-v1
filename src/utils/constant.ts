@@ -222,3 +222,5 @@ export const members = [
         role: 'Thành viên'
     },
 ];
+
+export const amountDonate = [50, 100, 200, 500, 1000];

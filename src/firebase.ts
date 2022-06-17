@@ -25,8 +25,9 @@ const imagesRef = ref(storage, "images");
 const db = getFirestore(firebaseApp);
 const collectionProdutcs = collection(db, "products");
 const collectionUsers = collection(db, "users");
+const collectionDonater = collection(db, "donater");
 
-export { imagesRef, db, collectionProdutcs, collectionUsers };
+export { imagesRef, db, collectionProdutcs, collectionUsers, collectionDonater };
 
 // Authentication
 export const auth = getAuth();

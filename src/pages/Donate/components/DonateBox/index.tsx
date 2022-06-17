@@ -3,19 +3,18 @@ import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
 import Button3 from "../../../../components/Button/Button3";
-import { DONATENOW } from "../../../../utils/constant";
+import { amountDonate, DONATENOW } from "../../../../utils/constant";
 import { inViewDropupShow, inViewParentShow } from "../../../../utils/variants";
 import "./donate-box.css";
 
 interface DonateBoxProps {
-    showDonateForm: () => void;
+    showDonateForm: () => void,
+    amountDonateId: number,
+    setAmountDonateId: React.Dispatch<React.SetStateAction<number>>
 }
 
-const amountDonate = [50, 100, 200, 500, 1000];
 
-const DonateBox: React.FC<DonateBoxProps> = ({ showDonateForm }) => {
-    const [amountId, setAmountId] = useState(0);
-
+const DonateBox: React.FC<DonateBoxProps> = ({ showDonateForm, amountDonateId, setAmountDonateId }) => {
     const {inView, ref} = useInView({threshold: 0.5});
 
     return (
@@ -47,9 +46,9 @@ const DonateBox: React.FC<DonateBoxProps> = ({ showDonateForm }) => {
                     >
                         {amountDonate.map((amount, id) => (
                             <button
-                                className={ `button has-text-weight-semibold my-2 ${id === amountId && 'donate-box-amount-selected'}` }
+                                className={ `button has-text-weight-semibold my-2 ${id === amountDonateId && 'donate-box-amount-selected'}` }
                                 key={id}
-                                onClick={() => setAmountId(id)}
+                                onClick={() => setAmountDonateId(id)}
                             >
                                 {amount}K
                             </button>

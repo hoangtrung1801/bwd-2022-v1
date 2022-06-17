@@ -26,7 +26,7 @@ const Filter: React.FC<FilterProps> = ({setCategory}) => {
     return (
         <div className='filter' style={isMobile ? {border: 'none'} : {}}>
             <h3 className="is-size-4 has-text-weight-semibold block">Phân loại</h3>
-            <div className='mb-3'>
+            <div className='mb-3' style={{borderBottom: '1px solid #eee'}}>
                 <p className="has-text-weight-semibold mb-2 is-flex is-justify-content-space-between is-align-items-center is-clickable" style={{lineHeight: '2rem'}}
                     onClick={() => setShow(!show)}
                 >
@@ -52,14 +52,14 @@ const Filter: React.FC<FilterProps> = ({setCategory}) => {
                     </ul>
                 </motion.div>
             </div>
-            <div className='mb-3'>
+            <div className='mb-3' style={{borderBottom: '1px solid #eee'}}>
                 <p className="has-text-weight-semibold mb-2 is-flex is-justify-content-space-between is-align-items-center" style={{lineHeight: '2rem'}}>
                     <span className=''>Giá</span>
                     <CaretDown />
                 </p>
 
             </div>
-            <div className='mb-3'>
+            <div className='mb-3' style={{borderBottom: '1px solid #eee'}}>
                 <p className="has-text-weight-semibold mb-2 is-flex is-justify-content-space-between is-align-items-center" style={{lineHeight: '2rem'}}>
                     <span className=''>Nhãn hàng</span>
                     <CaretDown />

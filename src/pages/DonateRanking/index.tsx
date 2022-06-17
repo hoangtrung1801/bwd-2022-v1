@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '../../components/Layout';
+import getDonater from '../../utils/functions/getDonaters';
 import { useViewport } from '../../utils/hook/useViewport';
+import Donater from '../../utils/types/Donater';
 import { donateRankingParentVariants, inViewDropupShow, inViewParentShow } from '../../utils/variants';
 import './donate-ranking.css';
 
@@ -11,6 +13,13 @@ interface DonateRankingProps {
 
 const DonateRanking: React.FC<DonateRankingProps> = () => {
     const {isMobile} = useViewport();
+    const [donaters, setDonaters] = useState<Donater[]>([]);
+
+    useEffect(() => {
+        getDonater().then((donaters: Donater[]) => {
+            setDonaters(donaters);
+        })
+    })
 
     return (
         <Layout>
@@ -24,6 +33,7 @@ const DonateRanking: React.FC<DonateRankingProps> = () => {
                     className=""
                     style={{
                         padding: `${isMobile ? "3rem 1rem" : "2rem 6rem"}`,
+                        height: '100%'
                     }}
                 >
                     <motion.div className="donate-ranking-title is-flex is-flex-direction-column is-justify-content-center is-align-items-center block is-relative"
@@ -75,7 +85,37 @@ const DonateRanking: React.FC<DonateRankingProps> = () => {
                                                 href="#"
                                             >
                                                 <span className="mr-1">
-                                                    Tên
+                                                    Họ tên
+                                                </span>
+                                            </a>
+                                        </th>
+                                        <th>
+                                            <a
+                                                className="is-flex is-align-items-center is-justify-content-start is-uppercase has-text-weight-medium"
+                                                style={{
+                                                    background: "inherit",
+                                                    color: "#fff",
+                                                    padding: "0.35rem 0.75rem",
+                                                }}
+                                                href="#"
+                                            >
+                                                <span className="mr-1">
+                                                    email
+                                                </span>
+                                            </a>
+                                        </th>
+                                        <th>
+                                            <a
+                                                className="is-flex is-align-items-center is-justify-content-start is-uppercase has-text-weight-medium"
+                                                style={{
+                                                    background: "inherit",
+                                                    color: "#fff",
+                                                    padding: "0.35rem 0.75rem",
+                                                }}
+                                                href="#"
+                                            >
+                                                <span className="mr-1">
+                                                    Trường
                                                 </span>
                                             </a>
                                         </th>
@@ -94,42 +134,31 @@ const DonateRanking: React.FC<DonateRankingProps> = () => {
                                                 </span>
                                             </a>
                                         </th>
-                                        <th>
-                                            <a
-                                                className="is-flex is-align-items-center is-justify-content-start is-uppercase has-text-weight-medium"
-                                                style={{
-                                                    background: "inherit",
-                                                    color: "#fff",
-                                                    padding: "0.35rem 0.75rem",
-                                                }}
-                                                href="#"
-                                            >
-                                                <span className="mr-1">
-                                                    Ngày quyên góp
-                                                </span>
-                                            </a>
-                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {Array(10)
-                                        .fill(0)
-                                        .map((_, id) => (
+                                    {
+                                        donaters.map((donater, id) => (
                                             <tr key={id}>
                                                 <td className="py-4 pl-5">
                                                     {id + 1}
                                                 </td>
                                                 <td className="py-4 pl-5">
-                                                    Lê Kim Hoàng Trung
+                                                    {`${donater.firstName} ${donater.lastName}`}
                                                 </td>
                                                 <td className="py-4 pl-5">
-                                                    50K
+                                                    {`${donater.amount}K`}
                                                 </td>
                                                 <td className="py-4 pl-5">
-                                                    6/6/2022
+                                                    {donater.school}
+                                                </td>
+                                                <td className="py-4 pl-5">
+                                                    {`${donater.amount}K`}
                                                 </td>
                                             </tr>
-                                        ))}
+
+                                        ))
+                                    }
                                 </tbody>
                             </table>
                         </div>
