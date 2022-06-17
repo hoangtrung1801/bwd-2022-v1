@@ -26,10 +26,6 @@
     font-size: 0.8rem;
 }
 
-.product-carousel .slick-list {
-    overflow: initial;
-}
-
 .carousel-next, .carousel-prev {
     background-color: #fff;
     color: var(--dark);

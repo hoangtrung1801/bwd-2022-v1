@@ -20,11 +20,11 @@ const Home = () => {
         };
 
         const getFeaturedProduct = (products: Product[]) => {
-            return products.filter(product => product.categories.includes("hot")).slice(0, 2);
+            return products.filter(product => product.categories.includes("hot")).slice(0, 4);
         };
 
         const getCommonCategory = (products: Product[]) => {
-            return products.filter(product => product.categories.includes("common"));
+            return products.filter(product => product.categories.includes("common")).slice(0,4);
         };
 
         getAllProducts().then((data) => {

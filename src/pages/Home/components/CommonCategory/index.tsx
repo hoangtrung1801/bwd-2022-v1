@@ -16,7 +16,9 @@ const CommonCategory: React.FC<CommonCategoryProps> = ({products}) => {
 
     return (
         <div className="common-category py-4" ref={ref}>
-            <div className="has-text-centered p-6">
+            <div className="has-text-centered"
+                style={{padding: '3rem 6rem'}}
+            >
                 <div style={{letterSpacing: '1px'}} className="block">
                     <p className="is-size-4 has-text-weight-bold is-relative common-category-title">
                         Sản phẩm phổ biến

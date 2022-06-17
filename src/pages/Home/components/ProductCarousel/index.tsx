@@ -1,7 +1,6 @@
 // @ts-ignore
 import Slider from "react-slick";
 import { motion, useAnimation, Variants } from "framer-motion";
-import { InView } from "react-intersection-observer";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import NextArrowCarousel from "../../../../components/NextArrowCarousel";
@@ -31,7 +30,6 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ products }) => {
                 breakpoint: 1204,
                 settings: {
                     slidesToShow: 3,
-                    slidesToScroll: 1,
                     initialSlide: 3,
                 },
             },
@@ -39,7 +37,6 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ products }) => {
                 breakpoint: 769,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 1,
                     initialSlide: 2,
                 },
             },
@@ -47,7 +44,6 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ products }) => {
                 breakpoint: 480,
                 settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 1,
                     initialSlide: 1,
                 },
             },
@@ -56,7 +52,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ products }) => {
 
     return (
         <motion.div
-            className="px-5 py-6 product-carousel-wrapper"
+            className="p-6 product-carousel-wrapper"
         >
             <div className="has-text-centered block" style={{ letterSpacing: "1px" }}>
                 <p className="is-size-4 has-text-weight-bold is-relative product-carousel-title is-uppercase">

@@ -58,14 +58,15 @@ const FeaturedProduct: React.FC<FeaturedProductProps> = ({ products }) => {
             </div>
             <motion.div
                 ref={ref}
-                className="columns is-justify-content-center is-align-items-center"
+                className="columns is-justify-content-center is-align-items-center is-flex-wrap-wrap"
+                style={{padding: '3rem 6rem'}}
                 variants={inViewScaleParentShow}
                 initial="hidden"
                 animate={inView && "visible"}
             >
                 {products.map((item, id) => (
                     <motion.div
-                        className="column is-half-desktop px-2"
+                        className="column is-3-desktop is-6-tablet is-12-mobile px-2"
                         style={{ maxWidth: "380px" }}
                         key={id}
                         variants={inViewScaleChildShow}

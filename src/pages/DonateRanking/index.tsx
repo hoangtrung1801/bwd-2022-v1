@@ -49,8 +49,8 @@ const DonateRanking: React.FC<DonateRankingProps> = () => {
                     </motion.div>
 
                     <motion.div className="container" variants={inViewDropupShow}>
-                        <div className="">
-                            <table className="table is-fullwidth">
+                        <div className="" style={{overflowY: 'auto'}}>
+                            <table className="table is-fullwidth" >
                                 {/* <thead style={{background: 'var(--green-6)'}}> */}
                                 <thead
                                     style={{
@@ -147,12 +147,12 @@ const DonateRanking: React.FC<DonateRankingProps> = () => {
                                                     {`${donater.firstName} ${donater.lastName}`}
                                                 </td>
                                                 <td className="py-4 pl-5">
-                                                    {`${donater.amount}K`}
+                                                    {`${donater.email}`}
                                                 </td>
                                                 <td className="py-4 pl-5">
                                                     {donater.school}
                                                 </td>
-                                                <td className="py-4 pl-5">
+                                                <td className="py-4 pl-5 has-text-weight-semibold">
                                                     {`${donater.amount}K`}
                                                 </td>
                                             </tr>
