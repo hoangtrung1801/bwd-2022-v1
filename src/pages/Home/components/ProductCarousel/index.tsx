@@ -55,7 +55,8 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ products }) => {
 
     return (
         <motion.div
-            className="p-6 product-carousel-wrapper"
+            className="product-carousel-wrapper"
+            style={{padding: isMobile ? '3rem 1rem' : '3rem'}}
         >
             <div className="has-text-centered block" style={{ letterSpacing: "1px" }}>
                 <p className="is-size-4 has-text-weight-bold is-relative product-carousel-title is-uppercase">
@@ -69,7 +70,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ products }) => {
             </div>
 
             <motion.div className="py-2 is-relative product-carousel"
-                style={{padding: isMobile ? '0.5rem 1rem' : '0.5rem 3rem'}}
+                style={{padding: isMobile ? '0.5rem 3rem' : '0.5rem 3rem'}}
                 variants={inViewDropupShow}
                 initial='hidden'
                 whileInView='visible'

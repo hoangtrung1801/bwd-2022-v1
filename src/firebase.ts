@@ -1,8 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { getStorage, ref } from "firebase/storage";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { collection, getFirestore } from "firebase/firestore";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import useToken from "./utils/hook/useToken";
+import { getStorage, ref } from "firebase/storage";
 
 // Set the configuration for your app
 // TODO: Replace with your app's config object

@@ -46,7 +46,9 @@ const FeaturedProduct: React.FC<FeaturedProductProps> = ({ products }) => {
     });
 
     return (
-        <div className="featured-product py-6">
+        <div className="featured-product py-6 px-2"
+            style={{overflow: 'hidden'}}
+        >
             <div
                 className="has-text-centered has-text-white block"
                 style={{ letterSpacing: "1px" }}
@@ -68,7 +70,7 @@ const FeaturedProduct: React.FC<FeaturedProductProps> = ({ products }) => {
             >
                 {products.map((item, id) => (
                     <motion.div
-                        className="column is-3-desktop is-6-tablet is-12-mobile px-2"
+                        className="column is-3-desktop is-6-tablet is-12-mobile px-2 mx-auto"
                         style={{ maxWidth: "380px" }}
                         key={id}
                         variants={inViewScaleChildShow}

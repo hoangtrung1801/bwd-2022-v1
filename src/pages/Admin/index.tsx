@@ -43,6 +43,8 @@ const Admin = () => {
                                 " successfull"
                         );
                         if(id == images.length-1) resolve(true);
+                    }).catch((e) => {
+                        console.log(e);
                     });
                 });
             })
