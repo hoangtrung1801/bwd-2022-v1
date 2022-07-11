@@ -12,7 +12,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     const [loading, setLoading] = useState(true);
-    const {isMobileTablet} = useViewport();
+    const { isMobileTablet } = useViewport();
 
     useEffect(() => {
         if (loading)
@@ -28,14 +28,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <Toaster position="top-center" />
             </div>
             <AnimatePresence exitBeforeEnter>
-                {( loading && !isMobileTablet ) && <Loading />}
+                {loading && !isMobileTablet && <Loading />}
             </AnimatePresence>
             <main className="main">{children}</main>
             <Footer />
         </div>
     );
 };
-
-
 
 export default Layout;

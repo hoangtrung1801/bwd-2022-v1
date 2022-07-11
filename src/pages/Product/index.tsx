@@ -11,7 +11,10 @@ import ProductView from "./components/ProductView";
 const Product = () => {
     const { isMobileTablet } = useViewport();
     const params = useParams();
+
+    // best
     // const { product, isLoading, error } = useProduct(params.id);
+
     // for optimze request
     const { products, isLoading, error } = useProducts();
     const [product, setProduct] = useState<ProductType>(null);

@@ -17,16 +17,15 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, tag }) => {
-    const star = Math.ceil(Math.random() * 3 + 2);
-
-    const [showAnoImg, setShowAnoImg] = useState(false);
+    const [star, setStar] = useState(Math.ceil(Math.random() * 3 + 2));
+    const [isLoved, setIsLoved] = useState(false);
     const [images, setImages] = useState<string[]>([]);
     const dispatch = useAppDispatch();
 
     const handleAdd = () => {
         const fakeFetch = new Promise((resolve, reject) => {
             setTimeout(() => {
-                dispatch(addToCart(product));
+                dispatch(addToCart({ product, amount: 1 }));
                 resolve(0);
             }, 800);
         });
@@ -92,15 +91,20 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, tag }) => {
                                 <Star key={id} />
                             ))}
                     </div>
-                    {/* <p
-                        className="is-size-7 has-text-grey is-italic has-text-centered"
-                        style={{ fontSize: "0.8rem" }}
-                    >
-                        {categories.find(category => category.value == product.categories[0])?.label}
-                    </p> */}
 
                     <div className="is-flex is-justify-content-space-between is-align-items-center mb-2 mt-3 px-1">
-                        <Heart className="is-size-4 is-clickable" />
+                        <div onClick={() => setIsLoved(!isLoved)}>
+                            {isLoved ? (
+                                <Heart
+                                    className="is-size-4 is-clickable"
+                                    weight="fill"
+                                    color="red"
+                                />
+                            ) : (
+                                <Heart className="is-size-4 is-clickable" />
+                            )}
+                        </div>
+
                         <div className="is-flex is-align-items-center is-justify-content-center is-flex-grow-1">
                             <h6 className="is-size-5 has-text-weight-semibold ">
                                 {numberWithCommas(product.price)} {currency.vn}

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { auth, db } from "../../firebase";
 import Logo from "../../logo.png";
 import useToken from "../../utils/hook/useToken";
+import useUser from "../../utils/hook/useUser";
 import { useViewport } from "../../utils/hook/useViewport";
 import User from "../../utils/types/User";
 import "./header.css";
@@ -13,40 +14,18 @@ import HeaderMenuDesktop from "./HeaderMenuDesktop";
 import HeaderMenuMobile from "./HeaderMenuMobile";
 
 const Header = () => {
-    const {token, setToken} = useToken();
+    const { token, setToken } = useToken();
     const { isDesktop } = useViewport();
-    const [user, setUser] = useState<User>();
+    // const [user, setUser] = useState<User>();
+    const { user, isLoading, error } = token
+        ? useUser(token)
+        : { user: null, isLoading: false, error: true };
 
     const onLogOut = () => {
         setToken("");
         signOut(auth);
         window.location.reload();
-    }
-
-    useEffect(() => {
-        const fetch = async(): Promise<User | null> => {
-            const userRef = doc(db, 'users', token || "");
-            const userSnap = await getDoc(userRef);
-            const userData = await userSnap.data();
-
-            if(userData) {
-                const user: User = {
-                    username: userData.username,
-                    email: userData.email,
-                    id: userData.id
-                }
-
-                return user;
-            }
-            return null;
-        }
-
-        fetch().then(( user: User | null ) => {
-            console.log(user);
-            if(user) setUser(user);
-        })
-
-    },[]);
+    };
 
     return (
         <header>
@@ -61,7 +40,7 @@ const Header = () => {
                 {isDesktop ? (
                     <HeaderMenuDesktop user={user} onLogOut={onLogOut} />
                 ) : (
-                    <HeaderMenuMobile user={user} onLogOut={onLogOut}/>
+                    <HeaderMenuMobile user={user} onLogOut={onLogOut} />
                 )}
             </div>
         </header>

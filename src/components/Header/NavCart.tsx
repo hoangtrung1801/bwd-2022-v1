@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import {
     addToCart,
     removeFromCart,
-    removeProductFromCart
+    removeProductFromCart,
 } from "../../app/slices/cartSlice";
 import { currency } from "../../utils/constant";
 import imageToUrl from "../../utils/functions/imageToUrl";
@@ -34,7 +34,7 @@ const NavCart: React.FC<NavCartProps> = ({ isCartShow, closeNavCart }) => {
     const products = useAppSelector((state) => state.cart.items);
 
     return (
-        <div className="nav-cart-wrapper" >
+        <div className="nav-cart-wrapper">
             {(isCartShow || open) && (
                 <div
                     className="nav-cart-background"
@@ -47,10 +47,20 @@ const NavCart: React.FC<NavCartProps> = ({ isCartShow, closeNavCart }) => {
                 initial={false}
                 animate={isCartShow ? "open" : "close"}
             >
-                <div className="px-5 py-6 is-flex is-flex-direction-column" style={{minHeight: '100%'}}>
+                <div
+                    className="px-5 py-6 is-flex is-flex-direction-column"
+                    style={{ minHeight: "100%" }}
+                >
                     <div className="nav-cart-header is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
-                        <h3 className="is-size-4 mb-2" style={{letterSpacing: '0.5px'}}>Giỏ hàng</h3>
-                        <p className="is-italic is-size-7 has-text-grey">(  {products.length} sản phẩm  )</p>
+                        <h3
+                            className="is-size-4 mb-2"
+                            style={{ letterSpacing: "0.5px" }}
+                        >
+                            Giỏ hàng
+                        </h3>
+                        <p className="is-italic is-size-7 has-text-grey">
+                            ( {products.length} sản phẩm )
+                        </p>
                     </div>
                     <hr />
                     <CartItemList products={products} />
@@ -73,7 +83,9 @@ const NavCart: React.FC<NavCartProps> = ({ isCartShow, closeNavCart }) => {
 
                     <div className="nav-cart-checkout has-text-centered">
                         <Link to="/checkout">
-                            <Button3 className="is-uppercase has-text-weight-semibold">Thanh toán</Button3>
+                            <Button3 className="is-uppercase has-text-weight-semibold">
+                                Thanh toán
+                            </Button3>
                         </Link>
                     </div>
                 </div>
@@ -142,7 +154,14 @@ const CartItem: React.FC<CartItemProps> = ({ product }) => {
                         </span>
                         <span>{product.amount}</span>
                         <span
-                            onClick={() => dispatch(addToCart(product.product))}
+                            onClick={() =>
+                                dispatch(
+                                    addToCart({
+                                        product: product.product,
+                                        amount: 1,
+                                    })
+                                )
+                            }
                         >
                             +
                         </span>

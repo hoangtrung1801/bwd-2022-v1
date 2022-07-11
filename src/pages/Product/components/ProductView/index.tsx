@@ -11,20 +11,12 @@ import toastAddToCart from "../../../../utils/functions/toastAddToCart";
 import { Product as ProductType } from "../../../../utils/types/Product";
 import "./product-view.css";
 
-const imgSrc = Array(4)
-    .fill(0)
-    .map(
-        (_, id) =>
-            `https://picsum.photos/id/${Math.ceil(
-                Math.random() * 100 + 10
-            )}/1000`
-    );
-
 interface ProductViewProps {
     product: ProductType;
 }
 
 const ProductView: React.FC<ProductViewProps> = ({ product }) => {
+    const [amount, setAmount] = useState(1);
     const [imgId, setImgId] = useState(0);
     const [images, setImages] = useState<string[]>([]);
     const dispatch = useAppDispatch();
@@ -32,7 +24,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product }) => {
     const handleAdd = () => {
         const fakeFetch = new Promise((resolve, reject) => {
             setTimeout(() => {
-                dispatch(addToCart(product));
+                dispatch(addToCart({ product, amount }));
                 resolve(0);
             }, 800);
         });
@@ -114,7 +106,10 @@ const ProductView: React.FC<ProductViewProps> = ({ product }) => {
                             <p className="is-size-7 is-uppercase has-text-weight-bold mr-4">
                                 Số lượng :{" "}
                             </p>
-                            <AmountContainer />
+                            <AmountContainer
+                                amount={amount}
+                                setAmount={setAmount}
+                            />
                         </div>
                     </div>
                     <div className="is-uppercase">

@@ -29,24 +29,33 @@ const Login = () => {
             );
 
             setToken(userCredential.user.uid);
-            return <Navigate to="/signup" />;
-        } catch(e: FirebaseError | any) {
-            toast.error("Tên đăng nhập hoặc mật khẩu bị sai");
+            return <Navigate to="/" />;
+        } catch (e: FirebaseError | any) {
+            toast.error("Tên đăng nhập hoặc mật khẩu bị sai", {
+                style: {
+                    background: "red",
+                    color: "white",
+                },
+            });
         }
     };
 
     return (
         <Layout>
-            <div className='login full-width'>
+            <div className="login full-width">
                 <div className="columns full-width full-height m-0">
                     <div className="column is-6 py-0 px-4">
-                        <div className="full-height is-flex is-flex-direction-column mx-auto" style={{maxWidth: '400px', marginTop: '6rem'}}>
+                        <div
+                            className="full-height is-flex is-flex-direction-column mx-auto"
+                            style={{ maxWidth: "500px", marginTop: "6rem" }}
+                        >
                             <div className="block">
                                 <h1 className="is-size-2 has-text-weight-bold">
                                     Chào Mừng Bạn
                                 </h1>
-                                <p className="is-size-7">
-                                    Hãy đăng nhập vào tài khoản ! Nếu chưa có hãy đăng ký !
+                                <p className="">
+                                    Hãy đăng nhập vào tài khoản ! Nếu chưa có
+                                    hãy đăng ký !
                                 </p>
                             </div>
                             <form onSubmit={handleSubmit(onLogin)}>
@@ -70,14 +79,16 @@ const Login = () => {
                                         />
                                     </div>
                                 </div>
-                                <div className="my-5">
-                                    <Button4 className="login-button">Đăng nhập</Button4>
+                                <div className="mt-5 mb-2">
+                                    <Button4 className="login-button">
+                                        Đăng nhập
+                                    </Button4>
                                 </div>
                                 <div>
                                     <Link
                                         to="/signup"
-                                        className="is-italic has-text-grey"
-                                        style={{textDecoration: 'underline'}}
+                                        className="has-text-grey is-size-7"
+                                        style={{ textDecoration: "underline" }}
                                     >
                                         Bạn chưa có tài khoản ? Đăng ký ngay
                                     </Link>
@@ -86,13 +97,26 @@ const Login = () => {
                         </div>
                     </div>
                     {!isMobile && (
-                        <div className="column is-6 p-0 is-relative" style={{overflow: 'hidden'}}>
-                            <div className="login-background is-flex is-align-items-center">
-                            </div>
-                            <div className='full-width full-height has-text-centered is-flex is-flex-direction-column is-align-items-center' style={{marginTop: '6rem'}}>
-                                <h1 className="is-size-2 has-text-white has-text-weight-bold ">LAVIE</h1>
-                                <h1 className="is-size-6 has-text-white has-text-white mb-6">Cùng chung tay bảo vệ môi trường</h1>
-                                <img src="/assets/login.svg" alt="" style={{height: '60%'}} />
+                        <div
+                            className="column is-6 p-0 is-relative"
+                            style={{ overflow: "hidden" }}
+                        >
+                            <div className="login-background is-flex is-align-items-center"></div>
+                            <div
+                                className="full-width full-height has-text-centered is-flex is-flex-direction-column is-align-items-center"
+                                style={{ marginTop: "6rem" }}
+                            >
+                                <h1 className="is-size-2 has-text-white has-text-weight-bold ">
+                                    LAVIE
+                                </h1>
+                                <h1 className="is-size-6 has-text-white has-text-white mb-6">
+                                    Cùng chung tay bảo vệ môi trường
+                                </h1>
+                                <img
+                                    src="/assets/login.svg"
+                                    alt=""
+                                    style={{ height: "60%" }}
+                                />
                             </div>
                         </div>
                     )}
