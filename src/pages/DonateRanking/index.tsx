@@ -1,25 +1,22 @@
-import { motion } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
-import Layout from '../../components/Layout';
-import getDonater from '../../utils/functions/getDonaters';
-import { useViewport } from '../../utils/hook/useViewport';
-import Donater from '../../utils/types/Donater';
-import { donateRankingParentVariants, inViewDropupShow, inViewParentShow } from '../../utils/variants';
-import './donate-ranking.css';
+import { motion } from "framer-motion";
+import React from "react";
+import Layout from "../../components/Layout";
+import Loading from "../../components/Loading";
+import useDonaters from "../../utils/hook/useDonaters";
+import { useViewport } from "../../utils/hook/useViewport";
+import {
+    donateRankingParentVariants,
+    inViewDropupShow,
+} from "../../utils/variants";
+import "./donate-ranking.css";
 
-interface DonateRankingProps {
-
-}
+interface DonateRankingProps {}
 
 const DonateRanking: React.FC<DonateRankingProps> = () => {
-    const {isMobile} = useViewport();
-    const [donaters, setDonaters] = useState<Donater[]>([]);
+    const { donaters, isLoading, error } = useDonaters();
+    const { isMobile } = useViewport();
 
-    useEffect(() => {
-        getDonater().then((donaters: Donater[]) => {
-            setDonaters(donaters);
-        })
-    })
+    if (isLoading) return <Loading></Loading>;
 
     return (
         <Layout>
@@ -33,10 +30,11 @@ const DonateRanking: React.FC<DonateRankingProps> = () => {
                     className=""
                     style={{
                         padding: `${isMobile ? "3rem 1rem" : "2rem 6rem"}`,
-                        height: '100%'
+                        height: "100%",
                     }}
                 >
-                    <motion.div className="donate-ranking-title is-flex is-flex-direction-column is-justify-content-center is-align-items-center block is-relative"
+                    <motion.div
+                        className="donate-ranking-title is-flex is-flex-direction-column is-justify-content-center is-align-items-center block is-relative"
                         variants={inViewDropupShow}
                     >
                         <img src="/assets/crown-icon.png" alt="" width={128} />
@@ -46,12 +44,24 @@ const DonateRanking: React.FC<DonateRankingProps> = () => {
                         >
                             Bảng quyên góp
                         </p>
-                        <p className='has-text-centered' style={{maxWidth: '800px'}}>Cảm ơn bạn đã quyên góp cho chúng tôi. Chúng tôi không thể thực hiện hành động gây quỹ này nếu không có sự ủng hộ của các bạn. Toàn bộ số tiền gây quỹ đến từ các bạn sẽ được dùng cho hoạt động bảo vệ môi trường.</p>
+                        <p
+                            className="has-text-centered"
+                            style={{ maxWidth: "800px" }}
+                        >
+                            Cảm ơn bạn đã quyên góp cho chúng tôi. Chúng tôi
+                            không thể thực hiện hành động gây quỹ này nếu không
+                            có sự ủng hộ của các bạn. Toàn bộ số tiền gây quỹ
+                            đến từ các bạn sẽ được dùng cho hoạt động bảo vệ môi
+                            trường.
+                        </p>
                     </motion.div>
 
-                    <motion.div className="container" variants={inViewDropupShow}>
-                        <div className="" style={{overflowY: 'auto'}}>
-                            <table className="table is-fullwidth" >
+                    <motion.div
+                        className="container"
+                        variants={inViewDropupShow}
+                    >
+                        <div className="" style={{ overflowY: "auto" }}>
+                            <table className="table is-fullwidth">
                                 {/* <thead style={{background: 'var(--green-6)'}}> */}
                                 <thead
                                     style={{
@@ -138,28 +148,25 @@ const DonateRanking: React.FC<DonateRankingProps> = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {
-                                        donaters.map((donater, id) => (
-                                            <tr key={id}>
-                                                <td className="py-4 pl-5">
-                                                    {id + 1}
-                                                </td>
-                                                <td className="py-4 pl-5">
-                                                    {`${donater.firstName} ${donater.lastName}`}
-                                                </td>
-                                                <td className="py-4 pl-5">
-                                                    {`${donater.email}`}
-                                                </td>
-                                                <td className="py-4 pl-5">
-                                                    {donater.school}
-                                                </td>
-                                                <td className="py-4 pl-5 has-text-weight-semibold">
-                                                    {`${donater.amount}K`}
-                                                </td>
-                                            </tr>
-
-                                        ))
-                                    }
+                                    {donaters.map((donater, id) => (
+                                        <tr key={id}>
+                                            <td className="py-4 pl-5">
+                                                {id + 1}
+                                            </td>
+                                            <td className="py-4 pl-5">
+                                                {`${donater.firstName} ${donater.lastName}`}
+                                            </td>
+                                            <td className="py-4 pl-5">
+                                                {`${donater.email}`}
+                                            </td>
+                                            <td className="py-4 pl-5">
+                                                {donater.school}
+                                            </td>
+                                            <td className="py-4 pl-5 has-text-weight-semibold">
+                                                {`${donater.amount}K`}
+                                            </td>
+                                        </tr>
+                                    ))}
                                 </tbody>
                             </table>
                         </div>
@@ -168,6 +175,6 @@ const DonateRanking: React.FC<DonateRankingProps> = () => {
             </motion.div>
         </Layout>
     );
-}
+};
 
 export default DonateRanking;

@@ -15,15 +15,14 @@ import { getStorage, ref } from "firebase/storage";
 //     measurementId: "G-TFKJ9JPZBX",
 // };
 const firebaseConfig = {
-  apiKey: "AIzaSyCkj7Lc9jfhzFzKLPnjUyqcUTJ44KMR5qI",
-  authDomain: "bwdd-3dc88.firebaseapp.com",
-  projectId: "bwdd-3dc88",
-  storageBucket: "bwdd-3dc88.appspot.com",
-  messagingSenderId: "487427224978",
-  appId: "1:487427224978:web:969bf089165dae6d923d4b",
-  measurementId: "G-8N2XVGEM1B"
+    apiKey: "AIzaSyCkj7Lc9jfhzFzKLPnjUyqcUTJ44KMR5qI",
+    authDomain: "bwdd-3dc88.firebaseapp.com",
+    projectId: "bwdd-3dc88",
+    storageBucket: "bwdd-3dc88.appspot.com",
+    messagingSenderId: "487427224978",
+    appId: "1:487427224978:web:969bf089165dae6d923d4b",
+    measurementId: "G-8N2XVGEM1B",
 };
-
 
 const firebaseApp = initializeApp(firebaseConfig);
 
@@ -36,16 +35,22 @@ const collectionProdutcs = collection(db, "products");
 const collectionUsers = collection(db, "users");
 const collectionDonater = collection(db, "donater");
 
-export { imagesRef, db, collectionProdutcs, collectionUsers, collectionDonater };
+export {
+    imagesRef,
+    db,
+    collectionProdutcs,
+    collectionUsers,
+    collectionDonater,
+};
 
 // Authentication
 export const auth = getAuth();
-onAuthStateChanged(auth, user => {
-    if(user) {
-        console.log('sign in');
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        console.log("logged");
     } else {
-        console.log('sign out');
+        console.log("you have not loggeed");
     }
-})
+});
 
 export default storage;

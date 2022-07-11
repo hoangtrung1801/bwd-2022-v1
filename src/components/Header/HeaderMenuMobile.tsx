@@ -3,45 +3,45 @@ import { Bag, CaretDown, SignOut } from "phosphor-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { routes } from "../../utils/constant";
-import logout from "../../utils/functions/logout";
 import User from "../../utils/types/User";
 import Button3 from "../Button/Button3";
 import CartAmount from "./CartAmount";
 
-
 const dropdownMenuListMobileVariants: Variants = {
     hidden: {
-        height: 0
+        height: 0,
     },
     visible: {
-        height: 'calc(100vh - 80px)'
-    }
-}
+        height: "calc(100vh - 80px)",
+    },
+};
 
 const dropdownSubcategoryMobileVariants: Variants = {
     hidden: {
         height: 0,
     },
     visible: {
-        height: 320
-    }
-}
-
+        height: 320,
+    },
+};
 
 interface HeaderMenuMobileProps {
     // token: string | null,
-    user: User | undefined,
-    onLogOut: () => void
+    user: User | undefined;
+    onLogOut: () => void;
 }
 
-const HeaderMenuMobile: React.FC<HeaderMenuMobileProps> = ({user, onLogOut}) => {
+const HeaderMenuMobile: React.FC<HeaderMenuMobileProps> = ({
+    user,
+    onLogOut,
+}) => {
     const [dropdownMenuList, setDropdownMenuList] = useState(false);
-    const [dropdownMenuListItemSelected, setDropdownMenuListItemSelected] = useState(-1);
+    const [dropdownMenuListItemSelected, setDropdownMenuListItemSelected] =
+        useState(-1);
 
     const handleLogout = () => {
-        logout();
         window.location.reload();
-    }
+    };
 
     return (
         <>
@@ -50,15 +50,15 @@ const HeaderMenuMobile: React.FC<HeaderMenuMobileProps> = ({user, onLogOut}) => 
                     className="full-height"
                     onClick={() => setDropdownMenuList(!dropdownMenuList)}
                 >
-                    <MenuBar open={dropdownMenuList}/>
+                    <MenuBar open={dropdownMenuList} />
                 </div>
                 <motion.div
                     className={`dropdown-menu-list is-flex is-justify-content-center ${
                         dropdownMenuList ? "dropdown-menu-list-show" : ""
                     }`}
                     variants={dropdownMenuListMobileVariants}
-                    initial='hidden'
-                    animate={dropdownMenuList ? 'visible' : 'hidden'}
+                    initial="hidden"
+                    animate={dropdownMenuList ? "visible" : "hidden"}
                 >
                     <div className="full-width py-6">
                         <div className="block">
@@ -99,9 +99,16 @@ const HeaderMenuMobile: React.FC<HeaderMenuMobileProps> = ({user, onLogOut}) => 
                                     {route.subcategories && (
                                         <motion.div
                                             className={`list-subcategory is-uppercase has-text-weight-bold mx-auto is-flex is-justify-content-center is-align-items-center is-flex-direction-column`}
-                                            variants={dropdownSubcategoryMobileVariants}
-                                            initial='hidden'
-                                            animate={dropdownMenuListItemSelected === id ? 'visible' : 'hidden'}
+                                            variants={
+                                                dropdownSubcategoryMobileVariants
+                                            }
+                                            initial="hidden"
+                                            animate={
+                                                dropdownMenuListItemSelected ===
+                                                id
+                                                    ? "visible"
+                                                    : "hidden"
+                                            }
                                         >
                                             {route.subcategories.map(
                                                 (item, j) => (
@@ -161,17 +168,21 @@ const HeaderMenuMobile: React.FC<HeaderMenuMobileProps> = ({user, onLogOut}) => 
 };
 
 interface MenuBarProps {
-    open: boolean
+    open: boolean;
 }
 
-const MenuBar: React.FC<MenuBarProps> = ({open}) => {
+const MenuBar: React.FC<MenuBarProps> = ({ open }) => {
     return (
-        <div className={ `menu-bar is-flex is-align-items-center is-justify-content-center is-flex-direction-column is-clickable ${open && 'menu-bar-open'}` }>
+        <div
+            className={`menu-bar is-flex is-align-items-center is-justify-content-center is-flex-direction-column is-clickable ${
+                open && "menu-bar-open"
+            }`}
+        >
             <i></i>
             <i></i>
             <i></i>
         </div>
-    )
-}
+    );
+};
 
 export default HeaderMenuMobile;

@@ -1,8 +1,14 @@
 import "bulma-helpers/css/bulma-helpers.min.css";
 import "bulma/css/bulma.css";
-import { AnimatePresence, motion, Variants } from "framer-motion";
+import {
+    AnimatePresence,
+    motion,
+    useReducedMotionConfig,
+    Variants,
+} from "framer-motion";
 import { useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import { useCollection, useDocument } from "swr-firestore-v9";
 import "./App.css";
 import ScreenLoading from "./components/ScreenLoading";
 import AboutMe from "./pages/AboutMe";
@@ -15,6 +21,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Product from "./pages/Product";
 import SignUp from "./pages/SignUp";
+import User from "./utils/types/User";
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -37,7 +44,7 @@ function App() {
                 {loading && <ScreenLoading />}
 
                 <Routes location={location} key={location.key}>
-                    <Route path="/" >
+                    <Route path="/">
                         <Route index element={<Home />} />
                         <Route path="login" element={<Login />} />
                         <Route path="signup" element={<SignUp />} />
@@ -48,7 +55,10 @@ function App() {
                         <Route path="admin" element={<Admin />} />
                         <Route path="checkout" element={<Checkout />} />
                         <Route path="donate" element={<Donate />} />
-                        <Route path="donate-ranking" element={<DonateRanking />} />
+                        <Route
+                            path="donate-ranking"
+                            element={<DonateRanking />}
+                        />
                         <Route path="about-me" element={<AboutMe />} />
                         <Route path="test" element={<Test />} />
                         <Route path="*" element={<h1>Error 404</h1>} />
@@ -60,77 +70,17 @@ function App() {
 }
 
 const Test = () => {
-    const [visible, setVisible] = useState(true);
-    const location = useLocation();
+    const { data, error } = useCollection("users");
 
-    useEffect(() => {
-        setTimeout(() => setVisible(false), 2000);
-    }, []);
-
-    const parent: Variants = {
-        hidden: {
-            opacity: 0,
-        },
-        visible: {
-            opacity: 1,
-            transition: {
-                when: "beforeChildren",
-                staggerChildren: 0.1,
-                delay: 5,
-            },
-        },
-    };
-
-    const child: Variants = {
-        hidden: {
-            scale: 0.9,
-        },
-        visible: {
-            scale: 1,
-        },
-    };
+    if (error) return <div>error</div>;
+    if (!data) return <div>loading...</div>;
 
     return (
-        <>
-            <motion.div variants={parent} initial="hidden" animate="visible">
-                <motion.div
-                    style={{
-                        width: "100px",
-                        height: "100px",
-                        margin: "1rem",
-                        backgroundColor: "red",
-                    }}
-                    variants={child}
-                ></motion.div>
-                <motion.div
-                    style={{
-                        width: "100px",
-                        height: "100px",
-                        margin: "1rem",
-                        backgroundColor: "red",
-                    }}
-                    variants={child}
-                ></motion.div>
-                <motion.div
-                    style={{
-                        width: "100px",
-                        height: "100px",
-                        margin: "1rem",
-                        backgroundColor: "red",
-                    }}
-                    variants={child}
-                ></motion.div>
-                <motion.div
-                    style={{
-                        width: "100px",
-                        height: "100px",
-                        margin: "1rem",
-                        backgroundColor: "red",
-                    }}
-                    variants={child}
-                ></motion.div>
-            </motion.div>
-        </>
+        <div>
+            {data.map((user) => (
+                <div>{user.email}</div>
+            ))}
+        </div>
     );
 };
 

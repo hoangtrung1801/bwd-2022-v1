@@ -1,16 +1,16 @@
-import { motion, Variants } from "framer-motion";
-import { Spinner } from "phosphor-react";
+import { motion } from "framer-motion";
 import { CSSProperties } from "react";
 import "./loading.css";
 
 const Loading = () => {
     return (
-        <motion.div className="loading"
+        <motion.div
+            className="loading"
             initial={{
-                opacity: 1
+                opacity: 1,
             }}
             exit={{
-                opacity: 0
+                opacity: 0,
             }}
         >
             <div className="loading-container">

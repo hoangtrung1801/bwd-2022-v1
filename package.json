@@ -27,7 +27,8 @@
     "react-router-dom": "^6.3.0",
     "react-select": "^5.3.2",
     "react-slick": "^0.29.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "swr-firestore-v9": "^1.0.5"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

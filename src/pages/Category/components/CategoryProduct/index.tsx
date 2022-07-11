@@ -7,13 +7,15 @@ import { Product } from "../../../../utils/types/Product";
 import { categoryItemShow } from "../../../../utils/variants";
 
 interface CategoryProductProps {
-    idsChoose: number[],
-    products: Product[],
+    idsChoose: number[];
+    products: Product[];
 }
 
-const CategoryProduct: React.FC<CategoryProductProps> = ({idsChoose, products}) => {
-
-    const {isTablet, isMobile} = useViewport();
+const CategoryProduct: React.FC<CategoryProductProps> = ({
+    idsChoose,
+    products,
+}) => {
+    const { isTablet, isMobile } = useViewport();
 
     return (
         <div className="category-product">
@@ -23,8 +25,7 @@ const CategoryProduct: React.FC<CategoryProductProps> = ({idsChoose, products}) 
             </h3>
             {/* <SortBy /> */}
             {/* <div className="columns is-flex-wrap-wrap is-variable is-2"> */}
-            <motion.div className="tile is-ancestor is-flex-wrap-wrap"
-            >
+            <motion.div className="tile is-ancestor is-flex-wrap-wrap">
                 {products
                     .filter((product) => {
                         if (!idsChoose.length) return true;
@@ -45,9 +46,9 @@ const CategoryProduct: React.FC<CategoryProductProps> = ({idsChoose, products}) 
                             }`}
                             key={id}
                             variants={categoryItemShow}
-                            initial='hidden'
-                            whileInView='visible'
-                            viewport={{once: true}}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
                         >
                             <div className="tile is-child">
                                 <ProductCard product={item} />
@@ -57,6 +58,6 @@ const CategoryProduct: React.FC<CategoryProductProps> = ({idsChoose, products}) 
             </motion.div>
         </div>
     );
-}
+};
 
 export default CategoryProduct;
