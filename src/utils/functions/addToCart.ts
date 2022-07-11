@@ -4,5 +4,5 @@ import { Product } from "../types/Product";
 
 export default function(product: Product) {
     const dispatch = useAppDispatch();
-    dispatch(addToCart(product));
+    dispatch(addToCart({product, amount: 1}));
 }
