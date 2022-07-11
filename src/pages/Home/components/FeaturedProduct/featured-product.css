@@ -12,7 +12,7 @@
     background-attachment: fixed;
 }
 
-.featured-product > div {
+.featured-product>div {
     margin: 0 auto;
 }
 
@@ -33,7 +33,7 @@
     transform: translateX(-50%);
 }
 
-.featured-product-title::after, .featured-product-title::before {
+/* .featured-product-title::after, .featured-product-title::before {
     content: '';
     width: 5rem;
     height: 3px;
@@ -50,4 +50,4 @@
 
 .featured-product-title::after {
     right: calc(50% - 16rem);
-}
+} */

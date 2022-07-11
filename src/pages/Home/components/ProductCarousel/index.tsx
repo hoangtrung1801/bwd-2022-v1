@@ -17,7 +17,7 @@ interface ProductCarouselProps {
 }
 
 const ProductCarousel: React.FC<ProductCarouselProps> = ({ products }) => {
-    const {isMobile} = useViewport();
+    const { isMobile } = useViewport();
 
     const settings = {
         dots: true,
@@ -56,25 +56,38 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ products }) => {
     return (
         <motion.div
             className="product-carousel-wrapper"
-            style={{padding: isMobile ? '3rem 1rem' : '3rem'}}
+            style={{ padding: isMobile ? "3rem 1rem" : "3rem" }}
         >
-            <div className="has-text-centered block" style={{ letterSpacing: "1px" }}>
-                <p className="is-size-4 has-text-weight-bold is-relative product-carousel-title is-uppercase">
+            <div className="has-text-centered" style={{ letterSpacing: "1px" }}>
+                <p className="is-size-4 has-text-weight-bold is-relative product-carousel-title is-uppercase mb-2">
                     Sản phẩm mới
                 </p>
-                <p className="is-size-7" style={{ maxHeight: "100px" }}>
+                <div className="is-flex is-justify-content-center is-align-items-center mb-2">
+                    <svg
+                        fill="currentColor"
+                        style={{
+                            height: "0.25rem",
+                            width: "8rem",
+                            color: "var(--green-6)",
+                        }}
+                    >
+                        <rect width="100%" height="100%"></rect>
+                    </svg>
+                </div>
+                <p style={{ fontSize: "0.85rem" }}>
                     {/* Một dòng gì đó nên được ghi ở đây */}
                     {/* Những sản phẩm ống hút vừa được ra mắt, với đa dạng ống hút làm từ các nguyên liệu thiên nhiên khác nhau, giúp giảm thải khí nhựa rất nhiều so với sản phẩm ống hút nhựa thông thường */}
                     Những sản phẩm mới sẽ luôn được cập nhật ở đây
                 </p>
             </div>
 
-            <motion.div className="py-2 is-relative product-carousel"
-                style={{padding: isMobile ? '0.5rem 3rem' : '0.5rem 3rem'}}
+            <motion.div
+                className="py-2 is-relative product-carousel"
+                style={{ padding: isMobile ? "0.5rem 3rem" : "0.5rem 3rem" }}
                 variants={inViewDropupShow}
-                initial='hidden'
-                whileInView='visible'
-                viewport={{once: true}}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
             >
                 <Slider {...settings}>
                     {products.map((product, id) => (

@@ -15,7 +15,7 @@
     padding: 0 1px;
 }
 
-.product-carousel .item > div {
+.product-carousel .item>div {
     background-color: var(--green-7);
     color: #fff;
 }
@@ -26,20 +26,23 @@
     font-size: 0.8rem;
 }
 
-.carousel-next, .carousel-prev {
+.carousel-next,
+.carousel-prev {
     background-color: #fff;
     color: var(--dark);
     box-shadow: rgb(0 0 0 / 25%) 0px 0px 24px 0px;
     transition: all 0.25s ease;
 }
 
-.carousel-next:hover, .carousel-prev:hover {
+.carousel-next:hover,
+.carousel-prev:hover {
     border: 1px solid rgb(116, 121, 124);
 }
 
-.product-carousel-title::after, .product-carousel-title::before {
+/* .product-carousel-title::after,
+.product-carousel-title::before {
     content: '';
-    width: 5rem;
+    width: 4rem;
     height: 3px;
     background: var(--dark);
 
@@ -54,4 +57,4 @@
 
 .product-carousel-title::after {
     right: calc(50% - 14rem);
-}
+} */

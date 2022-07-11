@@ -9,7 +9,7 @@ import { useViewport } from "../../../../utils/hook/useViewport";
 import { Product } from "../../../../utils/types/Product";
 import {
     inViewScaleChildShow,
-    inViewScaleParentShow
+    inViewScaleParentShow,
 } from "../../../../utils/variants";
 import "./featured-product.css";
 
@@ -40,30 +40,43 @@ const childVariants: Variants = {
 };
 
 const FeaturedProduct: React.FC<FeaturedProductProps> = ({ products }) => {
-    const {isMobile} = useViewport();
+    const { isMobile } = useViewport();
     const { inView, ref } = useInView({
         threshold: 0.2,
     });
 
     return (
-        <div className="featured-product py-6 px-2"
-            style={{overflow: 'hidden'}}
+        <div
+            className="featured-product py-6 px-2"
+            style={{ overflow: "hidden" }}
         >
             <div
-                className="has-text-centered has-text-white block"
+                className="has-text-centered has-text-white"
                 style={{ letterSpacing: "1px" }}
             >
-                <p className="is-size-4 has-text-weight-bold is-relative featured-product-title is-uppercase">
+                <p className="is-size-4 has-text-weight-bold is-relative featured-product-title is-uppercase mb-2">
                     Sản phẩm nổi bật
                 </p>
-                <p className="is-size-7">
+                <div className="is-flex is-justify-content-center is-align-items-center mb-2">
+                    <svg
+                        fill="currentColor"
+                        style={{
+                            height: "0.25rem",
+                            width: "8rem",
+                            color: "var(--green-6)",
+                        }}
+                    >
+                        <rect width="100%" height="100%"></rect>
+                    </svg>
+                </div>
+                <p style={{ fontSize: "0.85rem" }}>
                     Hãy thử và trải nghiệm sản phẩm nổi bật của chúng tôi
                 </p>
             </div>
             <motion.div
                 ref={ref}
                 className="columns is-justify-content-center is-align-items-center is-flex-wrap-wrap"
-                style={{padding: isMobile ? '3rem 1rem' : '3rem 6rem'}}
+                style={{ padding: isMobile ? "1rem" : "1rem 6rem" }}
                 variants={inViewScaleParentShow}
                 initial="hidden"
                 animate={inView && "visible"}
