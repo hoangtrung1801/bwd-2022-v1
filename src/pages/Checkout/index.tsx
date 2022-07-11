@@ -1,5 +1,5 @@
 import { getAuth } from "firebase/auth";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../app/hooks";
@@ -16,7 +16,9 @@ interface CheckoutProps {}
 const Checkout: React.FC<CheckoutProps> = () => {
     const navigate = useNavigate();
     const products = useAppSelector((state) => state.cart.items);
+
     const { token, setToken } = useToken();
+    const [donateAmount, setDonateAmount] = useState(0);
 
     const onCheckout = () => {
         const fakeFetch = new Promise((resolve, reject) => {
@@ -25,29 +27,31 @@ const Checkout: React.FC<CheckoutProps> = () => {
             }, 1000);
         });
 
-        toast.promise(
-            fakeFetch,
-            {
-                loading: <b>Đang thanh toán...</b>,
-                success: <b>Bạn đã thanh toán thành công !</b>,
-                error: <b>Lỗi</b>,
-            },
-            {
-                style: {
-                    padding: "2rem 2rem",
-                    backgroundColor: "var(--color-1)",
-                    color: "white",
-                    fontWeight: "bold",
+        toast
+            .promise(
+                fakeFetch,
+                {
+                    loading: <b>Đang thanh toán...</b>,
+                    success: <b>Bạn đã thanh toán thành công !</b>,
+                    error: <b>Lỗi</b>,
                 },
-                iconTheme: {
-                    primary: "white",
-                    secondary: "var(--dark)",
-                },
-                duration: 3000,
-            }
-        );
-
-        setTimeout(() => navigate("/"), 3000);
+                {
+                    style: {
+                        padding: "2rem 2rem",
+                        backgroundColor: "var(--color-1)",
+                        color: "white",
+                        fontWeight: "bold",
+                    },
+                    iconTheme: {
+                        primary: "white",
+                        secondary: "var(--dark)",
+                    },
+                    duration: 2000,
+                }
+            )
+            .then(() => {
+                navigate("/");
+            });
     };
 
     useEffect(() => {
@@ -61,13 +65,17 @@ const Checkout: React.FC<CheckoutProps> = () => {
             <div className="container py-6 checkout">
                 <div className="columns ">
                     <div className="column is-8 ">
-                        <CheckoutForm />
+                        <CheckoutForm
+                            donateAmount={donateAmount}
+                            setDonateAmount={setDonateAmount}
+                        />
                     </div>
 
                     <div className="column is-4">
                         <CheckoutCart
                             products={products}
                             onCheckout={onCheckout}
+                            donateAmount={donateAmount}
                         />
                     </div>
                 </div>

@@ -315,7 +315,10 @@ input[type="checkbox"]:checked::before {
   transform: scale(1);
 }
 
-input[type="text"], input[type="password"], textarea {
+input[type="text"],
+input[type="password"],
+textarea,
+input[type="number"] {
   border-radius: 0;
   border-color: #e1eaf0 !important;
   border-width: 3px !important;
@@ -327,7 +330,10 @@ input[type="text"], input[type="password"], textarea {
   transition: all 0.2s ease-in-out;
 }
 
-input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+input[type="number"]:focus {
   box-shadow: none;
   outline: none;
   border-color: var(--green-8) !important;

@@ -1,9 +1,12 @@
-
 interface CheckoutFormProps {
-
+    donateAmount: number;
+    setDonateAmount: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const CheckoutForm: React.FC<CheckoutFormProps> = () => {
+const CheckoutForm: React.FC<CheckoutFormProps> = ({
+    donateAmount,
+    setDonateAmount,
+}) => {
     return (
         <div className="checkout-form px-6 py-5">
             <div className="block">
@@ -118,6 +121,28 @@ const CheckoutForm: React.FC<CheckoutFormProps> = () => {
                                 rows={2}
                                 placeholder="e.g. Hello world"
                             ></textarea>
+                        </div>
+                    </div>
+                    <div className="field columns">
+                        <div className="column is-3 is-flex is-align-items-center">
+                            <label htmlFor="" className="label">
+                                Quyên góp (không bắt buộc)
+                            </label>
+                        </div>
+                        <div className="column is-9">
+                            <input
+                                type="number"
+                                className="input"
+                                placeholder="0123456789"
+                                value={donateAmount}
+                                onChange={(
+                                    e: React.ChangeEvent<HTMLInputElement>
+                                ) => setDonateAmount(parseInt(e.target.value))}
+                            />
+                            <p className="is-size-7 mt-1 ml-1 has-text-grey-light">
+                                Số tiền bạn quyên góp sẽ chuyển trực tiếp tới
+                                quỹ từ thiện bảo bệ môi trường.
+                            </p>
                         </div>
                     </div>
                 </form>

@@ -6,16 +6,20 @@ import numberWithCommas from "../../../utils/functions/numberWithCommas";
 import { ItemCart } from "../../../utils/types/ItemCart";
 
 interface CheckoutCartProps {
-    products: ItemCart[],
-    onCheckout: () => void
+    products: ItemCart[];
+    onCheckout: () => void;
+    donateAmount: number;
 }
 
-const CheckoutCart: React.FC<CheckoutCartProps> = ({products, onCheckout}) => {
-
+const CheckoutCart: React.FC<CheckoutCartProps> = ({
+    products,
+    onCheckout,
+    donateAmount,
+}) => {
     return (
         <div className="checkout-cart has-shadow px-4 py-5 full-height is-flex is-flex-direction-column">
             <div className="block">
-                <h2 className="is-size-5 has-text-weight-bold is-uppercase">
+                <h2 className="is-size-3 has-text-weight-bold is-uppercase">
                     Sản phẩm
                 </h2>
                 <p className="is-size-7 is-italic has-text-grey has-text-weight-light">
@@ -31,10 +35,13 @@ const CheckoutCart: React.FC<CheckoutCartProps> = ({products, onCheckout}) => {
             <div className="is-flex is-align-items-center is-justify-content-space-between has-text-grey">
                 <p>Tổng tiền hàng</p>
                 <p>
-                    {numberWithCommas(products.reduce(
-                        (prev, cur) => prev + cur.product.price * cur.amount,
-                        0
-                    ))}
+                    {numberWithCommas(
+                        products.reduce(
+                            (prev, cur) =>
+                                prev + cur.product.price * cur.amount,
+                            0
+                        )
+                    )}
                     <span>{currency.vn}</span>
                 </p>
             </div>
@@ -43,30 +50,44 @@ const CheckoutCart: React.FC<CheckoutCartProps> = ({products, onCheckout}) => {
                 <p>-</p>
             </div>
             <div className="is-flex is-align-items-center is-justify-content-space-between has-text-grey">
+                <p>Tiền quyên góp</p>
+                <p>
+                    {numberWithCommas(donateAmount)}
+                    <span>{currency.vn}</span>
+                </p>
+            </div>
+            <div className="is-flex is-align-items-center is-justify-content-space-between has-text-grey">
                 <p>Tổng thanh toán</p>
                 <p className="is-size-4" style={{ color: "#E56138" }}>
-                    {numberWithCommas(products.reduce(
-                        (prev, cur) => prev + cur.product.price * cur.amount,
-                        0
-                    ))}
+                    {numberWithCommas(
+                        products.reduce(
+                            (prev, cur) =>
+                                prev + cur.product.price * cur.amount,
+                            0
+                        ) + donateAmount
+                    )}
                     <span>{currency.vn}</span>
                 </p>
             </div>
             <hr />
             <div className="is-flex is-justify-content-flex-end">
                 {/* <Button3 className="checkout-button">Thanh toán</Button3> */}
-                <Button4 className='checkout-button' onClick={() => onCheckout()}>Thanh toán</Button4>
+                <Button4
+                    className="checkout-button"
+                    onClick={() => onCheckout()}
+                >
+                    Thanh toán
+                </Button4>
             </div>
         </div>
     );
 };
 
-interface CheckoutCartItemProps{
-    item: ItemCart,
+interface CheckoutCartItemProps {
+    item: ItemCart;
 }
 
-const CheckoutCartItem: React.FC<CheckoutCartItemProps> = ({item}) => {
-
+const CheckoutCartItem: React.FC<CheckoutCartItemProps> = ({ item }) => {
     const [images, setImages] = useState<string[]>([]);
 
     useEffect(() => {
@@ -75,7 +96,7 @@ const CheckoutCartItem: React.FC<CheckoutCartItemProps> = ({item}) => {
             setImages(result);
         };
         getImages();
-    }, [])
+    }, []);
 
     return (
         <div className="columns is-variable is-1">
@@ -86,16 +107,24 @@ const CheckoutCartItem: React.FC<CheckoutCartItemProps> = ({item}) => {
             </div>
             <div className="column is-6 py-4">
                 <div>
-                    <p className="has-text-weight-semibold" style={{letterSpacing: '0.3px'}}>{item.product.name}</p>
+                    <p
+                        className="has-text-weight-semibold"
+                        style={{ letterSpacing: "0.3px" }}
+                    >
+                        {item.product.name}
+                    </p>
                 </div>
             </div>
             <div className="column is-3">
                 <div className="has-text-right">
-                    <p>{numberWithCommas(item.product.price)} <span>{currency.vn}</span></p>
+                    <p>
+                        {numberWithCommas(item.product.price)}{" "}
+                        <span>{currency.vn}</span>
+                    </p>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default CheckoutCart;
