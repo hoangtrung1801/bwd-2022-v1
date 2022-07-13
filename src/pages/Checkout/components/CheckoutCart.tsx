@@ -3,6 +3,7 @@ import Button4 from "../../../components/Button/Button4";
 import { currency } from "../../../utils/constant";
 import imageToUrl from "../../../utils/functions/imageToUrl";
 import numberWithCommas from "../../../utils/functions/numberWithCommas";
+import { useViewport } from "../../../utils/hook/useViewport";
 import { ItemCart } from "../../../utils/types/ItemCart";
 
 interface CheckoutCartProps {
@@ -16,8 +17,13 @@ const CheckoutCart: React.FC<CheckoutCartProps> = ({
     onCheckout,
     donateAmount,
 }) => {
+    const { isMobile } = useViewport();
     return (
-        <div className="checkout-cart has-shadow px-4 py-5 full-height is-flex is-flex-direction-column">
+        <div
+            className={`checkout-cart px-4 py-5 full-height is-flex is-flex-direction-column ${
+                !isMobile && "checkout-cart-shadow"
+            }`}
+        >
             <div className="block">
                 <h2 className="is-size-3 has-text-weight-bold is-uppercase">
                     Sản phẩm
@@ -88,6 +94,7 @@ interface CheckoutCartItemProps {
 }
 
 const CheckoutCartItem: React.FC<CheckoutCartItemProps> = ({ item }) => {
+    const { isMobile } = useViewport();
     const [images, setImages] = useState<string[]>([]);
 
     useEffect(() => {
@@ -99,7 +106,7 @@ const CheckoutCartItem: React.FC<CheckoutCartItemProps> = ({ item }) => {
     }, []);
 
     return (
-        <div className="columns is-variable is-1">
+        <div className={`${isMobile ? "is-flex" : "columns"} is-variable is-1`}>
             <div className="column is-3">
                 <figure className="image">
                     <img src={images[0]} alt="" />

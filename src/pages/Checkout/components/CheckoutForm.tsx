@@ -1,3 +1,5 @@
+import { useViewport } from "../../../utils/hook/useViewport";
+
 interface CheckoutFormProps {
     donateAmount: number;
     setDonateAmount: React.Dispatch<React.SetStateAction<number>>;
@@ -7,8 +9,10 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
     donateAmount,
     setDonateAmount,
 }) => {
+    const { isMobile } = useViewport();
+
     return (
-        <div className="checkout-form px-6 py-5">
+        <div className={`checkout-form  py-5 ${isMobile ? "px-4" : "px-6"}`}>
             <div className="block">
                 <h1 className="is-size-3 has-text-weight-bold is-uppercase">
                     Thanh toán
@@ -22,7 +26,11 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
                                 Họ và tên
                             </label>
                         </div>
-                        <div className="column is-9 columns pr-0">
+                        <div
+                            className={`column is-9 columns ${
+                                isMobile ? "py-0" : "pr-0"
+                            }`}
+                        >
                             <div className="column is-half">
                                 <input
                                     type="text"
@@ -30,7 +38,11 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
                                     placeholder="Tên"
                                 />
                             </div>
-                            <div className="column is-half pr-0">
+                            <div
+                                className={`column is-half ${
+                                    !isMobile && "pr-0"
+                                }`}
+                            >
                                 <input
                                     type="text"
                                     className="input"

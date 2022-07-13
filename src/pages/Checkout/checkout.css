@@ -1,5 +1,4 @@
-.checkout {
-}
+.checkout {}
 
 .checkout-form .label {
     font-weight: normal;
@@ -7,7 +6,8 @@
     color: #7a7a7a;
 }
 
-.checkout-form input, .checkout-form textarea {
+.checkout-form input,
+.checkout-form textarea {
     height: 1rem;
     padding: 1rem;
     font-size: 0.9rem;
@@ -18,7 +18,8 @@
     transition: all 0.15s ease-in-out;
 }
 
-.checkout-form input:focus, .checkout-form textarea:focus{
+.checkout-form input:focus,
+.checkout-form textarea:focus {
     color: inherit;
     box-shadow: none;
     border-color: var(--green-8);
@@ -37,9 +38,9 @@
     border: #E35226 !important;
 }
 
-.checkout-cart {
+.checkout-cart-shadow {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    /* border-radius: 6px; */
+
 }
 
 .checkout hr {
