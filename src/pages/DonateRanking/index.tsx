@@ -10,9 +10,7 @@ import {
 } from "../../utils/variants";
 import "./donate-ranking.css";
 
-interface DonateRankingProps {}
-
-const DonateRanking: React.FC<DonateRankingProps> = () => {
+const DonateRanking = () => {
     const { donaters, isLoading, error } = useDonaters();
     const { isMobile } = useViewport();
 

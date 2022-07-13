@@ -1,41 +1,121 @@
-import { Heart, Star } from "phosphor-react";
+import { Star } from "phosphor-react";
+import { useState } from "react";
+import { updateDoc } from "swr-firestore-v9";
+import Button4 from "../../../../components/Button/Button4";
+import useToken from "../../../../utils/hook/useToken";
+import useUser from "../../../../utils/hook/useUser";
+import { Product } from "../../../../utils/types/Product";
 
-const ProductReivews = () => {
-
-    return (
-        <div className="" style={{marginTop: '8rem'}}>
-            <div>
-                <p className="is-size-3 has-text-weight-bold is-uppercase">Đánh giá</p>
-                <hr />
-            </div>
-            <div>
-                {
-                    Array(6).fill(0).map((_, id) => (
-                        <>
-                            <article className="media" key={id} style={{border: 'none'}}>
-                                <figure className="media-left" >
-                                    <p className="image is-64x64">
-                                    <img src="https://bulma.io/images/placeholders/128x128.png"/>
-                                    </p>
-                                </figure>
-                                <div className="media-content">
-                                    <div className="">
-                                        <div className="mb-1">
-                                            <p className="mb-1"><strong>John Smith</strong>   <small className="ml-2 is-italic is-size-7 has-text-grey">12/11/2022</small></p>
-                                            <div>
-                                                {Array(5).fill(0).map((_, id) => (<Star key={id} weight='fill' color='#ffd700'/>))}
-                                            </div>
-                                        </div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
-                                    </div>
-                                </div>
-                            </article>
-                        </>
-                    ))
-                }
-            </div>
-        </div>
-    )
+interface ProductReivewProps {
+    onPostComment: (comment: string) => void;
+    comments: {
+        username: string;
+        comment: string;
+        createAt: Date;
+    }[];
 }
 
-export default ProductReivews;
+const ProductReivew: React.FC<ProductReivewProps> = ({
+    onPostComment,
+    comments,
+}) => {
+    return (
+        <div className="" style={{ marginTop: "8rem" }}>
+            <div>
+                <p className="is-size-3 has-text-weight-bold is-uppercase">
+                    Đánh giá
+                </p>
+                <hr />
+            </div>
+            <CommentField onPostComment={onPostComment} />
+            <div>
+                {comments.map((comment, id) => (
+                    <article
+                        className="media"
+                        key={id}
+                        style={{ border: "none" }}
+                    >
+                        <figure className="media-left">
+                            <p className="image is-64x64">
+                                <img src="https://bulma.io/images/placeholders/128x128.png" />
+                            </p>
+                        </figure>
+                        <div className="media-content">
+                            <div className="">
+                                <div className="mb-1">
+                                    <p className="mb-1">
+                                        <strong>{comment.username}</strong>{" "}
+                                        <small className="ml-2 is-italic is-size-7 has-text-grey">
+                                            {comment.createAt.toLocaleDateString()}
+                                        </small>
+                                    </p>
+                                    <div>
+                                        {Array(5)
+                                            .fill(0)
+                                            .map((_, id) => (
+                                                <Star
+                                                    key={id}
+                                                    weight="fill"
+                                                    color="#ffd700"
+                                                />
+                                            ))}
+                                    </div>
+                                </div>
+                                <p>{comment.comment}</p>
+                            </div>
+                        </div>
+                    </article>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+interface InputFieldProps {
+    onPostComment?: (text: string) => void;
+}
+
+const CommentField: React.FC<InputFieldProps> = ({ onPostComment }) => {
+    const [inputText, setInputText] = useState("");
+
+    const onClick = () => {
+        setInputText("");
+        onPostComment(inputText);
+    };
+
+    return (
+        <div className="full-width block">
+            <article className="media">
+                <figure className="media-left">
+                    <p className="image is-64x64">
+                        <img src="https://bulma.io/images/placeholders/128x128.png" />
+                    </p>
+                </figure>
+                <div className="media-content">
+                    <div className="field">
+                        <p className="control">
+                            <textarea
+                                className="textarea"
+                                placeholder="Nhập bình luận của bạn tại đây..."
+                                value={inputText}
+                                onChange={(e) => setInputText(e.target.value)}
+                            ></textarea>
+                        </p>
+                    </div>
+                    <nav className="level">
+                        <div className="level-left">
+                            <div className="level-item is-justify-content-flex-start">
+                                {/* <a className="button is-info">Submit</a> */}
+                                <Button4 onClick={() => onClick()}>
+                                    Đăng
+                                </Button4>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </article>
+        </div>
+    );
+};
+
+export default ProductReivew;

@@ -1,14 +1,9 @@
 import "bulma-helpers/css/bulma-helpers.min.css";
 import "bulma/css/bulma.css";
-import {
-    AnimatePresence,
-    motion,
-    useReducedMotionConfig,
-    Variants,
-} from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { useCollection, useDocument } from "swr-firestore-v9";
+import { useCollection } from "swr-firestore-v9";
 import "./App.css";
 import ScreenLoading from "./components/ScreenLoading";
 import AboutMe from "./pages/AboutMe";
@@ -21,7 +16,6 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Product from "./pages/Product";
 import SignUp from "./pages/SignUp";
-import User from "./utils/types/User";
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -52,7 +46,7 @@ function App() {
                         <Route path="product">
                             <Route path=":id" element={<Product />} />
                         </Route>
-                        <Route path="admin" element={<Admin />} />
+                        {/* <Route path="admin" element={<Admin />} /> */}
                         <Route path="checkout" element={<Checkout />} />
                         <Route path="donate" element={<Donate />} />
                         <Route

@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import { useAppDispatch } from "../../../../app/hooks";
 import { addToCart } from "../../../../app/slices/cartSlice";
 import AmountContainer from "../../../../components/AmountContainer";
+import Button4 from "../../../../components/Button/Button4";
 import Button5 from "../../../../components/Button/Button5";
 import { currency } from "../../../../utils/constant";
 import imageToUrl from "../../../../utils/functions/imageToUrl";
 import numberWithCommas from "../../../../utils/functions/numberWithCommas";
 import toastAddToCart from "../../../../utils/functions/toastAddToCart";
+import { useViewport } from "../../../../utils/hook/useViewport";
 import { Product as ProductType } from "../../../../utils/types/Product";
 import "./product-view.css";
 
@@ -16,6 +18,7 @@ interface ProductViewProps {
 }
 
 const ProductView: React.FC<ProductViewProps> = ({ product }) => {
+    const { isMobile } = useViewport();
     const [amount, setAmount] = useState(1);
     const [imgId, setImgId] = useState(0);
     const [images, setImages] = useState<string[]>([]);
@@ -114,8 +117,13 @@ const ProductView: React.FC<ProductViewProps> = ({ product }) => {
                     </div>
                     <div className="is-uppercase">
                         {/* <Button3 onClick={handleAdd}>Thêm vào giỏ</Button3> */}
-                        {/* <Button4 onClick={handleAdd}>Thêm vào giỏ</Button4> */}
-                        <Button5 onClick={handleAdd}>Thêm vào giỏ</Button5>
+                        <Button4
+                            onClick={handleAdd}
+                            className={`${isMobile && "full-width"}`}
+                        >
+                            Thêm vào giỏ
+                        </Button4>
+                        {/* <Button5 onClick={handleAdd}>Thêm vào giỏ</Button5> */}
                     </div>
                 </div>
             </div>
