@@ -55,7 +55,7 @@ const Filter: React.FC<FilterProps> = ({ setCategory, idsChoose }) => {
                                     id={`cb-${id}`}
                                     className="mr-3 is-clickable"
                                     style={{ borderColor: "#7a7a7a" }}
-                                    onClick={(e: any) =>
+                                    onChange={(e: any) =>
                                         e.target.checked
                                             ? chooseCategory(id)
                                             : removeCategory(id)

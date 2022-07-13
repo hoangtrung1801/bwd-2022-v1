@@ -73,7 +73,7 @@ const SignUp = () => {
         <Layout>
             <div className="login full-width">
                 <div className="columns full-width full-height m-0">
-                    <div className="column is-6 p-0">
+                    <div className="column is-6 py-0 px-4">
                         <div
                             className="full-height is-flex is-flex-direction-column mx-auto"
                             style={{ maxWidth: "400px", marginTop: "6rem" }}
