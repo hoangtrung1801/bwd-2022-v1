@@ -32,7 +32,7 @@ const Product = () => {
                 {
                     username: user.username,
                     comment,
-                    createAt: new Date(),
+                    createAt: new Date().toISOString(),
                 },
             ],
         });
@@ -43,9 +43,6 @@ const Product = () => {
         setProduct(products.find((product) => product.id === params.id));
         setComments(
             products.find((product) => product.id === params.id).comments || []
-        );
-        console.log(
-            products.find((product) => product.id === params.id).comments
         );
     }, [products]);
 

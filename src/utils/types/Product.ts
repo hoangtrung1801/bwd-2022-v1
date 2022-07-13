@@ -9,6 +9,6 @@ export interface Product {
     comments?: {
         username: string;
         comment: string;
-        createdAt: Date;
+        createdAt: string;
     }[];
 }

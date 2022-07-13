@@ -11,7 +11,7 @@ interface ProductReivewProps {
     comments: {
         username: string;
         comment: string;
-        createAt: Date;
+        createAt: string;
     }[];
 }
 
@@ -19,6 +19,8 @@ const ProductReivew: React.FC<ProductReivewProps> = ({
     onPostComment,
     comments,
 }) => {
+    const { token } = useToken();
+
     return (
         <div className="" style={{ marginTop: "8rem" }}>
             <div>
@@ -27,7 +29,16 @@ const ProductReivew: React.FC<ProductReivewProps> = ({
                 </p>
                 <hr />
             </div>
-            <CommentField onPostComment={onPostComment} />
+
+            {token ? (
+                <CommentField onPostComment={onPostComment} />
+            ) : (
+                <div className="block">
+                    <i className="has-text-grey">
+                        Bạn cần đăng nhập để có thể bình luận sản phẩm !
+                    </i>
+                </div>
+            )}
             <div>
                 {comments.map((comment, id) => (
                     <article
@@ -37,7 +48,8 @@ const ProductReivew: React.FC<ProductReivewProps> = ({
                     >
                         <figure className="media-left">
                             <p className="image is-64x64">
-                                <img src="https://bulma.io/images/placeholders/128x128.png" />
+                                {/* <img src="https://bulma.io/images/placeholders/128x128.png" /> */}
+                                <img src="/assets/avatar.png" />
                             </p>
                         </figure>
                         <div className="media-content">
@@ -46,7 +58,10 @@ const ProductReivew: React.FC<ProductReivewProps> = ({
                                     <p className="mb-1">
                                         <strong>{comment.username}</strong>{" "}
                                         <small className="ml-2 is-italic is-size-7 has-text-grey">
-                                            {comment.createAt.toLocaleDateString()}
+                                            {/* {comment.createAt.toLocaleDateString()} */}
+                                            {new Date(
+                                                comment.createAt
+                                            ).toLocaleDateString()}
                                         </small>
                                     </p>
                                     <div>
@@ -88,7 +103,8 @@ const CommentField: React.FC<InputFieldProps> = ({ onPostComment }) => {
             <article className="media">
                 <figure className="media-left">
                     <p className="image is-64x64">
-                        <img src="https://bulma.io/images/placeholders/128x128.png" />
+                        {/* <img src="https://bulma.io/images/placeholders/128x128.png" /> */}
+                        <img src="/assets/avatar.png" />
                     </p>
                 </figure>
                 <div className="media-content">
